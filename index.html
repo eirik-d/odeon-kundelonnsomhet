@@ -1198,6 +1198,85 @@
     </div>
   </div>
 
+  <div class="card">
+    <h2>🎯 Nullpunktsanalyse for prisendring</h2>
+    <p class="csub">Ledelsen vurderer å redusere billettpris med 10 % på tirsdager (off-peak) for å øke besøk. Hvor mange flere gjester trengs for at det skal lønne seg? Svaret avhenger sterkt av hva som skjer med kiosk-bidraget.</p>
+
+    <div class="np-formel">
+      Nullpunkt: &nbsp;
+      <span class="frac"><span class="num">Q<sub>2</sub></span><span class="den">Q<sub>1</sub></span></span>
+      &nbsp;=&nbsp;
+      <span class="frac"><span class="num">(P<sub>1</sub> − VEK) + kioskbidrag<sub>1</sub></span><span class="den">(P<sub>2</sub> − VEK) + kioskbidrag<sub>2</sub></span></span>
+    </div>
+
+    <p style="font-size: 13px; color: var(--ink-2); margin-bottom: 8px;">Forutsetninger fra ODEON 2025:</p>
+    <div class="np-forut">
+      <div class="np-forut-item"><div class="np-forut-lbl">P<sub>1</sub> (snittpris)</div><div class="np-forut-val">156 kr</div></div>
+      <div class="np-forut-item"><div class="np-forut-lbl">P<sub>2</sub> (−10 %)</div><div class="np-forut-val">140,4 kr</div></div>
+      <div class="np-forut-item"><div class="np-forut-lbl">VEK (filmleie 42 %)</div><div class="np-forut-val">65,5 kr</div></div>
+      <div class="np-forut-item"><div class="np-forut-lbl">Kiosk-bidrag</div><div class="np-forut-val">41 kr/gj.</div></div>
+      <div class="np-forut-item"><div class="np-forut-lbl">Reklame</div><div class="np-forut-val">16 kr/gj.</div></div>
+    </div>
+
+    <div class="np-scenario-tittel">Scenario A: Redusere pris 10 % (off-peak / tirsdag)</div>
+    <table class="np-tab">
+      <thead>
+        <tr><th>Antagelse om kiosk-adferd</th><th>Regnestykke</th><th style="text-align: right;">Nødvendig volumøkning</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Kun billett</b> — ingen kiosk-bidrag</td>
+          <td class="num-c">(156 − 65,5) / (140,4 − 65,5)</td>
+          <td class="num-c resultat r-hoy">+20,8 %</td>
+        </tr>
+        <tr>
+          <td><b>Snitt kiosk + reklame</b> — samme adferd</td>
+          <td class="num-c">(156−65,5+57) / (140,4−65,5+57)</td>
+          <td class="num-c resultat r-lav">+11,8 %</td>
+        </tr>
+        <tr>
+          <td><b>Fall i kiosk-bidrag</b> — rabatt trekker lite-kjøpende gjester (30 kr/gj.)</td>
+          <td class="num-c">(156−65,5+57) / (140,4−65,5+46)</td>
+          <td class="num-c resultat r-hoy">+22,0 %</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="np-scenario-tittel">Scenario B: Øke pris 10 % (høysesong / Zone 5-forestillinger)</div>
+    <table class="np-tab">
+      <thead>
+        <tr><th>Antagelse om kiosk-adferd</th><th style="text-align: right;">Nødvendig volumendring</th><th>Tolkning</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Kun billett</b></td>
+          <td class="num-c resultat r-lav">−14,7 %</td>
+          <td style="font-size: 12px; color: var(--ink-2);">Kan tåle 14,7 % færre gjester og tjene like mye</td>
+        </tr>
+        <tr>
+          <td><b>Snitt kiosk + reklame</b></td>
+          <td class="num-c resultat r-mid">−9,6 %</td>
+          <td style="font-size: 12px; color: var(--ink-2);">Kan tåle 9,6 % færre gjester — kiosk/reklame «beskytter»</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top: 16px;">
+      <b>Hovedbudskap:</b> Kiosk-bidraget er den avgjørende variabelen for om en prisrabatt lønner seg. Ved snitt kiosk-adferd trenger vi bare <b>+11,8 %</b> flere gjester for å tåle 10 % rabatt — men hvis rabatten trekker <i>gjester som handler mindre i kiosken</i>, stiger break-even til <b>+22,0 %</b>. <b>Anbefaling:</b> før generell tirsdags-rabatt innføres, må ODEON teste (A/B) om off-peak-gjestene faktisk har lik kiosk-adferd som snittgjesten. Data fra delspørsmål 1 tyder på at <b>Barnefamilier</b> og <b>Norsk film & drama</b> (over-representert på hverdags-dagtid) har omtrent samme kiosk-spend som snittet — så risikoen for kiosk-fall er begrenset.
+    </div>
+
+    <details style="margin-top: 16px;">
+      <summary style="cursor: pointer; font-size: 13px; color: var(--ink-2);">Utledning av formelen</summary>
+      <div style="padding: 12px; background: var(--surface-2); border-radius: 6px; margin-top: 8px; font-size: 12px; color: var(--ink-2); line-height: 1.7;">
+        Break-even ved prisendring: EBIT etter endring = EBIT før endring.<br>
+        (P₂ − VEK) · Q₂ + KB₂ · Q₂ − FK = (P₁ − VEK) · Q₁ + KB₁ · Q₁ − FK<br>
+        Faste kostnader (FK) faller ut. Løser for Q₂/Q₁:<br>
+        <b>Q₂/Q₁ = [(P₁ − VEK) + KB₁] / [(P₂ − VEK) + KB₂]</b><br>
+        der KB = kiosk-bidrag + reklame per gjest.
+      </div>
+    </details>
+  </div>
+
   <div class="insight" style="margin-top: 24px;">
     <h3>Oppsummering delspørsmål 3</h3>
     <ul>
