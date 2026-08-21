@@ -66,9 +66,7 @@
   /* Kundegrupper */
   .kg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
   .kg-card { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); }
-  .kg-icon { width: 40px; height: 40px; background: var(--accent-soft); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
-  .kg-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .kg-name { font-family: "Spectral", serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.2; color: var(--ink); }
+  .kg-name { font-family: "Spectral", serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; line-height: 1.2; color: var(--ink); }
   .kg-desc { font-size: 11px; color: var(--ink-3); line-height: 1.4; margin-bottom: 10px; min-height: 44px; }
   .kg-stats { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; border-top: 1px solid var(--line); }
   .kg-stat { display: flex; justify-content: space-between; align-items: baseline; font-size: 11px; }
@@ -340,8 +338,7 @@
 
   <div class="kg-grid">
     <div class="kg-card">
-      <div class="kg-icon"><svg viewBox="0 0 24 24"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/></svg></div>
-      <div class="kg-name">Unge menn</div>
+      <div class="kg-name"><span class="kg-pill kg-pill-primary">Unge menn</span></div>
       <div class="kg-desc">Blockbuster + Horror på premium-formater. Betaler fullpris, høyt kioskspend.</div>
       <div class="kg-stats">
         <div class="kg-stat"><span class="l">Billetter</span><span class="v">217 160<span class="pct">(39,8 %)</span></span></div>
@@ -351,8 +348,7 @@
     </div>
 
     <div class="kg-card">
-      <div class="kg-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-      <div class="kg-name">Barnefamilier</div>
+      <div class="kg-name"><span class="kg-pill">Barnefamilier</span></div>
       <div class="kg-desc">Familie/barn på matinée og helg. Barnerabatt trekker snittprisen ned, popcorn-tunge.</div>
       <div class="kg-stats">
         <div class="kg-stat"><span class="l">Billetter</span><span class="v">148 731<span class="pct">(27,2 %)</span></span></div>
@@ -362,8 +358,7 @@
     </div>
 
     <div class="kg-card">
-      <div class="kg-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="4" y1="12" x2="20" y2="12"/></svg></div>
-      <div class="kg-name">Norsk film & drama</div>
+      <div class="kg-name"><span class="kg-pill">Norsk film & drama</span></div>
       <div class="kg-desc">Norsk film + Drama/thriller. Kulturbevisste voksne, kveld/helg.</div>
       <div class="kg-stats">
         <div class="kg-stat"><span class="l">Billetter</span><span class="v">133 068<span class="pct">(24,4 %)</span></span></div>
@@ -373,8 +368,7 @@
     </div>
 
     <div class="kg-card">
-      <div class="kg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></div>
-      <div class="kg-name">Annet</div>
+      <div class="kg-name"><span class="kg-pill">Annet</span></div>
       <div class="kg-desc">Konsert-visninger, klassikere, event, dokumentar (247 filmer).</div>
       <div class="kg-stats">
         <div class="kg-stat"><span class="l">Billetter</span><span class="v">47 072<span class="pct">(8,6 %)</span></span></div>
@@ -443,7 +437,7 @@
 <!-- 6. POPCORN -->
 <section>
   <div class="subhead">Kiosk-økonomi</div>
-  <h2>🍿 Popcorn er gullet — 25 % av kiosk-bidraget</h2>
+  <h2>Popcorn er gullet — 25 % av kiosk-bidraget</h2>
 
   <div class="popcorn-hero">
     <div>
@@ -458,25 +452,25 @@
   <h3 style="margin-top: 18px; margin-bottom: 10px;">Popcorn-spend per gjest — hvem drar mest?</h3>
   <div class="pop-cards">
     <div class="pop-card pop-card-top">
-      <div class="pop-card-name">🎬 Unge menn</div>
+      <div class="pop-card-name"><span class="kg-pill kg-pill-primary">Unge menn</span></div>
       <div class="pop-card-val">15,5 <span class="pop-card-unit">kr/gjest</span></div>
       <div class="pop-card-bar"><div class="pop-card-bar-fill" style="width: 100%"></div></div>
       <div class="pop-card-sub">Popcorn-bidrag: <b>3,0 mkr</b> · 14,0 kr/gjest</div>
     </div>
     <div class="pop-card">
-      <div class="pop-card-name">👨‍👩‍👧 Barnefamilier</div>
+      <div class="pop-card-name"><span class="kg-pill">Barnefamilier</span></div>
       <div class="pop-card-val">13,3 <span class="pop-card-unit">kr/gjest</span></div>
       <div class="pop-card-bar"><div class="pop-card-bar-fill" style="width: 86%"></div></div>
       <div class="pop-card-sub">Popcorn-bidrag: <b>1,8 mkr</b> · 12,0 kr/gjest</div>
     </div>
     <div class="pop-card">
-      <div class="pop-card-name">🇳🇴 Norsk film & drama</div>
+      <div class="pop-card-name"><span class="kg-pill">Norsk film & drama</span></div>
       <div class="pop-card-val">12,5 <span class="pop-card-unit">kr/gjest</span></div>
       <div class="pop-card-bar"><div class="pop-card-bar-fill" style="width: 81%"></div></div>
       <div class="pop-card-sub">Popcorn-bidrag: <b>1,5 mkr</b> · 11,3 kr/gjest</div>
     </div>
     <div class="pop-card">
-      <div class="pop-card-name">🎭 Annet</div>
+      <div class="pop-card-name"><span class="kg-pill">Annet</span></div>
       <div class="pop-card-val">12,0 <span class="pop-card-unit">kr/gjest</span></div>
       <div class="pop-card-bar"><div class="pop-card-bar-fill" style="width: 77%"></div></div>
       <div class="pop-card-sub">Popcorn-bidrag: <b>0,5 mkr</b> · 10,8 kr/gjest</div>
@@ -585,8 +579,7 @@
 
   <div class="kg-grid">
     <div class="kg-card">
-      <div class="kg-icon"><svg viewBox="0 0 24 24"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/></svg></div>
-      <div class="kg-name">Unge menn</div>
+      <div class="kg-name"><span class="kg-pill kg-pill-primary">Unge menn</span></div>
       <div class="kg-desc">Blockbuster + Horror. Betaler fullpris, høyt kioskspend.</div>
       <div class="kg-stats">
         <div class="kg-stat"><span class="l">Billetter</span><span class="v">217 160<span class="pct">(39,8 %)</span></span></div>
@@ -602,8 +595,7 @@
     </div>
 
     <div class="kg-card">
-      <div class="kg-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="4" y1="12" x2="20" y2="12"/></svg></div>
-      <div class="kg-name">Norsk film & drama</div>
+      <div class="kg-name"><span class="kg-pill">Norsk film & drama</span></div>
       <div class="kg-desc">Kulturbevisste voksne, kveld/helg. Høyest belegg.</div>
       <div class="kg-stats">
         <div class="kg-stat"><span class="l">Billetter</span><span class="v">133 068<span class="pct">(24,4 %)</span></span></div>
@@ -619,8 +611,7 @@
     </div>
 
     <div class="kg-card">
-      <div class="kg-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-      <div class="kg-name">Barnefamilier</div>
+      <div class="kg-name"><span class="kg-pill">Barnefamilier</span></div>
       <div class="kg-desc">Familie/barn på matinée og helg. Barnerabatt trekker snittprisen ned.</div>
       <div class="kg-stats">
         <div class="kg-stat"><span class="l">Billetter</span><span class="v">148 731<span class="pct">(27,2 %)</span></span></div>
@@ -636,8 +627,7 @@
     </div>
 
     <div class="kg-card">
-      <div class="kg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></div>
-      <div class="kg-name">Annet</div>
+      <div class="kg-name"><span class="kg-pill">Annet</span></div>
       <div class="kg-desc">Konsert-visninger, klassikere, event, dokumentar.</div>
       <div class="kg-stats">
         <div class="kg-stat"><span class="l">Billetter</span><span class="v">47 072<span class="pct">(8,6 %)</span></span></div>
@@ -800,7 +790,7 @@
 <!-- 12. ETTERSPØRSEL — VÆR -->
 <section>
   <div class="subhead">Etterspørsel & vær</div>
-  <h2>☀️ Sol er dårlig for business</h2>
+  <h2>Sol er dårlig for business</h2>
   <p class="lede">Tydelig <b>negativ korrelasjon</b> mellom sol/temperatur og billettsalg. Oslo-sommeren er ikke bare peak-holiday — det er også ODEONs svakeste periode.</p>
 
   <div class="grid2">
@@ -811,17 +801,17 @@
     <div>
       <div class="korr-bar" style="margin-top: 0;">
         <div class="korr-item" style="padding: 14px;">
-          <div class="korr-item-label" style="font-size: 11px;">☀️ Sol</div>
+          <div class="korr-item-label" style="font-size: 11px;">Sol</div>
           <div class="korr-item-val" style="color: var(--warn); font-size: 26px;">−0,21</div>
           <div style="font-size: 10px; color: var(--ink-3); margin-top: 3px;">Sterkest negativ</div>
         </div>
         <div class="korr-item" style="padding: 14px;">
-          <div class="korr-item-label" style="font-size: 11px;">🌡️ Temperatur</div>
+          <div class="korr-item-label" style="font-size: 11px;">Temperatur</div>
           <div class="korr-item-val" style="color: var(--warn); font-size: 26px;">−0,14</div>
           <div style="font-size: 10px; color: var(--ink-3); margin-top: 3px;">Varmt → færre</div>
         </div>
         <div class="korr-item" style="padding: 14px;">
-          <div class="korr-item-label" style="font-size: 11px;">☔ Nedbør</div>
+          <div class="korr-item-label" style="font-size: 11px;">Nedbør</div>
           <div class="korr-item-val" style="color: var(--accent-3); font-size: 26px;">+0,17</div>
           <div style="font-size: 10px; color: var(--ink-3); margin-top: 3px;">Regn → flere</div>
         </div>
@@ -830,13 +820,11 @@
 
       <div class="vaer-hero" style="grid-template-columns: 1fr 1fr; margin-top: 14px;">
         <div class="vaer-kort" style="border-left: 4px solid var(--warn);">
-          <div class="vaer-kort-emoji">☀️</div>
           <div class="vaer-kort-tall" style="color: var(--warn);">1 311</div>
           <div class="vaer-kort-sub">bill./dag på sommerdager<br>(&gt;20 °C)</div>
           <div class="vaer-kort-diff neg">−27 % vs kalde dager</div>
         </div>
         <div class="vaer-kort" style="border-left: 4px solid var(--accent-3);">
-          <div class="vaer-kort-emoji">☔</div>
           <div class="vaer-kort-tall" style="color: var(--accent-3);">1 923</div>
           <div class="vaer-kort-sub">bill./dag når det regner<br>(&gt;5 mm)</div>
           <div class="vaer-kort-diff pos">+28 % vs tørre dager</div>
