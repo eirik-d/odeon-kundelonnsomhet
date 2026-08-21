@@ -10,28 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f6f8fb;
-    --card: #ffffff;
-    --ink: #0f1c2e;
-    --ink-2: #3a4a5c;
-    --ink-3: #6b7684;
-    --line: #dce3ec;
-    --line-soft: #eef2f7;
-    --accent: #003366;
-    --accent-2: #00509e;
-    --accent-3: #007acc;
-    --accent-soft: #e6eef7;
-    --accent-light: #cce0ff;
-    --navy-deep: #001f3f;
-    --slate: #4a6b8a;
-    --grey: #8d99ae;
-    --grey-soft: #e5e9ee;
-    --good: #00509e;
-    --good-soft: #e6eef7;
-    --warn: #7a1f2e;
-    --warn-soft: #f0dade;
-    --bad: #7a1f2e;
-    --bad-soft: #f0dade;
+    --bg: #f6f8fb; --card: #fff; --ink: #0f1c2e; --ink-2: #3a4a5c; --ink-3: #6b7684;
+    --line: #dce3ec; --line-soft: #eef2f7;
+    --accent: #003366; --accent-2: #00509e; --accent-3: #007acc;
+    --accent-soft: #e6eef7; --accent-light: #cce0ff;
+    --navy-deep: #001f3f; --slate: #4a6b8a; --grey: #8d99ae; --grey-soft: #e5e9ee;
+    --good: #00509e; --good-soft: #e6eef7;
+    --warn: #7a1f2e; --warn-soft: #f0dade;
+    --bad: #7a1f2e; --bad-soft: #f0dade;
     --shadow: 0 1px 3px rgba(15,28,46,.04), 0 1px 2px rgba(15,28,46,.02);
     --shadow-lg: 0 4px 6px -1px rgba(15,28,46,.05), 0 2px 4px -1px rgba(15,28,46,.03);
     --radius: 14px;
@@ -41,58 +27,25 @@
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
     font-family: "Spectral", Georgia, "Times New Roman", serif;
     font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-
   .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
-
-  /* Typografi */
-  h1 { font-family: "Spectral", Georgia, serif; font-size: 44px; font-weight: 600;
-    margin: 0 0 8px; letter-spacing: -0.015em; line-height: 1.15; }
-  h2 { font-family: "Spectral", Georgia, serif; font-size: 28px; font-weight: 600;
-    margin: 56px 0 8px; letter-spacing: -0.01em; line-height: 1.25; }
-  h3 { font-family: "Spectral", Georgia, serif; font-size: 18px; font-weight: 600;
-    margin: 0 0 8px; letter-spacing: -0.005em; }
-  .lede { font-size: 17px; color: var(--ink-2); line-height: 1.55; margin: 0 0 32px;
-    max-width: 700px; }
+  h1 { font-family: "Spectral", Georgia, serif; font-size: 44px; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.015em; line-height: 1.15; }
+  h2 { font-family: "Spectral", Georgia, serif; font-size: 28px; font-weight: 600; margin: 56px 0 8px; letter-spacing: -0.01em; line-height: 1.25; }
+  h3 { font-family: "Spectral", Georgia, serif; font-size: 18px; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.005em; }
+  .lede { font-size: 17px; color: var(--ink-2); line-height: 1.55; margin: 0 0 32px; max-width: 700px; }
   .subhead { color: var(--ink-3); font-size: 15px; margin: 0 0 20px; max-width: 720px; }
-
-  /* Header hero */
   .hero { padding: 20px 0 32px; border-bottom: 1px solid var(--line); margin-bottom: 48px; }
   .hero .meta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; font-size: 13px; color: var(--ink-3); }
   .hero .meta > span { display: inline-flex; align-items: center; gap: 6px; }
   .hero .meta > span::before { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-
-  /* Card */
-  .card { background: var(--card); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 28px; margin-bottom: 20px;
-    box-shadow: var(--shadow); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; margin-bottom: 20px; box-shadow: var(--shadow); }
   .card .csub { margin: 0 0 20px; font-size: 14px; color: var(--ink-3); }
 
-  /* Metode-reise */
-  .journey { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
-    margin: 8px 0; }
-  .step { background: var(--card); border: 1px solid var(--line);
-    border-radius: 10px; padding: 18px 16px; position: relative;
-    transition: transform 0.15s ease, box-shadow 0.15s ease; }
-  .step:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-  .step-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent-soft);
-    display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-  .step-icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .step-n { font-size: 10px; font-weight: 700; color: var(--accent);
-    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
-  .step-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; line-height: 1.3; }
-  .step-body { font-size: 12.5px; color: var(--ink-3); line-height: 1.5; }
-
-  /* Hierarki (rektangel-versjon) */
+  /* Hierarki */
   .hierarchy-card { display: grid; grid-template-columns: 340px 1fr; gap: 40px; align-items: center; }
   .hierarchy { display: flex; flex-direction: column; gap: 2px; width: 100%; max-width: 340px; }
-  .h-level { padding: 16px 20px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px;
-    display: flex; justify-content: space-between; align-items: center; gap: 12px;
-    transition: transform 0.15s ease; }
-  .h-level.selected { background: linear-gradient(135deg, #e6eef7, #cce0ff); border: 2px solid var(--accent);
-    box-shadow: 0 2px 8px rgba(0, 51, 102, 0.12); position: relative; }
-  .h-badge { display: inline-block; background: var(--accent); color: white;
-    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
-    padding: 3px 8px; border-radius: 4px; margin-top: 6px; }
+  .h-level { padding: 16px 20px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .h-level.selected { background: linear-gradient(135deg, #e6eef7, #cce0ff); border: 2px solid var(--accent); box-shadow: 0 2px 8px rgba(0,51,102,0.12); position: relative; }
+  .h-badge { display: inline-block; background: var(--accent); color: white; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 3px 8px; border-radius: 4px; margin-top: 6px; }
   .h-name { font-weight: 700; font-size: 15px; color: var(--ink); }
   .h-name .h-sub { display: block; font-weight: 400; font-size: 11px; color: var(--ink-3); margin-top: 2px; }
   .h-selected-note { display: block; font-weight: 600; font-size: 11px; color: var(--accent); margin-top: 3px; font-style: italic; }
@@ -100,6 +53,30 @@
   .h-selected-driver { color: var(--accent) !important; font-weight: 600 !important; }
   .hierarchy-note b { color: var(--accent); font-weight: 600; }
   .highlight { background: var(--accent-light); padding: 2px 6px; border-radius: 4px; font-weight: 600; color: var(--accent); }
+
+  /* Metode-toggle */
+  .method-toggle { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 20px 0 24px; }
+  .method-btn { background: var(--card); border: 2px solid var(--line); border-radius: 10px; padding: 14px 12px; cursor: pointer; text-align: left; transition: all 0.15s ease; font-family: inherit; }
+  .method-btn:hover { border-color: var(--accent-3); background: var(--accent-soft); }
+  .method-btn.active { border-color: var(--accent); background: linear-gradient(135deg, #e6eef7, #cce0ff); box-shadow: 0 2px 6px rgba(0,51,102,0.1); }
+  .method-btn .m-n { font-size: 10px; font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .method-btn.active .m-n { color: var(--accent); }
+  .method-btn .m-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; line-height: 1.2; }
+  .method-btn .m-kort { font-size: 11px; color: var(--ink-3); line-height: 1.3; }
+  .method-btn.active .m-kort { color: var(--accent-2); }
+  .method-desc { padding: 16px 20px; background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 8px; font-size: 14px; color: var(--ink-2); line-height: 1.55; margin-top: 4px; }
+  .method-desc b { color: var(--accent); }
+
+  /* Sal-multiplier boks (kun for M4) */
+  .sal-mult { display: none; margin-top: 16px; }
+  .sal-mult.active { display: block; }
+  .sal-mult-title { font-size: 12px; font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .sal-mult-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .sm { padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center; }
+  .sm-name { font-size: 12px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .sm-values { display: flex; flex-direction: column; gap: 2px; }
+  .sm-row { font-size: 11px; color: var(--ink-3); }
+  .sm-row b { color: var(--accent); font-weight: 700; }
 
   /* Metode-formler */
   .metode-boks { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -112,66 +89,45 @@
   .metode-boks ul { margin: 0; padding-left: 20px; font-size: 13.5px; line-height: 1.8; }
   .metode-boks li { color: var(--ink-2); }
   .metode-boks li b { color: var(--ink); }
-
-  .sanity { margin-top: 20px; padding: 14px 18px; background: var(--accent-soft);
-    border-radius: 8px; font-size: 13px; color: var(--ink-2); display: flex; gap: 10px; align-items: flex-start;
-    border-left: 3px solid var(--accent); }
+  .sanity { margin-top: 20px; padding: 14px 18px; background: var(--accent-soft); border-radius: 8px; font-size: 13px; color: var(--ink-2); display: flex; gap: 10px; align-items: flex-start; border-left: 3px solid var(--accent); }
   .sanity-icon { flex-shrink: 0; width: 20px; height: 20px; }
   .sanity-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2.5; }
 
-  /* KPI-tiles */
-  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
-    margin: 20px 0 8px; }
-  .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-    padding: 20px 22px; box-shadow: var(--shadow); }
-  .kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
-    color: var(--ink-3); margin-bottom: 6px; font-weight: 600; }
-  .kpi .value { font-family: "Spectral", Georgia, serif; font-size: 30px;
-    font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
+  /* KPI */
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 20px 0 8px; }
+  .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; box-shadow: var(--shadow); }
+  .kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); margin-bottom: 6px; font-weight: 600; }
+  .kpi .value { font-family: "Spectral", Georgia, serif; font-size: 30px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; transition: color 0.2s ease; }
   .kpi .value.warn { color: var(--warn); }
   .kpi .value.good { color: var(--good); }
   .kpi .note { font-size: 12px; color: var(--ink-3); margin-top: 6px; }
 
-  /* Chart wrapper */
+  /* Chart */
   .chart-wrap { position: relative; height: 300px; }
   .chart-wrap.tall { height: 560px; }
-
-  /* 2×2 kvadrant-labels */
-  .quadrant-labels { display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-    margin-top: 16px; font-size: 13px; }
+  .quadrant-labels { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; font-size: 13px; }
   .ql { padding: 14px 16px; border-radius: 8px; line-height: 1.5; border: 1px solid transparent; }
   .ql-i { background: #e6eef7; border-color: #b8ccdf; }
   .ql-ii { background: #f0dade; border-color: #d9b8bf; }
   .ql-iii { background: #eef2f7; border-color: #dce3ec; }
   .ql-iv { background: #cce0ff; border-color: #9dbfea; }
   .ql b { display: block; font-weight: 700; margin-bottom: 4px; }
-  .ql em { font-style: italic; opacity: 0.85; }
-
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-  /* Callout */
-  .callout { margin-top: 20px; padding: 16px 20px; background: var(--accent-soft);
-    border-left: 4px solid var(--accent); border-radius: 8px; font-size: 13.5px;
-    color: var(--ink-2); }
+  .callout { margin-top: 20px; padding: 16px 20px; background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 8px; font-size: 13.5px; color: var(--ink-2); }
   .callout b { color: var(--accent); }
 
   /* Heatmap */
-  .heatmap { display: grid; grid-template-columns: 160px repeat(4, 1fr);
-    gap: 4px; margin-top: 12px; }
-  .hm-h { padding: 8px; font-size: 11px; font-weight: 700; color: var(--ink-3);
-    text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
+  .heatmap { display: grid; grid-template-columns: 160px repeat(4, 1fr); gap: 4px; margin-top: 12px; }
+  .hm-h { padding: 8px; font-size: 11px; font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
   .hm-h.first { text-align: left; }
   .hm-r { padding: 10px; font-size: 12.5px; font-weight: 600; color: var(--ink-2); }
-  .hm-c { padding: 10px 6px; border-radius: 6px; text-align: center; font-size: 12px;
-    transition: transform 0.1s ease; }
+  .hm-c { padding: 10px 6px; border-radius: 6px; text-align: center; font-size: 12px; transition: all 0.2s ease; }
   .hm-c:hover { transform: scale(1.03); }
   .hm-c .val { font-weight: 700; font-size: 15px; }
   .hm-c .n { font-size: 10.5px; opacity: 0.7; margin-top: 3px; }
 
-  /* Insight boxes */
-  .insight { background: var(--card); border: 1px solid var(--line);
-    border-left: 4px solid var(--accent); border-radius: 10px;
-    padding: 20px 24px; margin-top: 16px; box-shadow: var(--shadow); }
+  /* Insight */
+  .insight { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 20px 24px; margin-top: 16px; box-shadow: var(--shadow); }
   .insight-warn { border-left-color: var(--warn); }
   .insight-good { border-left-color: var(--accent-3); }
   .insight h3 { margin: 0 0 10px; font-size: 15px; display: flex; align-items: center; gap: 8px; }
@@ -181,27 +137,21 @@
   .insight li { margin: 6px 0; font-size: 14px; color: var(--ink-2); line-height: 1.55; }
   .insight li b { color: var(--ink); }
 
-  /* Tabellen inne i tabs */
-  .tabs { display: flex; gap: 4px; border-bottom: 2px solid var(--line);
-    margin-bottom: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .tab { padding: 10px 16px; font-size: 13px; color: var(--ink-3); cursor: pointer;
-    border-bottom: 2px solid transparent; margin-bottom: -2px;
-    white-space: nowrap; font-weight: 500; transition: color 0.15s ease; }
+  /* Tabs */
+  .tabs { display: flex; gap: 4px; border-bottom: 2px solid var(--line); margin-bottom: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tab { padding: 10px 16px; font-size: 13px; color: var(--ink-3); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; font-weight: 500; transition: color 0.15s ease; }
   .tab:hover { color: var(--ink-2); }
   .tab.active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
   .tab-panel { display: none; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .tab-panel.active { display: block; }
 
   table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 700px; }
-  th { text-align: left; padding: 10px 8px; border-bottom: 2px solid var(--line);
-    font-weight: 700; color: var(--ink-3); font-size: 10.5px;
-    text-transform: uppercase; letter-spacing: 0.06em; }
+  th { text-align: left; padding: 10px 8px; border-bottom: 2px solid var(--line); font-weight: 700; color: var(--ink-3); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; }
   td { padding: 10px 8px; border-bottom: 1px solid var(--line-soft); }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: var(--line-soft); }
-  .cat-chip { display: inline-block; padding: 3px 10px; border-radius: 12px;
-    font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .cat-chip { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; white-space: nowrap; }
   .cat-Blockbuster-voksen { background: #d6e0ec; color: #003366; }
   .cat-Familie-barn { background: #d9e7ff; color: #1a4a8f; }
   .cat-Drama-thriller { background: #dfe6ee; color: #35516b; }
@@ -210,18 +160,16 @@
   .cat-Event-spesial { background: #eee5c8; color: #7a5a00; }
   .cat-Annet { background: #e5e9ee; color: #4f5966; }
 
-  .foot { color: var(--ink-3); font-size: 12px; margin-top: 48px; padding-top: 24px;
-    border-top: 1px solid var(--line); text-align: center; line-height: 1.7; }
+  .foot { color: var(--ink-3); font-size: 12px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); text-align: center; line-height: 1.7; }
   .foot b { color: var(--ink-2); }
 
-  /* MOBIL — grundig media query */
+  /* Mobile */
   @media (max-width: 900px) {
     .wrap { padding: 24px 16px 60px; }
     h1 { font-size: 32px; }
     h2 { font-size: 24px; margin: 40px 0 8px; }
     .lede { font-size: 16px; }
     .card { padding: 20px 18px; margin-bottom: 16px; }
-    .journey { grid-template-columns: 1fr 1fr; }
     .hierarchy-card { grid-template-columns: 1fr; gap: 24px; }
     .hierarchy { max-width: 100%; }
     .metode-boks { grid-template-columns: 1fr; }
@@ -235,14 +183,14 @@
     .heatmap .hm-c .val { font-size: 12px; }
     .heatmap .hm-c .n { font-size: 9px; }
     .chart-wrap { height: 260px; }
-    .chart-wrap.tall { height: 460px; }
-    .flight-illust svg { max-width: 100%; }
+    .chart-wrap.tall { height: 500px; }
+    .method-toggle { grid-template-columns: 1fr 1fr; }
+    .sal-mult-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 560px) {
     h1 { font-size: 26px; }
     h2 { font-size: 20px; }
     .lede { font-size: 15px; }
-    .journey { grid-template-columns: 1fr; }
     .hero .meta { font-size: 12px; gap: 8px; }
     .kpi .value { font-size: 22px; }
     .heatmap { grid-template-columns: 78px repeat(4, 1fr); gap: 2px; }
@@ -250,14 +198,14 @@
     .heatmap .hm-r { font-size: 10px; padding: 6px 4px; }
     .heatmap .hm-c { padding: 6px 2px; }
     .heatmap .hm-c .val { font-size: 11px; }
-    .step { padding: 14px; }
     .card { padding: 18px 16px; border-radius: 10px; }
-    .chart-wrap.tall { height: 400px; }
+    .chart-wrap.tall { height: 440px; }
     .ql { padding: 12px 14px; font-size: 12px; }
-    .gr-stats { min-width: 0; }
     .h-driver { font-size: 11px; max-width: 100px; }
     .h-level { padding: 12px 14px; gap: 8px; }
     .h-name { font-size: 14px; }
+    .method-toggle { grid-template-columns: 1fr; }
+    .sal-mult-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 380px) {
     h1 { font-size: 22px; }
@@ -273,7 +221,7 @@
     <p class="lede">Hvilke kunder er mest og minst lønnsomme, og hva forklarer forskjellene? En analyse av 546 000 billetter og 569 000 kioskkjøp fra 2025.</p>
     <div class="meta">
       <span>NHH EMBA · Delspørsmål 1</span>
-      <span>Kunde-segmentanalyse (kvadrant 2)</span>
+      <span>Kunde-segmentanalyse</span>
       <span>Produkt-nivå: film × tid</span>
     </div>
   </div>
@@ -284,22 +232,10 @@
   <div class="card">
     <div class="hierarchy-card">
       <div class="hierarchy">
-        <div class="h-level">
-          <div class="h-name">Bedrift <span class="h-sub">kinoen som helhet</span></div>
-          <div class="h-driver">Uunngåelig ved fortsatt drift</div>
-        </div>
-        <div class="h-level">
-          <div class="h-name">Produkt <span class="h-sub">per film-tilbud</span></div>
-          <div class="h-driver">Bredde i tilbud</div>
-        </div>
-        <div class="h-level selected">
-          <div class="h-name">Serie <span class="h-sub">per forestilling</span><span class="h-selected-note">Aggregert på film × tid = 28 grupper</span><span class="h-badge">← Vår analyseenhet</span></div>
-          <div class="h-driver h-selected-driver">Antall forestillinger</div>
-        </div>
-        <div class="h-level">
-          <div class="h-name">Enhet <span class="h-sub">per billett / kunde</span></div>
-          <div class="h-driver">Antall billetter</div>
-        </div>
+        <div class="h-level"><div class="h-name">Bedrift <span class="h-sub">kinoen som helhet</span></div><div class="h-driver">Uunngåelig ved fortsatt drift</div></div>
+        <div class="h-level"><div class="h-name">Produkt <span class="h-sub">per film-tilbud</span></div><div class="h-driver">Bredde i tilbud</div></div>
+        <div class="h-level selected"><div class="h-name">Serie <span class="h-sub">per forestilling</span><span class="h-selected-note">Aggregert på film × tid = 28 grupper</span><span class="h-badge">← Vår analyseenhet</span></div><div class="h-driver h-selected-driver">Antall forestillinger</div></div>
+        <div class="h-level"><div class="h-name">Enhet <span class="h-sub">per billett / kunde</span></div><div class="h-driver">Antall billetter</div></div>
       </div>
       <div class="hierarchy-note">
         <p style="margin-top:0;">Cooper &amp; Kaplans kostnadshierarki har fire nivåer. Vi kan ikke jobbe på <b>enhet-nivået</b> (per kunde) fordi vi mangler kunde-ID. Løsningen er å gå ett hakk opp: aggregere <b>forestillinger (serie)</b> etter film-kategori × tidspunkt. Det gir 28 grupper der kundene grupperer seg selv ved hvilket «tilbud» de kjøper.</p>
@@ -307,91 +243,51 @@
     </div>
   </div>
 
+  <h2>Kostnadsallokering — velg metode</h2>
+  <p class="subhead">Valg av allokeringsmetode påvirker hvordan lønnsomheten fordeler seg mellom kundegruppene. Toggle mellom fire tilnærminger for å se effekten. En Blockbuster på IMAX helg kveld er dyrere å sette opp enn en norsk film på Sal 5 hverdag dagtid — spørsmålet er hvor eksplisitt vi allokerer den forskjellen.</p>
+
   <div class="card">
-    <h3>Hvorfor ikke andre inndelinger?</h3>
-    <div class="grid-2">
-      <div>
-        <p style="margin-top:0;"><b style="color: var(--bad);">✗ Rabatt-koder er ikke kundegrupper</b></p>
-        <p style="font-size: 13.5px; color: var(--ink-2); margin: 0;">Billettype (OBOS, firma, barnerabatt) forteller hvilken pris-mekanisme som ble brukt, ikke hvem kunden er. En pensjonist som kjøper Norgesbilletten teller som "firma" — det gir ikke mening som segment.</p>
-      </div>
-      <div>
-        <p style="margin-top:0;"><b style="color: var(--bad);">✗ Klassisk kundesegmentering krever data vi ikke har</b></p>
-        <p style="font-size: 13.5px; color: var(--ink-2); margin: 0;">RFM (Recency-Frequency-Monetary) og CLV-analyser krever kunde-ID og historikk over tid. Vi har transaksjoner, ikke kundeprofil.</p>
-      </div>
-      <div>
-        <p style="margin-top:0;"><b style="color: var(--good);">✓ Film-kategori × tidspunkt fungerer</b></p>
-        <p style="font-size: 13.5px; color: var(--ink-2); margin: 0;">Kunden avslører sin type ved kjøpsvalget: hva de vil se, når de vil se det. Blockbuster helg kveld tiltrekker en annen kunde enn matinée hverdag.</p>
-      </div>
-      <div>
-        <p style="margin-top:0;"><b style="color: var(--good);">✓ Aggregeringen er handlingsrettet</b></p>
-        <p style="font-size: 13.5px; color: var(--ink-2); margin: 0;">Programmering er Odeons viktigste operative verktøy. Å analysere lønnsomhet per programmerings-type gir direkte innspill til delspørsmål 3 (prising) og 4 (anbefalinger).</p>
-      </div>
+    <div class="method-toggle" id="methodToggle">
+      <button class="method-btn" data-m="m1"><div class="m-n">Metode 1</div><div class="m-name">Ingen allokering</div><div class="m-kort">Kun bidragsmargin</div></button>
+      <button class="method-btn" data-m="m2"><div class="m-n">Metode 2</div><div class="m-name">Jevn per billett</div><div class="m-kort">95 kr/billett flatt</div></button>
+      <button class="method-btn active" data-m="m3"><div class="m-n">Metode 3</div><div class="m-name">ABC — flat sats</div><div class="m-kort">Per faktisk brukt sete-time</div></button>
+      <button class="method-btn" data-m="m4"><div class="m-n">Metode 4</div><div class="m-name">ABC — sal-differensiert</div><div class="m-kort">IMAX 2,5× · LUXE 1,5×</div></button>
+    </div>
+    <div class="method-desc" id="methodDesc"></div>
+
+    <div class="sal-mult" id="salMult">
+      <div class="sal-mult-title">Sal-multipliers (Metode 4)</div>
+      <div class="sal-mult-grid" id="salMultGrid"></div>
     </div>
   </div>
 
-  <h2>Slik regnet vi inntekt og kostnad per gjest</h2>
-  <p class="subhead">To akser: kundebidrag (hva gjesten legger igjen) og betjeningskostnad (hva det koster å tilby forestillingen).</p>
+  <h2>Nøkkeltall for hele kinoen</h2>
+  <p class="subhead">Oppdateres med valgt allokeringsmetode. Alle metoder gir samme kundebidrag (Y), men fordeler betjeningskosten (X) ulikt.</p>
 
-  <div class="card">
-    <div class="metode-boks">
-      <div class="col y">
-        <div class="col-title">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-          Kundebidrag (Y)
-        </div>
-        <ul>
-          <li>+ <b>Billettpris</b> (fra data)</li>
-          <li>+ <b>Kioskomsetning per gjest</b> (matchet i tidsvindu −15/+15 min)</li>
-          <li>+ <b>Reklameinntekt</b> (8,7 mkr / 546k = 16 kr/gjest)</li>
-          <li>− <b>Filmleie</b> (42 % av billett — bransjeanslag)</li>
-          <li>− <b>IMAX-revshare</b> (11 % ekstra kun på IMAX)</li>
-          <li>− <b>Kiosk-varekost</b> (40 % av kiosk)</li>
-        </ul>
-      </div>
-      <div class="col x">
-        <div class="col-title">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
-          Betjeningskostnad (X)
-        </div>
-        <ul>
-          <li>+ <b>Kapasitet</b> (leie + avskrivning per faktisk brukt sete-time)</li>
-          <li>+ <b>Personal baseline</b> (30 % av 15,9 mkr / antall billetter i forestillingen)</li>
-          <li>+ <b>Personal variabel</b> (70 % av 15,9 mkr / 546k)</li>
-        </ul>
-        <p style="font-size: 12.5px; color: var(--ink-2); margin: 12px 0 0;"><b>Merk:</b> ubrukt kapasitet (27,9 mkr) skilles ut som egen post — det er ledelsens programmering-beslutning, ikke gjestens ansvar.</p>
-      </div>
-    </div>
-    <div class="sanity">
-      <div class="sanity-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-      <div><b>Sanity-sjekk:</b> billettinntekt aggregert matcher regnskapet 100 %. Modellen gir EBIT-estimat <b>25,94 mkr vs regnskap 25,68 mkr</b> — 0,3 mkr avvik. Metodikken henger sammen.</div>
-    </div>
-  </div>
+  <div class="kpis" id="kpis"></div>
 
   <h2>2×2-matrisen: 28 kundegrupper</h2>
-  <p class="subhead">Hvert punkt er én kundegruppe (film × tid). Boblestørrelse = antall billetter. Farge = film-kategori.</p>
+  <p class="subhead">Hvert punkt er én kundegruppe (film × tid). Boblestørrelse = antall billetter. Farge = film-kategori. Oppdateres med metode.</p>
 
   <div class="card">
     <div class="chart-wrap tall"><canvas id="chMatrix"></canvas></div>
     <div class="quadrant-labels">
-      <div class="ql ql-iv"><b>IV — Enkel Premium</b> (høyt bidrag, lav betjeningskost) — <em>ideelt.</em> F.eks. Blockbuster helg kveld: 68 000 billetter, 121 kr netto per gjest.</div>
-      <div class="ql ql-i"><b>I — Kompleks Premium</b> (høyt bidrag, høy betjeningskost) — akseptabelt hvis marginen er der. F.eks. Blockbuster hverdag dagtid: høy pris, men lav belegg presser personal-baseline opp.</div>
-      <div class="ql ql-iii"><b>III — Enkel Lavpris</b> (lavt bidrag, lav betjeningskost) — volum-drevet. F.eks. Familie helg dagtid: 65 000 billetter, 82 kr netto.</div>
-      <div class="ql ql-ii"><b>II — Aggressiv Lavpris</b> (lavt bidrag, høy betjeningskost) — problematisk. F.eks. Annet hverdag dagtid: 3 000 billetter, +31 kr netto (svakest).</div>
-    </div>
-    <div class="callout">
-      <b>Fly-analogien holder empirisk:</b> Y (kundebidrag) varierer 97–160 kr — 63 % spread på inntektssiden. X (betjeningskost) varierer 39–77 kr — mindre absolutt variasjon, hovedsakelig drevet av volum-effekt (baseline delt på færre gjester i lav-belegg-forestillinger).
+      <div class="ql ql-iv"><b>IV — Enkel Premium</b> høyt bidrag, lav betjeningskost — <em>ideelt</em>.</div>
+      <div class="ql ql-i"><b>I — Kompleks Premium</b> høyt bidrag, høy betjeningskost.</div>
+      <div class="ql ql-iii"><b>III — Enkel Lavpris</b> lavt bidrag, lav betjeningskost — volum-drevet.</div>
+      <div class="ql ql-ii"><b>II — Aggressiv Lavpris</b> lavt bidrag, høy betjeningskost — problematisk.</div>
     </div>
   </div>
 
   <h2>Krysstabell: netto per gjest</h2>
-  <p class="subhead">Samme 28 grupper i tabellform. Grønt &gt; 100 kr · gult 70–100 · rødt &lt; 70. Alle er positive.</p>
+  <p class="subhead">28 grupper i tabellform. Grønt/blå &gt; 100 kr · lys blå 70–100 · rød &lt; 70. Toggle metode over for å se hvordan fargene endres.</p>
 
   <div class="card">
     <div class="heatmap" id="heatmap"></div>
   </div>
 
-  <h2>Peak-effekten er kraftigere enn kategori-effekten</h2>
-  <p class="subhead">Tid på dagen forklarer mer variasjon enn film-kategori. Hverdag dagtid er svakest på begge akser.</p>
+  <h2>Peak-effekten</h2>
+  <p class="subhead">Tid på dagen forklarer mer variasjon enn film-kategori. Hverdag dagtid er svakest på begge akser — påvirkes mest av metode-valget.</p>
 
   <div class="grid-2">
     <div class="card">
@@ -401,23 +297,28 @@
     </div>
     <div class="card">
       <h3>Netto per gjest per tidsluke</h3>
-      <p class="csub">Volum-effekten i personal-baseline gir klar peak-fordel</p>
+      <p class="csub">Oppdateres med metode</p>
       <div class="chart-wrap"><canvas id="chPeakLonn"></canvas></div>
     </div>
   </div>
 
-  <h2>Nøkkeltall for hele kinoen</h2>
-  <p class="subhead">Fra transaksjonsdata via kostnadsallokering til bunnlinja.</p>
+  <h2>Full kategori-oversikt</h2>
+  <p class="subhead">Sortert etter volum. Oppdateres med metode.</p>
 
-  <div class="kpis">
-    <div class="kpi"><div class="label">Solgte billetter</div><div class="value">546k</div><div class="note">18 884 forestillinger m/salg</div></div>
-    <div class="kpi"><div class="label">Bidrag fra gjester</div><div class="value good">53,8 mkr</div><div class="note">alle 28 gruppene positive</div></div>
-    <div class="kpi"><div class="label">Ubrukt kapasitet</div><div class="value warn">27,9 mkr</div><div class="note">55 % av faste kostnader</div></div>
-    <div class="kpi"><div class="label">EBIT-estimat</div><div class="value">25,9 mkr</div><div class="note">regnskap 25,7 · 0,3 mkr avvik</div></div>
+  <div class="card" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+    <table id="tblKat">
+      <thead><tr>
+        <th>Kategori</th><th class="num">Billetter</th><th class="num">Andel</th>
+        <th class="num">Snittpris</th><th class="num">Kiosk/bill</th>
+        <th class="num">IMAX%</th><th class="num">Belegg</th>
+        <th class="num">Bidrag (Y)</th><th class="num">Betjening (X)</th>
+        <th class="num">Netto/bill</th><th class="num">Total (mkr)</th>
+      </tr></thead><tbody></tbody>
+    </table>
   </div>
 
   <h2>Topp-filmer 2025</h2>
-  <p class="subhead">Filmene som drar mest publikum, mest penger, og mest bidrag per gjest.</p>
+  <p class="subhead">Filmene som drar mest publikum. Bruker ABC-metoden som standard.</p>
 
   <div class="card">
     <div class="tabs">
@@ -433,185 +334,258 @@
   <h2>Hovedbudskap</h2>
 
   <div class="insight insight-good">
-    <h3><span class="icon"><svg viewBox="0 0 24 24" fill="#047857"><path d="M12 2l3 6 6 1-5 5 1 7-5-3-5 3 1-7-5-5 6-1z"/></svg></span> På inntektssiden</h3>
+    <h3>På inntektssiden (Y — kundebidrag)</h3>
     <ul>
-      <li><b>Blockbuster helg kveld er gullgruven:</b> 68 000 billetter, 121 kr netto/gjest = ~8,2 mkr (32 % av EBIT fra 12 % av gjestene). Klassisk whale-mønster fra Sesjon 1.</li>
-      <li><b>De 4 største blockbuster-segmentene</b> står for ~30 % av volumet og genererer ~35 % av bidraget.</li>
-      <li><b>Norsk film overrasker positivt:</b> 94–104 kr netto per gjest på kveld/helg. «Filmene trekker publikum» stemmer — 52 % belegg helg kveld på Norsk film.</li>
-      <li><b>Familie/barn har lavere bidrag per gjest</b> (85 kr snitt), men gir 12,7 mkr totalt takket være volum. Barnerabatt trekker prisen ned, høyt kiosk-attach kompenserer delvis.</li>
+      <li><b>Y er identisk uansett metode</b> — kundebidrag = billett + kiosk + reklame − variable kostnader (filmleie, IMAX-share, kiosk-varekost). Dette er hva gjesten faktisk gir kinoen før faste kostnader.</li>
+      <li><b>Blockbuster helg kveld topper:</b> 160 kr bidrag per gjest, uansett metode. Drives av IMAX-andel (41 %) + høy kiosk (74 kr) + fullpris.</li>
+      <li><b>Norsk film overrasker positivt:</b> 144 kr bidrag helg kveld. «Filmene trekker publikum» — 52 % belegg på norske filmer helg kveld.</li>
     </ul>
   </div>
 
   <div class="insight insight-warn">
-    <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></span> På kostnadssiden</h3>
+    <h3>På kostnadssiden (X — betjeningskost)</h3>
     <ul>
-      <li><b>Ubrukt kapasitet er 27,9 mkr</b> — mer enn kinoens EBIT. Kinoen sitter på 78 % ledig kapasitet i snitt. Hverdag dagtid har 11 % belegg og 12 billetter per forestilling.</li>
-      <li><b>Alle 28 kundegrupper er lønnsomme</b> når kapasitetskost allokeres etter faktisk bruk. Kinoen har ingen «verdiødeleggende» kundegruppe.</li>
-      <li><b>De 3 svakeste segmentene</b> (Annet/Norsk/Event på hverdag dagtid) gir bare +31 til +48 kr netto per gjest. Totalt ~13 000 billetter — strategisk kandidat for programmering-endring.</li>
+      <li><b>Metode-valget avgjør fordelingen.</b> Samme totale kostnad (51,6 mkr) fordeles helt ulikt: jevn per billett rammer lavvolum-forestillinger hardt, ABC lar hver sete-time koste det samme.</li>
+      <li><b>ABC sal-differensiert straffer IMAX/LUXE mer:</b> premium-saler bærer en høyere andel av kapasitetskostnaden fordi utstyr og drift faktisk er dyrere per sete-time.</li>
+      <li><b>Ubrukt kapasitet (metode 3 og 4) er ~28 mkr</b> — mer enn selve EBIT. Kinoen sitter på 78 % ledig kapasitet i snitt.</li>
     </ul>
   </div>
 
   <div class="insight">
-    <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#b8860b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></span> Kobling til Odeons komparative fortrinn</h3>
+    <h3>Metode-valget påvirker konklusjonen</h3>
     <ul>
-      <li><b>Premium event-publikum</b> (Blockbuster/Event kveld) velger Odeons unike fortrinn: Norges eneste IMAX + LUXE + iSense + ScreenX. Kinoen tjener mest på det den er strukturelt best rigget for.</li>
-      <li><b>Familie-anledning</b> matcher lokasjonsfortrinnet (Storo Storsenter — familier kombinerer kino med shopping/mat).</li>
-      <li><b>Norsk kultur-publikum</b> har PR- og samfunnsverdi utover tallene — trolig verdt å beskytte.</li>
-      <li><b>Off-peak matinée</b> er kandidat for programmering-endring (delspørsmål 3): færre forestillinger + peak-load prising kan flytte gjester til bedre tider og redusere ubrukt kapasitet.</li>
+      <li><b>Metode 1 (ingen allokering)</b>: alt ser super-lønnsomt ut. Nyttig for å isolere hva som bidrar, men skjuler kapasitetsproblemet.</li>
+      <li><b>Metode 2 (jevn per billett)</b>: gjør flere segmenter negative fordi lavvolum-forestillinger bærer samme faste kostnad per gjest.</li>
+      <li><b>Metode 3 (ABC flat)</b>: mer rettferdig — kunder betaler for sete-timen de faktisk bruker. Ingen segmenter blir negative.</li>
+      <li><b>Metode 4 (ABC sal-differensiert)</b>: mest presis — fanger opp at IMAX/LUXE er dyrere å drifte. Reduserer marginen på IMAX-tunge segmenter noe, øker på standard-sal.</li>
     </ul>
   </div>
 
   <p class="foot">
     <b>Data:</b> kinorapport (18 884 forestillinger m/salg) · Transaksjoner (569 060 kioskkjøp, 96 % matchet i −15/+15 min-vindu) · Regnskap 2025.<br>
     <b>Antagelser:</b> sal-kap 1 747 seter · filmleie 42 % · IMAX-revshare 11 % · kiosk-varekost 40 % · personal 30/70 baseline/variabel · reklame 15,9 kr/gjest.<br>
-    <b>Sanity:</b> EBIT-estimat 25,94 mkr vs regnskap 25,68 mkr (0,3 mkr / 1 % avvik).
+    <b>Sanity:</b> alle metoder gir EBIT-estimat 25,9 mkr vs regnskap 25,7 mkr (0,3 mkr avvik).
   </p>
 </div>
 
 <script>
-const DATA = {"meta": {"sal_kap": {"IMAX": 420, "Sal 2": 250, "Sal 4": 145, "Sal 5": 95, "Sal 9": 95, "Sal 10": 95, "Sal 11": 95, "Sal 6": 80, "Sal 7": 80, "Sal 8": 80, "Sal 12": 80, "Sal 13": 80, "Sal 14": 80, "LUXE": 72}, "sal_kap_sum": 1747, "forestilling_timer": 2.0, "filmleie_pct": 42, "imax_revshare_pct": 11, "kiosk_varekost_pct": 40, "kapasitets_kost_mkr": 35.7, "personal_kost_mkr": 15.9, "personal_baseline_share_pct": 30, "reklame_inntekt_mkr": 8.7, "ubrukt_kapasitet_mkr": 27.85, "belegg_snitt_pct": 22.0, "kap_rate_per_setetime": 7.21, "kap_kost_per_gjest": 14.4, "personal_per_forestilling": 253, "personal_per_gjest_var": 20.4, "reklame_per_gjest": 15.9, "alle_forestillinger": 20441, "forest_med_salg": 18884, "total_billetter": 546031}, "kategorier": [{"kategori": "Blockbuster voksen", "billetter": 163986, "andel_pct": 30.0, "billett_net_mkr": 30.4, "kiosk_net_mkr": 12.1, "snittpris": 185, "kiosk_per_bill": 74, "imax_pct": 40.8, "medl_pct": 14.9, "belegg_pct": 23.7, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 42, "resultat_per_bill": 116, "resultat_total_mkr": 18.98, "forest_snitt_billetter": 37}, {"kategori": "Familie/barn", "billetter": 148731, "andel_pct": 27.2, "billett_net_mkr": 19.6, "kiosk_net_mkr": 10.0, "snittpris": 132, "kiosk_per_bill": 67, "imax_pct": 7.5, "medl_pct": 11.4, "belegg_pct": 19.8, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 46, "resultat_per_bill": 85, "resultat_total_mkr": 12.69, "forest_snitt_billetter": 23}, {"kategori": "Drama/thriller", "billetter": 68534, "andel_pct": 12.6, "billett_net_mkr": 10.7, "kiosk_net_mkr": 4.6, "snittpris": 156, "kiosk_per_bill": 67, "imax_pct": 14.2, "medl_pct": 10.3, "belegg_pct": 25.7, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 44, "resultat_per_bill": 99, "resultat_total_mkr": 6.78, "forest_snitt_billetter": 27}, {"kategori": "Norsk film", "billetter": 64534, "andel_pct": 11.8, "billett_net_mkr": 8.8, "kiosk_net_mkr": 3.9, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 0.5, "medl_pct": 15.3, "belegg_pct": 34.5, "kundebidrag_per_bill": 132, "betjeningskost_per_bill": 42, "resultat_per_bill": 90, "resultat_total_mkr": 5.78, "forest_snitt_billetter": 35}, {"kategori": "Horror/genre", "billetter": 53174, "andel_pct": 9.7, "billett_net_mkr": 8.7, "kiosk_net_mkr": 3.7, "snittpris": 164, "kiosk_per_bill": 69, "imax_pct": 27.5, "medl_pct": 9.6, "belegg_pct": 25.0, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 42, "resultat_per_bill": 104, "resultat_total_mkr": 5.55, "forest_snitt_billetter": 36}, {"kategori": "Annet", "billetter": 39498, "andel_pct": 7.2, "billett_net_mkr": 5.4, "kiosk_net_mkr": 2.4, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 11.8, "medl_pct": 12.2, "belegg_pct": 20.5, "kundebidrag_per_bill": 129, "betjeningskost_per_bill": 48, "resultat_per_bill": 81, "resultat_total_mkr": 3.19, "forest_snitt_billetter": 19}, {"kategori": "Event/spesial", "billetter": 7574, "andel_pct": 1.4, "billett_net_mkr": 1.3, "kiosk_net_mkr": 0.5, "snittpris": 175, "kiosk_per_bill": 63, "imax_pct": 30.6, "medl_pct": 10.3, "belegg_pct": 40.9, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 39, "resultat_per_bill": 109, "resultat_total_mkr": 0.82, "forest_snitt_billetter": 57}], "segmenter": [{"kategori": "Familie/barn", "tid": "Hverdag Dagtid", "billetter": 23874, "forestillinger": 1857, "bill_per_forest": 13, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 54, "resultat_per_bill": 66, "resultat_total_mkr": 1.57, "belegg_pct": 11.0}, {"kategori": "Blockbuster voksen", "tid": "Hverdag Dagtid", "billetter": 14233, "forestillinger": 899, "bill_per_forest": 16, "kundebidrag_per_bill": 154, "betjeningskost_per_bill": 51, "resultat_per_bill": 103, "resultat_total_mkr": 1.47, "belegg_pct": 9.6}, {"kategori": "Annet", "tid": "Hverdag Dagtid", "billetter": 3052, "forestillinger": 438, "bill_per_forest": 7, "kundebidrag_per_bill": 102, "betjeningskost_per_bill": 71, "resultat_per_bill": 31, "resultat_total_mkr": 0.09, "belegg_pct": 8.1}, {"kategori": "Norsk film", "tid": "Hverdag Dagtid", "billetter": 6967, "forestillinger": 452, "bill_per_forest": 15, "kundebidrag_per_bill": 99, "betjeningskost_per_bill": 51, "resultat_per_bill": 48, "resultat_total_mkr": 0.33, "belegg_pct": 16.4}, {"kategori": "Drama/thriller", "tid": "Hverdag Dagtid", "billetter": 4826, "forestillinger": 636, "bill_per_forest": 8, "kundebidrag_per_bill": 122, "betjeningskost_per_bill": 68, "resultat_per_bill": 54, "resultat_total_mkr": 0.26, "belegg_pct": 7.4}, {"kategori": "Blockbuster voksen", "tid": "Hverdag Kveld", "billetter": 57832, "forestillinger": 1573, "bill_per_forest": 37, "kundebidrag_per_bill": 155, "betjeningskost_per_bill": 42, "resultat_per_bill": 114, "resultat_total_mkr": 6.57, "belegg_pct": 24.5}, {"kategori": "Familie/barn", "tid": "Hverdag Kveld", "billetter": 24292, "forestillinger": 1097, "bill_per_forest": 22, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 46, "resultat_per_bill": 91, "resultat_total_mkr": 2.21, "belegg_pct": 18.6}, {"kategori": "Annet", "tid": "Hverdag Kveld", "billetter": 9199, "forestillinger": 562, "bill_per_forest": 16, "kundebidrag_per_bill": 135, "betjeningskost_per_bill": 50, "resultat_per_bill": 85, "resultat_total_mkr": 0.78, "belegg_pct": 17.6}, {"kategori": "Drama/thriller", "tid": "Hverdag Kveld", "billetter": 23720, "forestillinger": 824, "bill_per_forest": 29, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 44, "resultat_per_bill": 99, "resultat_total_mkr": 2.35, "belegg_pct": 26.1}, {"kategori": "Norsk film", "tid": "Hverdag Kveld", "billetter": 19294, "forestillinger": 545, "bill_per_forest": 35, "kundebidrag_per_bill": 136, "betjeningskost_per_bill": 42, "resultat_per_bill": 94, "resultat_total_mkr": 1.81, "belegg_pct": 34.3}, {"kategori": "Horror/genre", "tid": "Hverdag Kveld", "billetter": 19049, "forestillinger": 667, "bill_per_forest": 29, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 44, "resultat_per_bill": 102, "resultat_total_mkr": 1.94, "belegg_pct": 19.9}, {"kategori": "Annet", "tid": "Helg Dagtid", "billetter": 9814, "forestillinger": 482, "bill_per_forest": 20, "kundebidrag_per_bill": 97, "betjeningskost_per_bill": 47, "resultat_per_bill": 50, "resultat_total_mkr": 0.49, "belegg_pct": 22.5}, {"kategori": "Familie/barn", "tid": "Helg Dagtid", "billetter": 64666, "forestillinger": 2627, "bill_per_forest": 25, "kundebidrag_per_bill": 127, "betjeningskost_per_bill": 45, "resultat_per_bill": 82, "resultat_total_mkr": 5.3, "belegg_pct": 21.1}, {"kategori": "Blockbuster voksen", "tid": "Helg Dagtid", "billetter": 24348, "forestillinger": 774, "bill_per_forest": 31, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 43, "resultat_per_bill": 114, "resultat_total_mkr": 2.78, "belegg_pct": 18.2}, {"kategori": "Norsk film", "tid": "Helg Dagtid", "billetter": 16754, "forestillinger": 454, "bill_per_forest": 37, "kundebidrag_per_bill": 125, "betjeningskost_per_bill": 42, "resultat_per_bill": 83, "resultat_total_mkr": 1.39, "belegg_pct": 35.6}, {"kategori": "Horror/genre", "tid": "Helg Dagtid", "billetter": 2923, "forestillinger": 119, "bill_per_forest": 25, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 45, "resultat_per_bill": 75, "resultat_total_mkr": 0.22, "belegg_pct": 19.3}, {"kategori": "Drama/thriller", "tid": "Helg Dagtid", "billetter": 9124, "forestillinger": 429, "bill_per_forest": 21, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 47, "resultat_per_bill": 90, "resultat_total_mkr": 0.82, "belegg_pct": 21.3}, {"kategori": "Horror/genre", "tid": "Helg Kveld", "billetter": 30034, "forestillinger": 520, "bill_per_forest": 58, "kundebidrag_per_bill": 150, "betjeningskost_per_bill": 39, "resultat_per_bill": 110, "resultat_total_mkr": 3.31, "belegg_pct": 39.4}, {"kategori": "Familie/barn", "tid": "Helg Kveld", "billetter": 35899, "forestillinger": 825, "bill_per_forest": 44, "kundebidrag_per_bill": 141, "betjeningskost_per_bill": 41, "resultat_per_bill": 101, "resultat_total_mkr": 3.61, "belegg_pct": 37.4}, {"kategori": "Blockbuster voksen", "tid": "Helg Kveld", "billetter": 67573, "forestillinger": 1166, "bill_per_forest": 58, "kundebidrag_per_bill": 160, "betjeningskost_per_bill": 39, "resultat_per_bill": 121, "resultat_total_mkr": 8.15, "belegg_pct": 38.8}, {"kategori": "Drama/thriller", "tid": "Helg Kveld", "billetter": 30864, "forestillinger": 620, "bill_per_forest": 50, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 40, "resultat_per_bill": 108, "resultat_total_mkr": 3.35, "belegg_pct": 45.3}, {"kategori": "Annet", "tid": "Helg Kveld", "billetter": 17433, "forestillinger": 605, "bill_per_forest": 29, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 44, "resultat_per_bill": 104, "resultat_total_mkr": 1.82, "belegg_pct": 29.5}, {"kategori": "Norsk film", "tid": "Helg Kveld", "billetter": 21519, "forestillinger": 398, "bill_per_forest": 54, "kundebidrag_per_bill": 144, "betjeningskost_per_bill": 40, "resultat_per_bill": 104, "resultat_total_mkr": 2.25, "belegg_pct": 52.1}, {"kategori": "Horror/genre", "tid": "Hverdag Dagtid", "billetter": 1168, "forestillinger": 183, "bill_per_forest": 6, "kundebidrag_per_bill": 139, "betjeningskost_per_bill": 74, "resultat_per_bill": 64, "resultat_total_mkr": 0.08, "belegg_pct": 4.6}, {"kategori": "Event/spesial", "tid": "Hverdag Kveld", "billetter": 1599, "forestillinger": 35, "bill_per_forest": 46, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 40, "resultat_per_bill": 103, "resultat_total_mkr": 0.16, "belegg_pct": 30.7}, {"kategori": "Event/spesial", "tid": "Helg Kveld", "billetter": 4827, "forestillinger": 52, "bill_per_forest": 93, "kundebidrag_per_bill": 153, "betjeningskost_per_bill": 38, "resultat_per_bill": 115, "resultat_total_mkr": 0.56, "belegg_pct": 54.5}, {"kategori": "Event/spesial", "tid": "Helg Dagtid", "billetter": 1016, "forestillinger": 23, "bill_per_forest": 44, "kundebidrag_per_bill": 138, "betjeningskost_per_bill": 41, "resultat_per_bill": 97, "resultat_total_mkr": 0.1, "belegg_pct": 38.3}, {"kategori": "Event/spesial", "tid": "Hverdag Dagtid", "billetter": 132, "forestillinger": 22, "bill_per_forest": 6, "kundebidrag_per_bill": 108, "betjeningskost_per_bill": 77, "resultat_per_bill": 31, "resultat_total_mkr": 0.0, "belegg_pct": 7.3}], "tid_luker": [{"tid": "Hverdag Dagtid", "forestillinger": 4487, "billetter": 54252, "bill_per_forest": 12, "kundebidrag_per_bill": 126, "betjeningskost_per_bill": 56, "resultat_per_bill": 70, "belegg_pct": 10.1}, {"tid": "Hverdag Kveld", "forestillinger": 5303, "billetter": 154985, "bill_per_forest": 29, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 43, "resultat_per_bill": 102, "belegg_pct": 23.2}, {"tid": "Helg Dagtid", "forestillinger": 4908, "billetter": 128645, "bill_per_forest": 26, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 44, "resultat_per_bill": 86, "belegg_pct": 21.7}, {"tid": "Helg Kveld", "forestillinger": 4186, "billetter": 208149, "bill_per_forest": 50, "kundebidrag_per_bill": 151, "betjeningskost_per_bill": 40, "resultat_per_bill": 111, "belegg_pct": 39.7}], "total": {"kundebidrag_mkr": 77.58, "betjeningskost_gjester_mkr": 23.79, "resultat_fra_gjester_mkr": 53.78, "ubrukt_kapasitet_mkr": 27.85, "ebit_estimat_mkr": 25.94, "ebit_regnskap_mkr": 25.68}, "topp_billetter": [{"film": "Avatar: Fire and Ash", "kategori": "Blockbuster voksen", "billetter": 21601, "billett_net_mkr": 4.47, "snittpris": 207, "kiosk_per_bill": 78, "imax_pct": 54.5, "belegg_pct": 47.7, "resultat_per_bill": 131, "resultat_total_mkr": 2.82, "forest_snitt_bill": 74}, {"film": "Mission: Impossible - The Final Reckoning", "kategori": "Blockbuster voksen", "billetter": 20032, "billett_net_mkr": 4.17, "snittpris": 208, "kiosk_per_bill": 75, "imax_pct": 49.2, "belegg_pct": 27.5, "resultat_per_bill": 128, "resultat_total_mkr": 2.57, "forest_snitt_bill": 45}, {"film": "En Minecraft-film", "kategori": "Familie/barn", "billetter": 18428, "billett_net_mkr": 2.86, "snittpris": 155, "kiosk_per_bill": 68, "imax_pct": 24.1, "belegg_pct": 21.1, "resultat_per_bill": 98, "resultat_total_mkr": 1.81, "forest_snitt_bill": 34}, {"film": "F1 ® The Movie", "kategori": "Blockbuster voksen", "billetter": 17472, "billett_net_mkr": 3.37, "snittpris": 193, "kiosk_per_bill": 76, "imax_pct": 43.6, "belegg_pct": 28.9, "resultat_per_bill": 122, "resultat_total_mkr": 2.13, "forest_snitt_bill": 51}, {"film": "One Battle After Another", "kategori": "Drama/thriller", "billetter": 17068, "billett_net_mkr": 3.27, "snittpris": 191, "kiosk_per_bill": 71, "imax_pct": 52.0, "belegg_pct": 27.9, "resultat_per_bill": 117, "resultat_total_mkr": 2.0, "forest_snitt_bill": 59}, {"film": "Lilo & Stitch", "kategori": "Familie/barn", "billetter": 16300, "billett_net_mkr": 2.13, "snittpris": 131, "kiosk_per_bill": 79, "imax_pct": 0.0, "belegg_pct": 24.2, "resultat_per_bill": 93, "resultat_total_mkr": 1.52, "forest_snitt_bill": 24}, {"film": "Affeksjonsverdi", "kategori": "Norsk film", "billetter": 16283, "billett_net_mkr": 2.36, "snittpris": 145, "kiosk_per_bill": 69, "imax_pct": 0.0, "belegg_pct": 44.4, "resultat_per_bill": 100, "resultat_total_mkr": 1.63, "forest_snitt_bill": 38}, {"film": "Blücher", "kategori": "Norsk film", "billetter": 14572, "billett_net_mkr": 2.3, "snittpris": 158, "kiosk_per_bill": 63, "imax_pct": 0.0, "belegg_pct": 34.1, "resultat_per_bill": 104, "resultat_total_mkr": 1.51, "forest_snitt_bill": 39}, {"film": "Hvis ingen går i fella", "kategori": "Norsk film", "billetter": 14047, "billett_net_mkr": 1.75, "snittpris": 125, "kiosk_per_bill": 62, "imax_pct": 0.0, "belegg_pct": 37.2, "resultat_per_bill": 85, "resultat_total_mkr": 1.2, "forest_snitt_bill": 47}, {"film": "Superman", "kategori": "Blockbuster voksen", "billetter": 12996, "billett_net_mkr": 2.49, "snittpris": 192, "kiosk_per_bill": 72, "imax_pct": 45.8, "belegg_pct": 23.0, "resultat_per_bill": 117, "resultat_total_mkr": 1.52, "forest_snitt_bill": 38}, {"film": "The Conjuring: Last Rites", "kategori": "Horror/genre", "billetter": 11167, "billett_net_mkr": 1.88, "snittpris": 168, "kiosk_per_bill": 70, "imax_pct": 34.5, "belegg_pct": 34.5, "resultat_per_bill": 108, "resultat_total_mkr": 1.2, "forest_snitt_bill": 53}, {"film": "Jurassic World: Rebirth", "kategori": "Blockbuster voksen", "billetter": 10693, "billett_net_mkr": 1.68, "snittpris": 157, "kiosk_per_bill": 75, "imax_pct": 0.0, "belegg_pct": 22.9, "resultat_per_bill": 108, "resultat_total_mkr": 1.16, "forest_snitt_bill": 29}, {"film": "Bridget Jones: Mad About the Boy", "kategori": "Drama/thriller", "billetter": 10109, "billett_net_mkr": 1.52, "snittpris": 150, "kiosk_per_bill": 63, "imax_pct": 0.0, "belegg_pct": 33.7, "resultat_per_bill": 99, "resultat_total_mkr": 1.0, "forest_snitt_bill": 35}, {"film": "Mufasa: Løvenes konge", "kategori": "Familie/barn", "billetter": 9909, "billett_net_mkr": 1.46, "snittpris": 147, "kiosk_per_bill": 70, "imax_pct": 18.7, "belegg_pct": 15.8, "resultat_per_bill": 95, "resultat_total_mkr": 0.94, "forest_snitt_bill": 28}, {"film": "Wicked: For Good", "kategori": "Blockbuster voksen", "billetter": 9576, "billett_net_mkr": 1.85, "snittpris": 193, "kiosk_per_bill": 81, "imax_pct": 57.0, "belegg_pct": 20.4, "resultat_per_bill": 122, "resultat_total_mkr": 1.17, "forest_snitt_bill": 45}, {"film": "Dragetreneren", "kategori": "Familie/barn", "billetter": 9386, "billett_net_mkr": 1.43, "snittpris": 152, "kiosk_per_bill": 75, "imax_pct": 18.0, "belegg_pct": 13.6, "resultat_per_bill": 97, "resultat_total_mkr": 0.91, "forest_snitt_bill": 19}, {"film": "Demon Slayer: Kimetsu no Yaiba Infinity Castle", "kategori": "Blockbuster voksen", "billetter": 9088, "billett_net_mkr": 1.77, "snittpris": 194, "kiosk_per_bill": 75, "imax_pct": 59.6, "belegg_pct": 38.7, "resultat_per_bill": 120, "resultat_total_mkr": 1.09, "forest_snitt_bill": 68}, {"film": "Sinners", "kategori": "Horror/genre", "billetter": 8682, "billett_net_mkr": 1.48, "snittpris": 171, "kiosk_per_bill": 76, "imax_pct": 30.8, "belegg_pct": 28.9, "resultat_per_bill": 112, "resultat_total_mkr": 0.98, "forest_snitt_bill": 43}, {"film": "Zootropolis 2", "kategori": "Familie/barn", "billetter": 8205, "billett_net_mkr": 1.07, "snittpris": 130, "kiosk_per_bill": 68, "imax_pct": 0.0, "belegg_pct": 35.4, "resultat_per_bill": 91, "resultat_total_mkr": 0.74, "forest_snitt_bill": 38}, {"film": "Nosferatu", "kategori": "Horror/genre", "billetter": 8051, "billett_net_mkr": 1.49, "snittpris": 184, "kiosk_per_bill": 69, "imax_pct": 54.1, "belegg_pct": 21.4, "resultat_per_bill": 110, "resultat_total_mkr": 0.89, "forest_snitt_bill": 40}], "topp_inntekt": [{"film": "Avatar: Fire and Ash", "kategori": "Blockbuster voksen", "billetter": 21601, "billett_net_mkr": 4.47, "snittpris": 207, "kiosk_per_bill": 78, "imax_pct": 54.5, "belegg_pct": 47.7, "resultat_per_bill": 131, "resultat_total_mkr": 2.82, "forest_snitt_bill": 74}, {"film": "Mission: Impossible - The Final Reckoning", "kategori": "Blockbuster voksen", "billetter": 20032, "billett_net_mkr": 4.17, "snittpris": 208, "kiosk_per_bill": 75, "imax_pct": 49.2, "belegg_pct": 27.5, "resultat_per_bill": 128, "resultat_total_mkr": 2.57, "forest_snitt_bill": 45}, {"film": "F1 ® The Movie", "kategori": "Blockbuster voksen", "billetter": 17472, "billett_net_mkr": 3.37, "snittpris": 193, "kiosk_per_bill": 76, "imax_pct": 43.6, "belegg_pct": 28.9, "resultat_per_bill": 122, "resultat_total_mkr": 2.13, "forest_snitt_bill": 51}, {"film": "One Battle After Another", "kategori": "Drama/thriller", "billetter": 17068, "billett_net_mkr": 3.27, "snittpris": 191, "kiosk_per_bill": 71, "imax_pct": 52.0, "belegg_pct": 27.9, "resultat_per_bill": 117, "resultat_total_mkr": 2.0, "forest_snitt_bill": 59}, {"film": "En Minecraft-film", "kategori": "Familie/barn", "billetter": 18428, "billett_net_mkr": 2.86, "snittpris": 155, "kiosk_per_bill": 68, "imax_pct": 24.1, "belegg_pct": 21.1, "resultat_per_bill": 98, "resultat_total_mkr": 1.81, "forest_snitt_bill": 34}, {"film": "Superman", "kategori": "Blockbuster voksen", "billetter": 12996, "billett_net_mkr": 2.49, "snittpris": 192, "kiosk_per_bill": 72, "imax_pct": 45.8, "belegg_pct": 23.0, "resultat_per_bill": 117, "resultat_total_mkr": 1.52, "forest_snitt_bill": 38}, {"film": "Affeksjonsverdi", "kategori": "Norsk film", "billetter": 16283, "billett_net_mkr": 2.36, "snittpris": 145, "kiosk_per_bill": 69, "imax_pct": 0.0, "belegg_pct": 44.4, "resultat_per_bill": 100, "resultat_total_mkr": 1.63, "forest_snitt_bill": 38}, {"film": "Blücher", "kategori": "Norsk film", "billetter": 14572, "billett_net_mkr": 2.3, "snittpris": 158, "kiosk_per_bill": 63, "imax_pct": 0.0, "belegg_pct": 34.1, "resultat_per_bill": 104, "resultat_total_mkr": 1.51, "forest_snitt_bill": 39}, {"film": "Lilo & Stitch", "kategori": "Familie/barn", "billetter": 16300, "billett_net_mkr": 2.13, "snittpris": 131, "kiosk_per_bill": 79, "imax_pct": 0.0, "belegg_pct": 24.2, "resultat_per_bill": 93, "resultat_total_mkr": 1.52, "forest_snitt_bill": 24}, {"film": "The Conjuring: Last Rites", "kategori": "Horror/genre", "billetter": 11167, "billett_net_mkr": 1.88, "snittpris": 168, "kiosk_per_bill": 70, "imax_pct": 34.5, "belegg_pct": 34.5, "resultat_per_bill": 108, "resultat_total_mkr": 1.2, "forest_snitt_bill": 53}, {"film": "Wicked: For Good", "kategori": "Blockbuster voksen", "billetter": 9576, "billett_net_mkr": 1.85, "snittpris": 193, "kiosk_per_bill": 81, "imax_pct": 57.0, "belegg_pct": 20.4, "resultat_per_bill": 122, "resultat_total_mkr": 1.17, "forest_snitt_bill": 45}, {"film": "Demon Slayer: Kimetsu no Yaiba Infinity Castle", "kategori": "Blockbuster voksen", "billetter": 9088, "billett_net_mkr": 1.77, "snittpris": 194, "kiosk_per_bill": 75, "imax_pct": 59.6, "belegg_pct": 38.7, "resultat_per_bill": 120, "resultat_total_mkr": 1.09, "forest_snitt_bill": 68}, {"film": "Hvis ingen går i fella", "kategori": "Norsk film", "billetter": 14047, "billett_net_mkr": 1.75, "snittpris": 125, "kiosk_per_bill": 62, "imax_pct": 0.0, "belegg_pct": 37.2, "resultat_per_bill": 85, "resultat_total_mkr": 1.2, "forest_snitt_bill": 47}, {"film": "Jurassic World: Rebirth", "kategori": "Blockbuster voksen", "billetter": 10693, "billett_net_mkr": 1.68, "snittpris": 157, "kiosk_per_bill": 75, "imax_pct": 0.0, "belegg_pct": 22.9, "resultat_per_bill": 108, "resultat_total_mkr": 1.16, "forest_snitt_bill": 29}, {"film": "Fantastic 4: First Steps", "kategori": "Blockbuster voksen", "billetter": 7935, "billett_net_mkr": 1.52, "snittpris": 191, "kiosk_per_bill": 69, "imax_pct": 58.1, "belegg_pct": 18.3, "resultat_per_bill": 112, "resultat_total_mkr": 0.89, "forest_snitt_bill": 39}, {"film": "Bridget Jones: Mad About the Boy", "kategori": "Drama/thriller", "billetter": 10109, "billett_net_mkr": 1.52, "snittpris": 150, "kiosk_per_bill": 63, "imax_pct": 0.0, "belegg_pct": 33.7, "resultat_per_bill": 99, "resultat_total_mkr": 1.0, "forest_snitt_bill": 35}, {"film": "Nosferatu", "kategori": "Horror/genre", "billetter": 8051, "billett_net_mkr": 1.49, "snittpris": 184, "kiosk_per_bill": 69, "imax_pct": 54.1, "belegg_pct": 21.4, "resultat_per_bill": 110, "resultat_total_mkr": 0.89, "forest_snitt_bill": 40}, {"film": "Sinners", "kategori": "Horror/genre", "billetter": 8682, "billett_net_mkr": 1.48, "snittpris": 171, "kiosk_per_bill": 76, "imax_pct": 30.8, "belegg_pct": 28.9, "resultat_per_bill": 112, "resultat_total_mkr": 0.98, "forest_snitt_bill": 43}, {"film": "Mufasa: Løvenes konge", "kategori": "Familie/barn", "billetter": 9909, "billett_net_mkr": 1.46, "snittpris": 147, "kiosk_per_bill": 70, "imax_pct": 18.7, "belegg_pct": 15.8, "resultat_per_bill": 95, "resultat_total_mkr": 0.94, "forest_snitt_bill": 28}, {"film": "Captain America: Brave New World", "kategori": "Blockbuster voksen", "billetter": 7843, "billett_net_mkr": 1.46, "snittpris": 186, "kiosk_per_bill": 68, "imax_pct": 55.3, "belegg_pct": 15.3, "resultat_per_bill": 109, "resultat_total_mkr": 0.85, "forest_snitt_bill": 32}], "topp_resultat_bill": [{"film": "Avatar: Fire and Ash", "kategori": "Blockbuster voksen", "billetter": 21601, "billett_net_mkr": 4.47, "snittpris": 207, "kiosk_per_bill": 78, "imax_pct": 54.5, "belegg_pct": 47.7, "resultat_per_bill": 131, "resultat_total_mkr": 2.82, "forest_snitt_bill": 74}, {"film": "Mission: Impossible - The Final Reckoning", "kategori": "Blockbuster voksen", "billetter": 20032, "billett_net_mkr": 4.17, "snittpris": 208, "kiosk_per_bill": 75, "imax_pct": 49.2, "belegg_pct": 27.5, "resultat_per_bill": 128, "resultat_total_mkr": 2.57, "forest_snitt_bill": 45}, {"film": "Wicked: For Good", "kategori": "Blockbuster voksen", "billetter": 9576, "billett_net_mkr": 1.85, "snittpris": 193, "kiosk_per_bill": 81, "imax_pct": 57.0, "belegg_pct": 20.4, "resultat_per_bill": 122, "resultat_total_mkr": 1.17, "forest_snitt_bill": 45}, {"film": "F1 ® The Movie", "kategori": "Blockbuster voksen", "billetter": 17472, "billett_net_mkr": 3.37, "snittpris": 193, "kiosk_per_bill": 76, "imax_pct": 43.6, "belegg_pct": 28.9, "resultat_per_bill": 122, "resultat_total_mkr": 2.13, "forest_snitt_bill": 51}, {"film": "Demon Slayer: Kimetsu no Yaiba Infinity Castle", "kategori": "Blockbuster voksen", "billetter": 9088, "billett_net_mkr": 1.77, "snittpris": 194, "kiosk_per_bill": 75, "imax_pct": 59.6, "belegg_pct": 38.7, "resultat_per_bill": 120, "resultat_total_mkr": 1.09, "forest_snitt_bill": 68}, {"film": "One Battle After Another", "kategori": "Drama/thriller", "billetter": 17068, "billett_net_mkr": 3.27, "snittpris": 191, "kiosk_per_bill": 71, "imax_pct": 52.0, "belegg_pct": 27.9, "resultat_per_bill": 117, "resultat_total_mkr": 2.0, "forest_snitt_bill": 59}, {"film": "Superman", "kategori": "Blockbuster voksen", "billetter": 12996, "billett_net_mkr": 2.49, "snittpris": 192, "kiosk_per_bill": 72, "imax_pct": 45.8, "belegg_pct": 23.0, "resultat_per_bill": 117, "resultat_total_mkr": 1.52, "forest_snitt_bill": 38}, {"film": "Gladiator II", "kategori": "Blockbuster voksen", "billetter": 2864, "billett_net_mkr": 0.46, "snittpris": 162, "kiosk_per_bill": 81, "imax_pct": 0.0, "belegg_pct": 33.0, "resultat_per_bill": 115, "resultat_total_mkr": 0.33, "forest_snitt_bill": 29}, {"film": "Fantastic 4: First Steps", "kategori": "Blockbuster voksen", "billetter": 7935, "billett_net_mkr": 1.52, "snittpris": 191, "kiosk_per_bill": 69, "imax_pct": 58.1, "belegg_pct": 18.3, "resultat_per_bill": 112, "resultat_total_mkr": 0.89, "forest_snitt_bill": 39}, {"film": "Sinners", "kategori": "Horror/genre", "billetter": 8682, "billett_net_mkr": 1.48, "snittpris": 171, "kiosk_per_bill": 76, "imax_pct": 30.8, "belegg_pct": 28.9, "resultat_per_bill": 112, "resultat_total_mkr": 0.98, "forest_snitt_bill": 43}, {"film": "Tron: Ares", "kategori": "Blockbuster voksen", "billetter": 3103, "billett_net_mkr": 0.59, "snittpris": 191, "kiosk_per_bill": 72, "imax_pct": 52.5, "belegg_pct": 14.0, "resultat_per_bill": 111, "resultat_total_mkr": 0.34, "forest_snitt_bill": 24}, {"film": "Nosferatu", "kategori": "Horror/genre", "billetter": 8051, "billett_net_mkr": 1.49, "snittpris": 184, "kiosk_per_bill": 69, "imax_pct": 54.1, "belegg_pct": 21.4, "resultat_per_bill": 110, "resultat_total_mkr": 0.89, "forest_snitt_bill": 40}, {"film": "Weapons", "kategori": "Horror/genre", "billetter": 5573, "billett_net_mkr": 1.02, "snittpris": 184, "kiosk_per_bill": 66, "imax_pct": 50.1, "belegg_pct": 22.7, "resultat_per_bill": 110, "resultat_total_mkr": 0.61, "forest_snitt_bill": 47}, {"film": "Wicked", "kategori": "Blockbuster voksen", "billetter": 5417, "billett_net_mkr": 0.84, "snittpris": 156, "kiosk_per_bill": 75, "imax_pct": 0.0, "belegg_pct": 26.9, "resultat_per_bill": 109, "resultat_total_mkr": 0.59, "forest_snitt_bill": 32}, {"film": "Captain America: Brave New World", "kategori": "Blockbuster voksen", "billetter": 7843, "billett_net_mkr": 1.46, "snittpris": 186, "kiosk_per_bill": 68, "imax_pct": 55.3, "belegg_pct": 15.3, "resultat_per_bill": 109, "resultat_total_mkr": 0.85, "forest_snitt_bill": 32}]};
+const DATA = {"meta": {"total_billetter": 546031, "forest_med_salg": 18884, "reklame_per_gjest": 15.9, "fast_kost_total_mkr": 51.6}, "metoder": {"m1": {"navn": "Ingen allokering", "kort": "Kun bidragsmargin", "beskr": "Bare variable kostnader trekkes fra (filmleie, IMAX-revshare, kiosk-varekost). Ingen faste kostnader allokeres. Viser rå bidragsmargin — hva hver gjest bidrar med før faste kostnader dekkes.", "ubrukt_mkr": 0}, "m2": {"navn": "Jevn per billett", "kort": "95 kr/billett flatt", "beskr": "Alle faste kostnader (51,6 mkr) deles på 546 000 billetter = 95 kr per billett flatt. Enkleste tradisjonelle metode, men straffer lavvolum-forestillinger hardt fordi de bærer samme kostnad per gjest.", "ubrukt_mkr": 0}, "m3": {"navn": "ABC — flat sats", "kort": "Per faktisk brukt sete-time", "beskr": "Aktivitetsbasert allokering. Kapasitetskost (leie + avskrivning) allokeres per faktisk brukt sete-time (samme sats uansett sal). Personal: 30 % baseline per forestilling + 70 % per gjest. Ubrukt kapasitet skilles ut som egen post — det er en ledelsesbeslutning, ikke gjestens ansvar.", "ubrukt_mkr": 27.85}, "m4": {"navn": "ABC — sal-differensiert", "kort": "IMAX 2,5× · LUXE 1,5×", "beskr": "Som ABC flat, men kapasitetsraten varierer med sal-type: IMAX 2,5× (premium lasertek), LUXE 1,5× (recliners + servering), Sal 2 1,2×, Sal 4 1,1×, standard 1,0×. Personal-baseline har også multiplier: IMAX 1,5×, LUXE 2,0×. Fanger opp at det er dyrere å drive en forestilling i premium-sal.", "ubrukt_mkr": 27.98}}, "segmenter_per_metode": {"m1": [{"billetter": 23874, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 0, "resultat_per_bill": 120, "resultat_total_mkr": 2.88, "belegg_pct": 11.0, "kategori": "Familie/barn", "tid": "Hverdag Dagtid", "forestillinger": 1857, "bill_per_forest": 13}, {"billetter": 14233, "kundebidrag_per_bill": 154, "betjeningskost_per_bill": 0, "resultat_per_bill": 154, "resultat_total_mkr": 2.19, "belegg_pct": 9.6, "kategori": "Blockbuster voksen", "tid": "Hverdag Dagtid", "forestillinger": 899, "bill_per_forest": 16}, {"billetter": 3052, "kundebidrag_per_bill": 102, "betjeningskost_per_bill": 0, "resultat_per_bill": 102, "resultat_total_mkr": 0.31, "belegg_pct": 8.1, "kategori": "Annet", "tid": "Hverdag Dagtid", "forestillinger": 438, "bill_per_forest": 7}, {"billetter": 6967, "kundebidrag_per_bill": 99, "betjeningskost_per_bill": 0, "resultat_per_bill": 99, "resultat_total_mkr": 0.69, "belegg_pct": 16.4, "kategori": "Norsk film", "tid": "Hverdag Dagtid", "forestillinger": 452, "bill_per_forest": 15}, {"billetter": 4826, "kundebidrag_per_bill": 122, "betjeningskost_per_bill": 0, "resultat_per_bill": 122, "resultat_total_mkr": 0.59, "belegg_pct": 7.4, "kategori": "Drama/thriller", "tid": "Hverdag Dagtid", "forestillinger": 636, "bill_per_forest": 8}, {"billetter": 57832, "kundebidrag_per_bill": 155, "betjeningskost_per_bill": 0, "resultat_per_bill": 155, "resultat_total_mkr": 8.99, "belegg_pct": 24.5, "kategori": "Blockbuster voksen", "tid": "Hverdag Kveld", "forestillinger": 1573, "bill_per_forest": 37}, {"billetter": 24292, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 0, "resultat_per_bill": 137, "resultat_total_mkr": 3.33, "belegg_pct": 18.6, "kategori": "Familie/barn", "tid": "Hverdag Kveld", "forestillinger": 1097, "bill_per_forest": 22}, {"billetter": 9199, "kundebidrag_per_bill": 135, "betjeningskost_per_bill": 0, "resultat_per_bill": 135, "resultat_total_mkr": 1.24, "belegg_pct": 17.6, "kategori": "Annet", "tid": "Hverdag Kveld", "forestillinger": 562, "bill_per_forest": 16}, {"billetter": 23720, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 0, "resultat_per_bill": 143, "resultat_total_mkr": 3.39, "belegg_pct": 26.1, "kategori": "Drama/thriller", "tid": "Hverdag Kveld", "forestillinger": 824, "bill_per_forest": 29}, {"billetter": 19294, "kundebidrag_per_bill": 136, "betjeningskost_per_bill": 0, "resultat_per_bill": 136, "resultat_total_mkr": 2.62, "belegg_pct": 34.3, "kategori": "Norsk film", "tid": "Hverdag Kveld", "forestillinger": 545, "bill_per_forest": 35}, {"billetter": 19049, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 0, "resultat_per_bill": 146, "resultat_total_mkr": 2.77, "belegg_pct": 19.9, "kategori": "Horror/genre", "tid": "Hverdag Kveld", "forestillinger": 667, "bill_per_forest": 29}, {"billetter": 9814, "kundebidrag_per_bill": 97, "betjeningskost_per_bill": 0, "resultat_per_bill": 97, "resultat_total_mkr": 0.95, "belegg_pct": 22.5, "kategori": "Annet", "tid": "Helg Dagtid", "forestillinger": 482, "bill_per_forest": 20}, {"billetter": 64666, "kundebidrag_per_bill": 127, "betjeningskost_per_bill": 0, "resultat_per_bill": 127, "resultat_total_mkr": 8.21, "belegg_pct": 21.1, "kategori": "Familie/barn", "tid": "Helg Dagtid", "forestillinger": 2627, "bill_per_forest": 25}, {"billetter": 24348, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 0, "resultat_per_bill": 157, "resultat_total_mkr": 3.82, "belegg_pct": 18.2, "kategori": "Blockbuster voksen", "tid": "Helg Dagtid", "forestillinger": 774, "bill_per_forest": 31}, {"billetter": 16754, "kundebidrag_per_bill": 125, "betjeningskost_per_bill": 0, "resultat_per_bill": 125, "resultat_total_mkr": 2.09, "belegg_pct": 35.6, "kategori": "Norsk film", "tid": "Helg Dagtid", "forestillinger": 454, "bill_per_forest": 37}, {"billetter": 2923, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 0, "resultat_per_bill": 120, "resultat_total_mkr": 0.35, "belegg_pct": 19.3, "kategori": "Horror/genre", "tid": "Helg Dagtid", "forestillinger": 119, "bill_per_forest": 25}, {"billetter": 9124, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 0, "resultat_per_bill": 137, "resultat_total_mkr": 1.25, "belegg_pct": 21.3, "kategori": "Drama/thriller", "tid": "Helg Dagtid", "forestillinger": 429, "bill_per_forest": 21}, {"billetter": 30034, "kundebidrag_per_bill": 150, "betjeningskost_per_bill": 0, "resultat_per_bill": 150, "resultat_total_mkr": 4.49, "belegg_pct": 39.4, "kategori": "Horror/genre", "tid": "Helg Kveld", "forestillinger": 520, "bill_per_forest": 58}, {"billetter": 35899, "kundebidrag_per_bill": 141, "betjeningskost_per_bill": 0, "resultat_per_bill": 141, "resultat_total_mkr": 5.07, "belegg_pct": 37.4, "kategori": "Familie/barn", "tid": "Helg Kveld", "forestillinger": 825, "bill_per_forest": 44}, {"billetter": 67573, "kundebidrag_per_bill": 160, "betjeningskost_per_bill": 0, "resultat_per_bill": 160, "resultat_total_mkr": 10.8, "belegg_pct": 38.8, "kategori": "Blockbuster voksen", "tid": "Helg Kveld", "forestillinger": 1166, "bill_per_forest": 58}, {"billetter": 30864, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 0, "resultat_per_bill": 148, "resultat_total_mkr": 4.58, "belegg_pct": 45.3, "kategori": "Drama/thriller", "tid": "Helg Kveld", "forestillinger": 620, "bill_per_forest": 50}, {"billetter": 17433, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 0, "resultat_per_bill": 148, "resultat_total_mkr": 2.58, "belegg_pct": 29.5, "kategori": "Annet", "tid": "Helg Kveld", "forestillinger": 605, "bill_per_forest": 29}, {"billetter": 21519, "kundebidrag_per_bill": 144, "betjeningskost_per_bill": 0, "resultat_per_bill": 144, "resultat_total_mkr": 3.1, "belegg_pct": 52.1, "kategori": "Norsk film", "tid": "Helg Kveld", "forestillinger": 398, "bill_per_forest": 54}, {"billetter": 1168, "kundebidrag_per_bill": 139, "betjeningskost_per_bill": 0, "resultat_per_bill": 139, "resultat_total_mkr": 0.16, "belegg_pct": 4.6, "kategori": "Horror/genre", "tid": "Hverdag Dagtid", "forestillinger": 183, "bill_per_forest": 6}, {"billetter": 1599, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 0, "resultat_per_bill": 143, "resultat_total_mkr": 0.23, "belegg_pct": 30.7, "kategori": "Event/spesial", "tid": "Hverdag Kveld", "forestillinger": 35, "bill_per_forest": 46}, {"billetter": 4827, "kundebidrag_per_bill": 153, "betjeningskost_per_bill": 0, "resultat_per_bill": 153, "resultat_total_mkr": 0.74, "belegg_pct": 54.5, "kategori": "Event/spesial", "tid": "Helg Kveld", "forestillinger": 52, "bill_per_forest": 93}, {"billetter": 1016, "kundebidrag_per_bill": 138, "betjeningskost_per_bill": 0, "resultat_per_bill": 138, "resultat_total_mkr": 0.14, "belegg_pct": 38.3, "kategori": "Event/spesial", "tid": "Helg Dagtid", "forestillinger": 23, "bill_per_forest": 44}, {"billetter": 132, "kundebidrag_per_bill": 108, "betjeningskost_per_bill": 0, "resultat_per_bill": 108, "resultat_total_mkr": 0.01, "belegg_pct": 7.3, "kategori": "Event/spesial", "tid": "Hverdag Dagtid", "forestillinger": 22, "bill_per_forest": 6}], "m2": [{"billetter": 23874, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 95, "resultat_per_bill": 26, "resultat_total_mkr": 0.62, "belegg_pct": 11.0, "kategori": "Familie/barn", "tid": "Hverdag Dagtid", "forestillinger": 1857, "bill_per_forest": 13}, {"billetter": 14233, "kundebidrag_per_bill": 154, "betjeningskost_per_bill": 95, "resultat_per_bill": 59, "resultat_total_mkr": 0.85, "belegg_pct": 9.6, "kategori": "Blockbuster voksen", "tid": "Hverdag Dagtid", "forestillinger": 899, "bill_per_forest": 16}, {"billetter": 3052, "kundebidrag_per_bill": 102, "betjeningskost_per_bill": 95, "resultat_per_bill": 7, "resultat_total_mkr": 0.02, "belegg_pct": 8.1, "kategori": "Annet", "tid": "Hverdag Dagtid", "forestillinger": 438, "bill_per_forest": 7}, {"billetter": 6967, "kundebidrag_per_bill": 99, "betjeningskost_per_bill": 95, "resultat_per_bill": 4, "resultat_total_mkr": 0.03, "belegg_pct": 16.4, "kategori": "Norsk film", "tid": "Hverdag Dagtid", "forestillinger": 452, "bill_per_forest": 15}, {"billetter": 4826, "kundebidrag_per_bill": 122, "betjeningskost_per_bill": 95, "resultat_per_bill": 27, "resultat_total_mkr": 0.13, "belegg_pct": 7.4, "kategori": "Drama/thriller", "tid": "Hverdag Dagtid", "forestillinger": 636, "bill_per_forest": 8}, {"billetter": 57832, "kundebidrag_per_bill": 155, "betjeningskost_per_bill": 95, "resultat_per_bill": 61, "resultat_total_mkr": 3.52, "belegg_pct": 24.5, "kategori": "Blockbuster voksen", "tid": "Hverdag Kveld", "forestillinger": 1573, "bill_per_forest": 37}, {"billetter": 24292, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 95, "resultat_per_bill": 43, "resultat_total_mkr": 1.04, "belegg_pct": 18.6, "kategori": "Familie/barn", "tid": "Hverdag Kveld", "forestillinger": 1097, "bill_per_forest": 22}, {"billetter": 9199, "kundebidrag_per_bill": 135, "betjeningskost_per_bill": 95, "resultat_per_bill": 41, "resultat_total_mkr": 0.37, "belegg_pct": 17.6, "kategori": "Annet", "tid": "Hverdag Kveld", "forestillinger": 562, "bill_per_forest": 16}, {"billetter": 23720, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 95, "resultat_per_bill": 48, "resultat_total_mkr": 1.14, "belegg_pct": 26.1, "kategori": "Drama/thriller", "tid": "Hverdag Kveld", "forestillinger": 824, "bill_per_forest": 29}, {"billetter": 19294, "kundebidrag_per_bill": 136, "betjeningskost_per_bill": 95, "resultat_per_bill": 41, "resultat_total_mkr": 0.8, "belegg_pct": 34.3, "kategori": "Norsk film", "tid": "Hverdag Kveld", "forestillinger": 545, "bill_per_forest": 35}, {"billetter": 19049, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 95, "resultat_per_bill": 51, "resultat_total_mkr": 0.97, "belegg_pct": 19.9, "kategori": "Horror/genre", "tid": "Hverdag Kveld", "forestillinger": 667, "bill_per_forest": 29}, {"billetter": 9814, "kundebidrag_per_bill": 97, "betjeningskost_per_bill": 95, "resultat_per_bill": 3, "resultat_total_mkr": 0.03, "belegg_pct": 22.5, "kategori": "Annet", "tid": "Helg Dagtid", "forestillinger": 482, "bill_per_forest": 20}, {"billetter": 64666, "kundebidrag_per_bill": 127, "betjeningskost_per_bill": 95, "resultat_per_bill": 32, "resultat_total_mkr": 2.1, "belegg_pct": 21.1, "kategori": "Familie/barn", "tid": "Helg Dagtid", "forestillinger": 2627, "bill_per_forest": 25}, {"billetter": 24348, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 95, "resultat_per_bill": 62, "resultat_total_mkr": 1.52, "belegg_pct": 18.2, "kategori": "Blockbuster voksen", "tid": "Helg Dagtid", "forestillinger": 774, "bill_per_forest": 31}, {"billetter": 16754, "kundebidrag_per_bill": 125, "betjeningskost_per_bill": 95, "resultat_per_bill": 30, "resultat_total_mkr": 0.5, "belegg_pct": 35.6, "kategori": "Norsk film", "tid": "Helg Dagtid", "forestillinger": 454, "bill_per_forest": 37}, {"billetter": 2923, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 95, "resultat_per_bill": 26, "resultat_total_mkr": 0.07, "belegg_pct": 19.3, "kategori": "Horror/genre", "tid": "Helg Dagtid", "forestillinger": 119, "bill_per_forest": 25}, {"billetter": 9124, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 95, "resultat_per_bill": 42, "resultat_total_mkr": 0.39, "belegg_pct": 21.3, "kategori": "Drama/thriller", "tid": "Helg Dagtid", "forestillinger": 429, "bill_per_forest": 21}, {"billetter": 30034, "kundebidrag_per_bill": 150, "betjeningskost_per_bill": 95, "resultat_per_bill": 55, "resultat_total_mkr": 1.65, "belegg_pct": 39.4, "kategori": "Horror/genre", "tid": "Helg Kveld", "forestillinger": 520, "bill_per_forest": 58}, {"billetter": 35899, "kundebidrag_per_bill": 141, "betjeningskost_per_bill": 95, "resultat_per_bill": 47, "resultat_total_mkr": 1.67, "belegg_pct": 37.4, "kategori": "Familie/barn", "tid": "Helg Kveld", "forestillinger": 825, "bill_per_forest": 44}, {"billetter": 67573, "kundebidrag_per_bill": 160, "betjeningskost_per_bill": 95, "resultat_per_bill": 65, "resultat_total_mkr": 4.41, "belegg_pct": 38.8, "kategori": "Blockbuster voksen", "tid": "Helg Kveld", "forestillinger": 1166, "bill_per_forest": 58}, {"billetter": 30864, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 95, "resultat_per_bill": 54, "resultat_total_mkr": 1.66, "belegg_pct": 45.3, "kategori": "Drama/thriller", "tid": "Helg Kveld", "forestillinger": 620, "bill_per_forest": 50}, {"billetter": 17433, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 95, "resultat_per_bill": 54, "resultat_total_mkr": 0.93, "belegg_pct": 29.5, "kategori": "Annet", "tid": "Helg Kveld", "forestillinger": 605, "bill_per_forest": 29}, {"billetter": 21519, "kundebidrag_per_bill": 144, "betjeningskost_per_bill": 95, "resultat_per_bill": 49, "resultat_total_mkr": 1.06, "belegg_pct": 52.1, "kategori": "Norsk film", "tid": "Helg Kveld", "forestillinger": 398, "bill_per_forest": 54}, {"billetter": 1168, "kundebidrag_per_bill": 139, "betjeningskost_per_bill": 95, "resultat_per_bill": 44, "resultat_total_mkr": 0.05, "belegg_pct": 4.6, "kategori": "Horror/genre", "tid": "Hverdag Dagtid", "forestillinger": 183, "bill_per_forest": 6}, {"billetter": 1599, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 95, "resultat_per_bill": 49, "resultat_total_mkr": 0.08, "belegg_pct": 30.7, "kategori": "Event/spesial", "tid": "Hverdag Kveld", "forestillinger": 35, "bill_per_forest": 46}, {"billetter": 4827, "kundebidrag_per_bill": 153, "betjeningskost_per_bill": 95, "resultat_per_bill": 58, "resultat_total_mkr": 0.28, "belegg_pct": 54.5, "kategori": "Event/spesial", "tid": "Helg Kveld", "forestillinger": 52, "bill_per_forest": 93}, {"billetter": 1016, "kundebidrag_per_bill": 138, "betjeningskost_per_bill": 95, "resultat_per_bill": 43, "resultat_total_mkr": 0.04, "belegg_pct": 38.3, "kategori": "Event/spesial", "tid": "Helg Dagtid", "forestillinger": 23, "bill_per_forest": 44}, {"billetter": 132, "kundebidrag_per_bill": 108, "betjeningskost_per_bill": 95, "resultat_per_bill": 13, "resultat_total_mkr": 0.0, "belegg_pct": 7.3, "kategori": "Event/spesial", "tid": "Hverdag Dagtid", "forestillinger": 22, "bill_per_forest": 6}], "m3": [{"billetter": 23874, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 54, "resultat_per_bill": 66, "resultat_total_mkr": 1.57, "belegg_pct": 11.0, "kategori": "Familie/barn", "tid": "Hverdag Dagtid", "forestillinger": 1857, "bill_per_forest": 13}, {"billetter": 14233, "kundebidrag_per_bill": 154, "betjeningskost_per_bill": 51, "resultat_per_bill": 103, "resultat_total_mkr": 1.47, "belegg_pct": 9.6, "kategori": "Blockbuster voksen", "tid": "Hverdag Dagtid", "forestillinger": 899, "bill_per_forest": 16}, {"billetter": 3052, "kundebidrag_per_bill": 102, "betjeningskost_per_bill": 71, "resultat_per_bill": 31, "resultat_total_mkr": 0.09, "belegg_pct": 8.1, "kategori": "Annet", "tid": "Hverdag Dagtid", "forestillinger": 438, "bill_per_forest": 7}, {"billetter": 6967, "kundebidrag_per_bill": 99, "betjeningskost_per_bill": 51, "resultat_per_bill": 48, "resultat_total_mkr": 0.33, "belegg_pct": 16.4, "kategori": "Norsk film", "tid": "Hverdag Dagtid", "forestillinger": 452, "bill_per_forest": 15}, {"billetter": 4826, "kundebidrag_per_bill": 122, "betjeningskost_per_bill": 68, "resultat_per_bill": 54, "resultat_total_mkr": 0.26, "belegg_pct": 7.4, "kategori": "Drama/thriller", "tid": "Hverdag Dagtid", "forestillinger": 636, "bill_per_forest": 8}, {"billetter": 57832, "kundebidrag_per_bill": 155, "betjeningskost_per_bill": 42, "resultat_per_bill": 114, "resultat_total_mkr": 6.57, "belegg_pct": 24.5, "kategori": "Blockbuster voksen", "tid": "Hverdag Kveld", "forestillinger": 1573, "bill_per_forest": 37}, {"billetter": 24292, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 46, "resultat_per_bill": 91, "resultat_total_mkr": 2.21, "belegg_pct": 18.6, "kategori": "Familie/barn", "tid": "Hverdag Kveld", "forestillinger": 1097, "bill_per_forest": 22}, {"billetter": 9199, "kundebidrag_per_bill": 135, "betjeningskost_per_bill": 50, "resultat_per_bill": 85, "resultat_total_mkr": 0.78, "belegg_pct": 17.6, "kategori": "Annet", "tid": "Hverdag Kveld", "forestillinger": 562, "bill_per_forest": 16}, {"billetter": 23720, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 44, "resultat_per_bill": 99, "resultat_total_mkr": 2.35, "belegg_pct": 26.1, "kategori": "Drama/thriller", "tid": "Hverdag Kveld", "forestillinger": 824, "bill_per_forest": 29}, {"billetter": 19294, "kundebidrag_per_bill": 136, "betjeningskost_per_bill": 42, "resultat_per_bill": 94, "resultat_total_mkr": 1.81, "belegg_pct": 34.3, "kategori": "Norsk film", "tid": "Hverdag Kveld", "forestillinger": 545, "bill_per_forest": 35}, {"billetter": 19049, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 44, "resultat_per_bill": 102, "resultat_total_mkr": 1.94, "belegg_pct": 19.9, "kategori": "Horror/genre", "tid": "Hverdag Kveld", "forestillinger": 667, "bill_per_forest": 29}, {"billetter": 9814, "kundebidrag_per_bill": 97, "betjeningskost_per_bill": 47, "resultat_per_bill": 50, "resultat_total_mkr": 0.49, "belegg_pct": 22.5, "kategori": "Annet", "tid": "Helg Dagtid", "forestillinger": 482, "bill_per_forest": 20}, {"billetter": 64666, "kundebidrag_per_bill": 127, "betjeningskost_per_bill": 45, "resultat_per_bill": 82, "resultat_total_mkr": 5.3, "belegg_pct": 21.1, "kategori": "Familie/barn", "tid": "Helg Dagtid", "forestillinger": 2627, "bill_per_forest": 25}, {"billetter": 24348, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 43, "resultat_per_bill": 114, "resultat_total_mkr": 2.78, "belegg_pct": 18.2, "kategori": "Blockbuster voksen", "tid": "Helg Dagtid", "forestillinger": 774, "bill_per_forest": 31}, {"billetter": 16754, "kundebidrag_per_bill": 125, "betjeningskost_per_bill": 42, "resultat_per_bill": 83, "resultat_total_mkr": 1.39, "belegg_pct": 35.6, "kategori": "Norsk film", "tid": "Helg Dagtid", "forestillinger": 454, "bill_per_forest": 37}, {"billetter": 2923, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 45, "resultat_per_bill": 75, "resultat_total_mkr": 0.22, "belegg_pct": 19.3, "kategori": "Horror/genre", "tid": "Helg Dagtid", "forestillinger": 119, "bill_per_forest": 25}, {"billetter": 9124, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 47, "resultat_per_bill": 90, "resultat_total_mkr": 0.82, "belegg_pct": 21.3, "kategori": "Drama/thriller", "tid": "Helg Dagtid", "forestillinger": 429, "bill_per_forest": 21}, {"billetter": 30034, "kundebidrag_per_bill": 150, "betjeningskost_per_bill": 39, "resultat_per_bill": 110, "resultat_total_mkr": 3.31, "belegg_pct": 39.4, "kategori": "Horror/genre", "tid": "Helg Kveld", "forestillinger": 520, "bill_per_forest": 58}, {"billetter": 35899, "kundebidrag_per_bill": 141, "betjeningskost_per_bill": 41, "resultat_per_bill": 101, "resultat_total_mkr": 3.61, "belegg_pct": 37.4, "kategori": "Familie/barn", "tid": "Helg Kveld", "forestillinger": 825, "bill_per_forest": 44}, {"billetter": 67573, "kundebidrag_per_bill": 160, "betjeningskost_per_bill": 39, "resultat_per_bill": 121, "resultat_total_mkr": 8.15, "belegg_pct": 38.8, "kategori": "Blockbuster voksen", "tid": "Helg Kveld", "forestillinger": 1166, "bill_per_forest": 58}, {"billetter": 30864, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 40, "resultat_per_bill": 108, "resultat_total_mkr": 3.35, "belegg_pct": 45.3, "kategori": "Drama/thriller", "tid": "Helg Kveld", "forestillinger": 620, "bill_per_forest": 50}, {"billetter": 17433, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 44, "resultat_per_bill": 104, "resultat_total_mkr": 1.82, "belegg_pct": 29.5, "kategori": "Annet", "tid": "Helg Kveld", "forestillinger": 605, "bill_per_forest": 29}, {"billetter": 21519, "kundebidrag_per_bill": 144, "betjeningskost_per_bill": 40, "resultat_per_bill": 104, "resultat_total_mkr": 2.25, "belegg_pct": 52.1, "kategori": "Norsk film", "tid": "Helg Kveld", "forestillinger": 398, "bill_per_forest": 54}, {"billetter": 1168, "kundebidrag_per_bill": 139, "betjeningskost_per_bill": 74, "resultat_per_bill": 64, "resultat_total_mkr": 0.08, "belegg_pct": 4.6, "kategori": "Horror/genre", "tid": "Hverdag Dagtid", "forestillinger": 183, "bill_per_forest": 6}, {"billetter": 1599, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 40, "resultat_per_bill": 103, "resultat_total_mkr": 0.16, "belegg_pct": 30.7, "kategori": "Event/spesial", "tid": "Hverdag Kveld", "forestillinger": 35, "bill_per_forest": 46}, {"billetter": 4827, "kundebidrag_per_bill": 153, "betjeningskost_per_bill": 38, "resultat_per_bill": 115, "resultat_total_mkr": 0.56, "belegg_pct": 54.5, "kategori": "Event/spesial", "tid": "Helg Kveld", "forestillinger": 52, "bill_per_forest": 93}, {"billetter": 1016, "kundebidrag_per_bill": 138, "betjeningskost_per_bill": 41, "resultat_per_bill": 97, "resultat_total_mkr": 0.1, "belegg_pct": 38.3, "kategori": "Event/spesial", "tid": "Helg Dagtid", "forestillinger": 23, "bill_per_forest": 44}, {"billetter": 132, "kundebidrag_per_bill": 108, "betjeningskost_per_bill": 77, "resultat_per_bill": 31, "resultat_total_mkr": 0.0, "belegg_pct": 7.3, "kategori": "Event/spesial", "tid": "Hverdag Dagtid", "forestillinger": 22, "bill_per_forest": 6}], "m4": [{"billetter": 23874, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 50, "resultat_per_bill": 70, "resultat_total_mkr": 1.67, "belegg_pct": 11.0, "kategori": "Familie/barn", "tid": "Hverdag Dagtid", "forestillinger": 1857, "bill_per_forest": 13}, {"billetter": 14233, "kundebidrag_per_bill": 154, "betjeningskost_per_bill": 56, "resultat_per_bill": 98, "resultat_total_mkr": 1.4, "belegg_pct": 9.6, "kategori": "Blockbuster voksen", "tid": "Hverdag Dagtid", "forestillinger": 899, "bill_per_forest": 16}, {"billetter": 3052, "kundebidrag_per_bill": 102, "betjeningskost_per_bill": 64, "resultat_per_bill": 37, "resultat_total_mkr": 0.11, "belegg_pct": 8.1, "kategori": "Annet", "tid": "Hverdag Dagtid", "forestillinger": 438, "bill_per_forest": 7}, {"billetter": 6967, "kundebidrag_per_bill": 99, "betjeningskost_per_bill": 50, "resultat_per_bill": 49, "resultat_total_mkr": 0.34, "belegg_pct": 16.4, "kategori": "Norsk film", "tid": "Hverdag Dagtid", "forestillinger": 452, "bill_per_forest": 15}, {"billetter": 4826, "kundebidrag_per_bill": 122, "betjeningskost_per_bill": 70, "resultat_per_bill": 52, "resultat_total_mkr": 0.25, "belegg_pct": 7.4, "kategori": "Drama/thriller", "tid": "Hverdag Dagtid", "forestillinger": 636, "bill_per_forest": 8}, {"billetter": 57832, "kundebidrag_per_bill": 155, "betjeningskost_per_bill": 44, "resultat_per_bill": 111, "resultat_total_mkr": 6.41, "belegg_pct": 24.5, "kategori": "Blockbuster voksen", "tid": "Hverdag Kveld", "forestillinger": 1573, "bill_per_forest": 37}, {"billetter": 24292, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 44, "resultat_per_bill": 93, "resultat_total_mkr": 2.27, "belegg_pct": 18.6, "kategori": "Familie/barn", "tid": "Hverdag Kveld", "forestillinger": 1097, "bill_per_forest": 22}, {"billetter": 9199, "kundebidrag_per_bill": 135, "betjeningskost_per_bill": 48, "resultat_per_bill": 87, "resultat_total_mkr": 0.8, "belegg_pct": 17.6, "kategori": "Annet", "tid": "Hverdag Kveld", "forestillinger": 562, "bill_per_forest": 16}, {"billetter": 23720, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 44, "resultat_per_bill": 99, "resultat_total_mkr": 2.35, "belegg_pct": 26.1, "kategori": "Drama/thriller", "tid": "Hverdag Kveld", "forestillinger": 824, "bill_per_forest": 29}, {"billetter": 19294, "kundebidrag_per_bill": 136, "betjeningskost_per_bill": 40, "resultat_per_bill": 96, "resultat_total_mkr": 1.85, "belegg_pct": 34.3, "kategori": "Norsk film", "tid": "Hverdag Kveld", "forestillinger": 545, "bill_per_forest": 35}, {"billetter": 19049, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 44, "resultat_per_bill": 101, "resultat_total_mkr": 1.93, "belegg_pct": 19.9, "kategori": "Horror/genre", "tid": "Hverdag Kveld", "forestillinger": 667, "bill_per_forest": 29}, {"billetter": 9814, "kundebidrag_per_bill": 97, "betjeningskost_per_bill": 44, "resultat_per_bill": 54, "resultat_total_mkr": 0.53, "belegg_pct": 22.5, "kategori": "Annet", "tid": "Helg Dagtid", "forestillinger": 482, "bill_per_forest": 20}, {"billetter": 64666, "kundebidrag_per_bill": 127, "betjeningskost_per_bill": 42, "resultat_per_bill": 85, "resultat_total_mkr": 5.5, "belegg_pct": 21.1, "kategori": "Familie/barn", "tid": "Helg Dagtid", "forestillinger": 2627, "bill_per_forest": 25}, {"billetter": 24348, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 47, "resultat_per_bill": 110, "resultat_total_mkr": 2.67, "belegg_pct": 18.2, "kategori": "Blockbuster voksen", "tid": "Helg Dagtid", "forestillinger": 774, "bill_per_forest": 31}, {"billetter": 16754, "kundebidrag_per_bill": 125, "betjeningskost_per_bill": 39, "resultat_per_bill": 85, "resultat_total_mkr": 1.43, "belegg_pct": 35.6, "kategori": "Norsk film", "tid": "Helg Dagtid", "forestillinger": 454, "bill_per_forest": 37}, {"billetter": 2923, "kundebidrag_per_bill": 120, "betjeningskost_per_bill": 42, "resultat_per_bill": 78, "resultat_total_mkr": 0.23, "belegg_pct": 19.3, "kategori": "Horror/genre", "tid": "Helg Dagtid", "forestillinger": 119, "bill_per_forest": 25}, {"billetter": 9124, "kundebidrag_per_bill": 137, "betjeningskost_per_bill": 49, "resultat_per_bill": 88, "resultat_total_mkr": 0.81, "belegg_pct": 21.3, "kategori": "Drama/thriller", "tid": "Helg Dagtid", "forestillinger": 429, "bill_per_forest": 21}, {"billetter": 30034, "kundebidrag_per_bill": 150, "betjeningskost_per_bill": 40, "resultat_per_bill": 109, "resultat_total_mkr": 3.28, "belegg_pct": 39.4, "kategori": "Horror/genre", "tid": "Helg Kveld", "forestillinger": 520, "bill_per_forest": 58}, {"billetter": 35899, "kundebidrag_per_bill": 141, "betjeningskost_per_bill": 38, "resultat_per_bill": 103, "resultat_total_mkr": 3.7, "belegg_pct": 37.4, "kategori": "Familie/barn", "tid": "Helg Kveld", "forestillinger": 825, "bill_per_forest": 44}, {"billetter": 67573, "kundebidrag_per_bill": 160, "betjeningskost_per_bill": 42, "resultat_per_bill": 118, "resultat_total_mkr": 7.99, "belegg_pct": 38.8, "kategori": "Blockbuster voksen", "tid": "Helg Kveld", "forestillinger": 1166, "bill_per_forest": 58}, {"billetter": 30864, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 40, "resultat_per_bill": 109, "resultat_total_mkr": 3.35, "belegg_pct": 45.3, "kategori": "Drama/thriller", "tid": "Helg Kveld", "forestillinger": 620, "bill_per_forest": 50}, {"billetter": 17433, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 42, "resultat_per_bill": 106, "resultat_total_mkr": 1.85, "belegg_pct": 29.5, "kategori": "Annet", "tid": "Helg Kveld", "forestillinger": 605, "bill_per_forest": 29}, {"billetter": 21519, "kundebidrag_per_bill": 144, "betjeningskost_per_bill": 37, "resultat_per_bill": 107, "resultat_total_mkr": 2.3, "belegg_pct": 52.1, "kategori": "Norsk film", "tid": "Helg Kveld", "forestillinger": 398, "bill_per_forest": 54}, {"billetter": 1168, "kundebidrag_per_bill": 139, "betjeningskost_per_bill": 73, "resultat_per_bill": 66, "resultat_total_mkr": 0.08, "belegg_pct": 4.6, "kategori": "Horror/genre", "tid": "Hverdag Dagtid", "forestillinger": 183, "bill_per_forest": 6}, {"billetter": 1599, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 43, "resultat_per_bill": 100, "resultat_total_mkr": 0.16, "belegg_pct": 30.7, "kategori": "Event/spesial", "tid": "Hverdag Kveld", "forestillinger": 35, "bill_per_forest": 46}, {"billetter": 4827, "kundebidrag_per_bill": 153, "betjeningskost_per_bill": 40, "resultat_per_bill": 113, "resultat_total_mkr": 0.54, "belegg_pct": 54.5, "kategori": "Event/spesial", "tid": "Helg Kveld", "forestillinger": 52, "bill_per_forest": 93}, {"billetter": 1016, "kundebidrag_per_bill": 138, "betjeningskost_per_bill": 40, "resultat_per_bill": 98, "resultat_total_mkr": 0.1, "belegg_pct": 38.3, "kategori": "Event/spesial", "tid": "Helg Dagtid", "forestillinger": 23, "bill_per_forest": 44}, {"billetter": 132, "kundebidrag_per_bill": 108, "betjeningskost_per_bill": 82, "resultat_per_bill": 26, "resultat_total_mkr": 0.0, "belegg_pct": 7.3, "kategori": "Event/spesial", "tid": "Hverdag Dagtid", "forestillinger": 22, "bill_per_forest": 6}]}, "kategorier_per_metode": {"m1": [{"billetter": 163986, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 0, "resultat_per_bill": 157, "resultat_total_mkr": 25.8, "belegg_pct": 23.7, "kategori": "Blockbuster voksen", "andel_pct": 30.0, "billett_net_mkr": 30.4, "kiosk_net_mkr": 12.1, "snittpris": 185, "kiosk_per_bill": 74, "imax_pct": 40.8, "luxe_pct": 4.7, "medl_pct": 14.9}, {"billetter": 148731, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 0, "resultat_per_bill": 131, "resultat_total_mkr": 19.49, "belegg_pct": 19.8, "kategori": "Familie/barn", "andel_pct": 27.2, "billett_net_mkr": 19.6, "kiosk_net_mkr": 10.0, "snittpris": 132, "kiosk_per_bill": 67, "imax_pct": 7.5, "luxe_pct": 1.3, "medl_pct": 11.4}, {"billetter": 68534, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 0, "resultat_per_bill": 143, "resultat_total_mkr": 9.8, "belegg_pct": 25.7, "kategori": "Drama/thriller", "andel_pct": 12.6, "billett_net_mkr": 10.7, "kiosk_net_mkr": 4.6, "snittpris": 156, "kiosk_per_bill": 67, "imax_pct": 14.2, "luxe_pct": 15.9, "medl_pct": 10.3}, {"billetter": 64534, "kundebidrag_per_bill": 132, "betjeningskost_per_bill": 0, "resultat_per_bill": 132, "resultat_total_mkr": 8.49, "belegg_pct": 34.5, "kategori": "Norsk film", "andel_pct": 11.8, "billett_net_mkr": 8.8, "kiosk_net_mkr": 3.9, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 0.5, "luxe_pct": 13.5, "medl_pct": 15.3}, {"billetter": 53174, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 0, "resultat_per_bill": 146, "resultat_total_mkr": 7.78, "belegg_pct": 25.0, "kategori": "Horror/genre", "andel_pct": 9.7, "billett_net_mkr": 8.7, "kiosk_net_mkr": 3.7, "snittpris": 164, "kiosk_per_bill": 69, "imax_pct": 27.5, "luxe_pct": 1.9, "medl_pct": 9.6}, {"billetter": 39498, "kundebidrag_per_bill": 129, "betjeningskost_per_bill": 0, "resultat_per_bill": 129, "resultat_total_mkr": 5.09, "belegg_pct": 20.5, "kategori": "Annet", "andel_pct": 7.2, "billett_net_mkr": 5.4, "kiosk_net_mkr": 2.4, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 11.8, "luxe_pct": 3.5, "medl_pct": 12.2}, {"billetter": 7574, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 0, "resultat_per_bill": 148, "resultat_total_mkr": 1.12, "belegg_pct": 40.9, "kategori": "Event/spesial", "andel_pct": 1.4, "billett_net_mkr": 1.3, "kiosk_net_mkr": 0.5, "snittpris": 175, "kiosk_per_bill": 63, "imax_pct": 30.6, "luxe_pct": 7.7, "medl_pct": 10.3}], "m2": [{"billetter": 163986, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 95, "resultat_per_bill": 63, "resultat_total_mkr": 10.29, "belegg_pct": 23.7, "kategori": "Blockbuster voksen", "andel_pct": 30.0, "billett_net_mkr": 30.4, "kiosk_net_mkr": 12.1, "snittpris": 185, "kiosk_per_bill": 74, "imax_pct": 40.8, "luxe_pct": 4.7, "medl_pct": 14.9}, {"billetter": 148731, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 95, "resultat_per_bill": 36, "resultat_total_mkr": 5.42, "belegg_pct": 19.8, "kategori": "Familie/barn", "andel_pct": 27.2, "billett_net_mkr": 19.6, "kiosk_net_mkr": 10.0, "snittpris": 132, "kiosk_per_bill": 67, "imax_pct": 7.5, "luxe_pct": 1.3, "medl_pct": 11.4}, {"billetter": 68534, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 95, "resultat_per_bill": 48, "resultat_total_mkr": 3.32, "belegg_pct": 25.7, "kategori": "Drama/thriller", "andel_pct": 12.6, "billett_net_mkr": 10.7, "kiosk_net_mkr": 4.6, "snittpris": 156, "kiosk_per_bill": 67, "imax_pct": 14.2, "luxe_pct": 15.9, "medl_pct": 10.3}, {"billetter": 64534, "kundebidrag_per_bill": 132, "betjeningskost_per_bill": 95, "resultat_per_bill": 37, "resultat_total_mkr": 2.39, "belegg_pct": 34.5, "kategori": "Norsk film", "andel_pct": 11.8, "billett_net_mkr": 8.8, "kiosk_net_mkr": 3.9, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 0.5, "luxe_pct": 13.5, "medl_pct": 15.3}, {"billetter": 53174, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 95, "resultat_per_bill": 52, "resultat_total_mkr": 2.75, "belegg_pct": 25.0, "kategori": "Horror/genre", "andel_pct": 9.7, "billett_net_mkr": 8.7, "kiosk_net_mkr": 3.7, "snittpris": 164, "kiosk_per_bill": 69, "imax_pct": 27.5, "luxe_pct": 1.9, "medl_pct": 9.6}, {"billetter": 39498, "kundebidrag_per_bill": 129, "betjeningskost_per_bill": 95, "resultat_per_bill": 34, "resultat_total_mkr": 1.35, "belegg_pct": 20.5, "kategori": "Annet", "andel_pct": 7.2, "billett_net_mkr": 5.4, "kiosk_net_mkr": 2.4, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 11.8, "luxe_pct": 3.5, "medl_pct": 12.2}, {"billetter": 7574, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 95, "resultat_per_bill": 53, "resultat_total_mkr": 0.4, "belegg_pct": 40.9, "kategori": "Event/spesial", "andel_pct": 1.4, "billett_net_mkr": 1.3, "kiosk_net_mkr": 0.5, "snittpris": 175, "kiosk_per_bill": 63, "imax_pct": 30.6, "luxe_pct": 7.7, "medl_pct": 10.3}], "m3": [{"billetter": 163986, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 42, "resultat_per_bill": 116, "resultat_total_mkr": 18.98, "belegg_pct": 23.7, "kategori": "Blockbuster voksen", "andel_pct": 30.0, "billett_net_mkr": 30.4, "kiosk_net_mkr": 12.1, "snittpris": 185, "kiosk_per_bill": 74, "imax_pct": 40.8, "luxe_pct": 4.7, "medl_pct": 14.9}, {"billetter": 148731, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 46, "resultat_per_bill": 85, "resultat_total_mkr": 12.69, "belegg_pct": 19.8, "kategori": "Familie/barn", "andel_pct": 27.2, "billett_net_mkr": 19.6, "kiosk_net_mkr": 10.0, "snittpris": 132, "kiosk_per_bill": 67, "imax_pct": 7.5, "luxe_pct": 1.3, "medl_pct": 11.4}, {"billetter": 68534, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 44, "resultat_per_bill": 99, "resultat_total_mkr": 6.78, "belegg_pct": 25.7, "kategori": "Drama/thriller", "andel_pct": 12.6, "billett_net_mkr": 10.7, "kiosk_net_mkr": 4.6, "snittpris": 156, "kiosk_per_bill": 67, "imax_pct": 14.2, "luxe_pct": 15.9, "medl_pct": 10.3}, {"billetter": 64534, "kundebidrag_per_bill": 132, "betjeningskost_per_bill": 42, "resultat_per_bill": 90, "resultat_total_mkr": 5.78, "belegg_pct": 34.5, "kategori": "Norsk film", "andel_pct": 11.8, "billett_net_mkr": 8.8, "kiosk_net_mkr": 3.9, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 0.5, "luxe_pct": 13.5, "medl_pct": 15.3}, {"billetter": 53174, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 42, "resultat_per_bill": 104, "resultat_total_mkr": 5.55, "belegg_pct": 25.0, "kategori": "Horror/genre", "andel_pct": 9.7, "billett_net_mkr": 8.7, "kiosk_net_mkr": 3.7, "snittpris": 164, "kiosk_per_bill": 69, "imax_pct": 27.5, "luxe_pct": 1.9, "medl_pct": 9.6}, {"billetter": 39498, "kundebidrag_per_bill": 129, "betjeningskost_per_bill": 48, "resultat_per_bill": 81, "resultat_total_mkr": 3.19, "belegg_pct": 20.5, "kategori": "Annet", "andel_pct": 7.2, "billett_net_mkr": 5.4, "kiosk_net_mkr": 2.4, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 11.8, "luxe_pct": 3.5, "medl_pct": 12.2}, {"billetter": 7574, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 39, "resultat_per_bill": 109, "resultat_total_mkr": 0.82, "belegg_pct": 40.9, "kategori": "Event/spesial", "andel_pct": 1.4, "billett_net_mkr": 1.3, "kiosk_net_mkr": 0.5, "snittpris": 175, "kiosk_per_bill": 63, "imax_pct": 30.6, "luxe_pct": 7.7, "medl_pct": 10.3}], "m4": [{"billetter": 163986, "kundebidrag_per_bill": 157, "betjeningskost_per_bill": 45, "resultat_per_bill": 113, "resultat_total_mkr": 18.47, "belegg_pct": 23.7, "kategori": "Blockbuster voksen", "andel_pct": 30.0, "billett_net_mkr": 30.4, "kiosk_net_mkr": 12.1, "snittpris": 185, "kiosk_per_bill": 74, "imax_pct": 40.8, "luxe_pct": 4.7, "medl_pct": 14.9}, {"billetter": 148731, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 43, "resultat_per_bill": 88, "resultat_total_mkr": 13.14, "belegg_pct": 19.8, "kategori": "Familie/barn", "andel_pct": 27.2, "billett_net_mkr": 19.6, "kiosk_net_mkr": 10.0, "snittpris": 132, "kiosk_per_bill": 67, "imax_pct": 7.5, "luxe_pct": 1.3, "medl_pct": 11.4}, {"billetter": 68534, "kundebidrag_per_bill": 143, "betjeningskost_per_bill": 44, "resultat_per_bill": 99, "resultat_total_mkr": 6.76, "belegg_pct": 25.7, "kategori": "Drama/thriller", "andel_pct": 12.6, "billett_net_mkr": 10.7, "kiosk_net_mkr": 4.6, "snittpris": 156, "kiosk_per_bill": 67, "imax_pct": 14.2, "luxe_pct": 15.9, "medl_pct": 10.3}, {"billetter": 64534, "kundebidrag_per_bill": 132, "betjeningskost_per_bill": 40, "resultat_per_bill": 92, "resultat_total_mkr": 5.92, "belegg_pct": 34.5, "kategori": "Norsk film", "andel_pct": 11.8, "billett_net_mkr": 8.8, "kiosk_net_mkr": 3.9, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 0.5, "luxe_pct": 13.5, "medl_pct": 15.3}, {"billetter": 53174, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 42, "resultat_per_bill": 104, "resultat_total_mkr": 5.52, "belegg_pct": 25.0, "kategori": "Horror/genre", "andel_pct": 9.7, "billett_net_mkr": 8.7, "kiosk_net_mkr": 3.7, "snittpris": 164, "kiosk_per_bill": 69, "imax_pct": 27.5, "luxe_pct": 1.9, "medl_pct": 9.6}, {"billetter": 39498, "kundebidrag_per_bill": 129, "betjeningskost_per_bill": 45, "resultat_per_bill": 83, "resultat_total_mkr": 3.29, "belegg_pct": 20.5, "kategori": "Annet", "andel_pct": 7.2, "billett_net_mkr": 5.4, "kiosk_net_mkr": 2.4, "snittpris": 137, "kiosk_per_bill": 61, "imax_pct": 11.8, "luxe_pct": 3.5, "medl_pct": 12.2}, {"billetter": 7574, "kundebidrag_per_bill": 148, "betjeningskost_per_bill": 41, "resultat_per_bill": 106, "resultat_total_mkr": 0.81, "belegg_pct": 40.9, "kategori": "Event/spesial", "andel_pct": 1.4, "billett_net_mkr": 1.3, "kiosk_net_mkr": 0.5, "snittpris": 175, "kiosk_per_bill": 63, "imax_pct": 30.6, "luxe_pct": 7.7, "medl_pct": 10.3}]}, "tid_per_metode": {"m1": [{"billetter": 54252, "kundebidrag_per_bill": 126, "betjeningskost_per_bill": 0, "resultat_per_bill": 126, "resultat_total_mkr": 6.83, "belegg_pct": 10.1, "tid": "Hverdag Dagtid", "forestillinger": 4487, "bill_per_forest": 12}, {"billetter": 154985, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 0, "resultat_per_bill": 146, "resultat_total_mkr": 22.57, "belegg_pct": 23.2, "tid": "Hverdag Kveld", "forestillinger": 5303, "bill_per_forest": 29}, {"billetter": 128645, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 0, "resultat_per_bill": 131, "resultat_total_mkr": 16.82, "belegg_pct": 21.7, "tid": "Helg Dagtid", "forestillinger": 4908, "bill_per_forest": 26}, {"billetter": 208149, "kundebidrag_per_bill": 151, "betjeningskost_per_bill": 0, "resultat_per_bill": 151, "resultat_total_mkr": 31.35, "belegg_pct": 39.7, "tid": "Helg Kveld", "forestillinger": 4186, "bill_per_forest": 50}], "m2": [{"billetter": 54252, "kundebidrag_per_bill": 126, "betjeningskost_per_bill": 95, "resultat_per_bill": 31, "resultat_total_mkr": 1.7, "belegg_pct": 10.1, "tid": "Hverdag Dagtid", "forestillinger": 4487, "bill_per_forest": 12}, {"billetter": 154985, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 95, "resultat_per_bill": 51, "resultat_total_mkr": 7.91, "belegg_pct": 23.2, "tid": "Hverdag Kveld", "forestillinger": 5303, "bill_per_forest": 29}, {"billetter": 128645, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 95, "resultat_per_bill": 36, "resultat_total_mkr": 4.65, "belegg_pct": 21.7, "tid": "Helg Dagtid", "forestillinger": 4908, "bill_per_forest": 26}, {"billetter": 208149, "kundebidrag_per_bill": 151, "betjeningskost_per_bill": 95, "resultat_per_bill": 56, "resultat_total_mkr": 11.67, "belegg_pct": 39.7, "tid": "Helg Kveld", "forestillinger": 4186, "bill_per_forest": 50}], "m3": [{"billetter": 54252, "kundebidrag_per_bill": 126, "betjeningskost_per_bill": 56, "resultat_per_bill": 70, "resultat_total_mkr": 3.81, "belegg_pct": 10.1, "tid": "Hverdag Dagtid", "forestillinger": 4487, "bill_per_forest": 12}, {"billetter": 154985, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 43, "resultat_per_bill": 102, "resultat_total_mkr": 15.83, "belegg_pct": 23.2, "tid": "Hverdag Kveld", "forestillinger": 5303, "bill_per_forest": 29}, {"billetter": 128645, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 44, "resultat_per_bill": 86, "resultat_total_mkr": 11.1, "belegg_pct": 21.7, "tid": "Helg Dagtid", "forestillinger": 4908, "bill_per_forest": 26}, {"billetter": 208149, "kundebidrag_per_bill": 151, "betjeningskost_per_bill": 40, "resultat_per_bill": 111, "resultat_total_mkr": 23.05, "belegg_pct": 39.7, "tid": "Helg Kveld", "forestillinger": 4186, "bill_per_forest": 50}], "m4": [{"billetter": 54252, "kundebidrag_per_bill": 126, "betjeningskost_per_bill": 55, "resultat_per_bill": 71, "resultat_total_mkr": 3.86, "belegg_pct": 10.1, "tid": "Hverdag Dagtid", "forestillinger": 4487, "bill_per_forest": 12}, {"billetter": 154985, "kundebidrag_per_bill": 146, "betjeningskost_per_bill": 44, "resultat_per_bill": 102, "resultat_total_mkr": 15.78, "belegg_pct": 23.2, "tid": "Hverdag Kveld", "forestillinger": 5303, "bill_per_forest": 29}, {"billetter": 128645, "kundebidrag_per_bill": 131, "betjeningskost_per_bill": 43, "resultat_per_bill": 88, "resultat_total_mkr": 11.26, "belegg_pct": 21.7, "tid": "Helg Dagtid", "forestillinger": 4908, "bill_per_forest": 26}, {"billetter": 208149, "kundebidrag_per_bill": 151, "betjeningskost_per_bill": 40, "resultat_per_bill": 111, "resultat_total_mkr": 23.02, "belegg_pct": 39.7, "tid": "Helg Kveld", "forestillinger": 4186, "bill_per_forest": 50}]}, "total_per_metode": {"m1": {"kundebidrag_mkr": 77.58, "betjeningskost_mkr": 0.0, "resultat_fra_gjester_mkr": 77.58, "ubrukt_kapasitet_mkr": 0.0, "ebit_estimat_mkr": 77.58}, "m2": {"kundebidrag_mkr": 77.58, "betjeningskost_mkr": 51.64, "resultat_fra_gjester_mkr": 25.94, "ubrukt_kapasitet_mkr": 0.0, "ebit_estimat_mkr": 25.94}, "m3": {"kundebidrag_mkr": 77.58, "betjeningskost_mkr": 23.79, "resultat_fra_gjester_mkr": 53.78, "ubrukt_kapasitet_mkr": 27.85, "ebit_estimat_mkr": 25.93}, "m4": {"kundebidrag_mkr": 77.58, "betjeningskost_mkr": 23.66, "resultat_fra_gjester_mkr": 53.92, "ubrukt_kapasitet_mkr": 27.98, "ebit_estimat_mkr": 25.94}}, "topp_billetter": [{"film": "Avatar: Fire and Ash", "kategori": "Blockbuster voksen", "billetter": 21601, "billett_net_mkr": 4.47, "snittpris": 207, "kiosk_per_bill": 78, "imax_pct": 54.5, "belegg_pct": 47.7, "resultat_per_bill": 131, "resultat_total_mkr": 2.82, "forest_snitt_bill": 74}, {"film": "Mission: Impossible - The Final Reckoning", "kategori": "Blockbuster voksen", "billetter": 20032, "billett_net_mkr": 4.17, "snittpris": 208, "kiosk_per_bill": 75, "imax_pct": 49.2, "belegg_pct": 27.5, "resultat_per_bill": 128, "resultat_total_mkr": 2.57, "forest_snitt_bill": 45}, {"film": "En Minecraft-film", "kategori": "Familie/barn", "billetter": 18428, "billett_net_mkr": 2.86, "snittpris": 155, "kiosk_per_bill": 68, "imax_pct": 24.1, "belegg_pct": 21.1, "resultat_per_bill": 98, "resultat_total_mkr": 1.81, "forest_snitt_bill": 34}, {"film": "F1 ® The Movie", "kategori": "Blockbuster voksen", "billetter": 17472, "billett_net_mkr": 3.37, "snittpris": 193, "kiosk_per_bill": 76, "imax_pct": 43.6, "belegg_pct": 28.9, "resultat_per_bill": 122, "resultat_total_mkr": 2.13, "forest_snitt_bill": 51}, {"film": "One Battle After Another", "kategori": "Drama/thriller", "billetter": 17068, "billett_net_mkr": 3.27, "snittpris": 191, "kiosk_per_bill": 71, "imax_pct": 52.0, "belegg_pct": 27.9, "resultat_per_bill": 117, "resultat_total_mkr": 2.0, "forest_snitt_bill": 59}, {"film": "Lilo & Stitch", "kategori": "Familie/barn", "billetter": 16300, "billett_net_mkr": 2.13, "snittpris": 131, "kiosk_per_bill": 79, "imax_pct": 0.0, "belegg_pct": 24.2, "resultat_per_bill": 93, "resultat_total_mkr": 1.52, "forest_snitt_bill": 24}, {"film": "Affeksjonsverdi", "kategori": "Norsk film", "billetter": 16283, "billett_net_mkr": 2.36, "snittpris": 145, "kiosk_per_bill": 69, "imax_pct": 0.0, "belegg_pct": 44.4, "resultat_per_bill": 100, "resultat_total_mkr": 1.63, "forest_snitt_bill": 38}, {"film": "Blücher", "kategori": "Norsk film", "billetter": 14572, "billett_net_mkr": 2.3, "snittpris": 158, "kiosk_per_bill": 63, "imax_pct": 0.0, "belegg_pct": 34.1, "resultat_per_bill": 104, "resultat_total_mkr": 1.51, "forest_snitt_bill": 39}, {"film": "Hvis ingen går i fella", "kategori": "Norsk film", "billetter": 14047, "billett_net_mkr": 1.75, "snittpris": 125, "kiosk_per_bill": 62, "imax_pct": 0.0, "belegg_pct": 37.2, "resultat_per_bill": 85, "resultat_total_mkr": 1.2, "forest_snitt_bill": 47}, {"film": "Superman", "kategori": "Blockbuster voksen", "billetter": 12996, "billett_net_mkr": 2.49, "snittpris": 192, "kiosk_per_bill": 72, "imax_pct": 45.8, "belegg_pct": 23.0, "resultat_per_bill": 117, "resultat_total_mkr": 1.52, "forest_snitt_bill": 38}, {"film": "The Conjuring: Last Rites", "kategori": "Horror/genre", "billetter": 11167, "billett_net_mkr": 1.88, "snittpris": 168, "kiosk_per_bill": 70, "imax_pct": 34.5, "belegg_pct": 34.5, "resultat_per_bill": 108, "resultat_total_mkr": 1.2, "forest_snitt_bill": 53}, {"film": "Jurassic World: Rebirth", "kategori": "Blockbuster voksen", "billetter": 10693, "billett_net_mkr": 1.68, "snittpris": 157, "kiosk_per_bill": 75, "imax_pct": 0.0, "belegg_pct": 22.9, "resultat_per_bill": 108, "resultat_total_mkr": 1.16, "forest_snitt_bill": 29}, {"film": "Bridget Jones: Mad About the Boy", "kategori": "Drama/thriller", "billetter": 10109, "billett_net_mkr": 1.52, "snittpris": 150, "kiosk_per_bill": 63, "imax_pct": 0.0, "belegg_pct": 33.7, "resultat_per_bill": 99, "resultat_total_mkr": 1.0, "forest_snitt_bill": 35}, {"film": "Mufasa: Løvenes konge", "kategori": "Familie/barn", "billetter": 9909, "billett_net_mkr": 1.46, "snittpris": 147, "kiosk_per_bill": 70, "imax_pct": 18.7, "belegg_pct": 15.8, "resultat_per_bill": 95, "resultat_total_mkr": 0.94, "forest_snitt_bill": 28}, {"film": "Wicked: For Good", "kategori": "Blockbuster voksen", "billetter": 9576, "billett_net_mkr": 1.85, "snittpris": 193, "kiosk_per_bill": 81, "imax_pct": 57.0, "belegg_pct": 20.4, "resultat_per_bill": 122, "resultat_total_mkr": 1.17, "forest_snitt_bill": 45}, {"film": "Dragetreneren", "kategori": "Familie/barn", "billetter": 9386, "billett_net_mkr": 1.43, "snittpris": 152, "kiosk_per_bill": 75, "imax_pct": 18.0, "belegg_pct": 13.6, "resultat_per_bill": 97, "resultat_total_mkr": 0.91, "forest_snitt_bill": 19}, {"film": "Demon Slayer: Kimetsu no Yaiba Infinity Castle", "kategori": "Blockbuster voksen", "billetter": 9088, "billett_net_mkr": 1.77, "snittpris": 194, "kiosk_per_bill": 75, "imax_pct": 59.6, "belegg_pct": 38.7, "resultat_per_bill": 120, "resultat_total_mkr": 1.09, "forest_snitt_bill": 68}, {"film": "Sinners", "kategori": "Horror/genre", "billetter": 8682, "billett_net_mkr": 1.48, "snittpris": 171, "kiosk_per_bill": 76, "imax_pct": 30.8, "belegg_pct": 28.9, "resultat_per_bill": 112, "resultat_total_mkr": 0.98, "forest_snitt_bill": 43}, {"film": "Zootropolis 2", "kategori": "Familie/barn", "billetter": 8205, "billett_net_mkr": 1.07, "snittpris": 130, "kiosk_per_bill": 68, "imax_pct": 0.0, "belegg_pct": 35.4, "resultat_per_bill": 91, "resultat_total_mkr": 0.74, "forest_snitt_bill": 38}, {"film": "Nosferatu", "kategori": "Horror/genre", "billetter": 8051, "billett_net_mkr": 1.49, "snittpris": 184, "kiosk_per_bill": 69, "imax_pct": 54.1, "belegg_pct": 21.4, "resultat_per_bill": 110, "resultat_total_mkr": 0.89, "forest_snitt_bill": 40}], "topp_inntekt": [{"film": "Avatar: Fire and Ash", "kategori": "Blockbuster voksen", "billetter": 21601, "billett_net_mkr": 4.47, "snittpris": 207, "kiosk_per_bill": 78, "imax_pct": 54.5, "belegg_pct": 47.7, "resultat_per_bill": 131, "resultat_total_mkr": 2.82, "forest_snitt_bill": 74}, {"film": "Mission: Impossible - The Final Reckoning", "kategori": "Blockbuster voksen", "billetter": 20032, "billett_net_mkr": 4.17, "snittpris": 208, "kiosk_per_bill": 75, "imax_pct": 49.2, "belegg_pct": 27.5, "resultat_per_bill": 128, "resultat_total_mkr": 2.57, "forest_snitt_bill": 45}, {"film": "F1 ® The Movie", "kategori": "Blockbuster voksen", "billetter": 17472, "billett_net_mkr": 3.37, "snittpris": 193, "kiosk_per_bill": 76, "imax_pct": 43.6, "belegg_pct": 28.9, "resultat_per_bill": 122, "resultat_total_mkr": 2.13, "forest_snitt_bill": 51}, {"film": "One Battle After Another", "kategori": "Drama/thriller", "billetter": 17068, "billett_net_mkr": 3.27, "snittpris": 191, "kiosk_per_bill": 71, "imax_pct": 52.0, "belegg_pct": 27.9, "resultat_per_bill": 117, "resultat_total_mkr": 2.0, "forest_snitt_bill": 59}, {"film": "En Minecraft-film", "kategori": "Familie/barn", "billetter": 18428, "billett_net_mkr": 2.86, "snittpris": 155, "kiosk_per_bill": 68, "imax_pct": 24.1, "belegg_pct": 21.1, "resultat_per_bill": 98, "resultat_total_mkr": 1.81, "forest_snitt_bill": 34}, {"film": "Superman", "kategori": "Blockbuster voksen", "billetter": 12996, "billett_net_mkr": 2.49, "snittpris": 192, "kiosk_per_bill": 72, "imax_pct": 45.8, "belegg_pct": 23.0, "resultat_per_bill": 117, "resultat_total_mkr": 1.52, "forest_snitt_bill": 38}, {"film": "Affeksjonsverdi", "kategori": "Norsk film", "billetter": 16283, "billett_net_mkr": 2.36, "snittpris": 145, "kiosk_per_bill": 69, "imax_pct": 0.0, "belegg_pct": 44.4, "resultat_per_bill": 100, "resultat_total_mkr": 1.63, "forest_snitt_bill": 38}, {"film": "Blücher", "kategori": "Norsk film", "billetter": 14572, "billett_net_mkr": 2.3, "snittpris": 158, "kiosk_per_bill": 63, "imax_pct": 0.0, "belegg_pct": 34.1, "resultat_per_bill": 104, "resultat_total_mkr": 1.51, "forest_snitt_bill": 39}, {"film": "Lilo & Stitch", "kategori": "Familie/barn", "billetter": 16300, "billett_net_mkr": 2.13, "snittpris": 131, "kiosk_per_bill": 79, "imax_pct": 0.0, "belegg_pct": 24.2, "resultat_per_bill": 93, "resultat_total_mkr": 1.52, "forest_snitt_bill": 24}, {"film": "The Conjuring: Last Rites", "kategori": "Horror/genre", "billetter": 11167, "billett_net_mkr": 1.88, "snittpris": 168, "kiosk_per_bill": 70, "imax_pct": 34.5, "belegg_pct": 34.5, "resultat_per_bill": 108, "resultat_total_mkr": 1.2, "forest_snitt_bill": 53}, {"film": "Wicked: For Good", "kategori": "Blockbuster voksen", "billetter": 9576, "billett_net_mkr": 1.85, "snittpris": 193, "kiosk_per_bill": 81, "imax_pct": 57.0, "belegg_pct": 20.4, "resultat_per_bill": 122, "resultat_total_mkr": 1.17, "forest_snitt_bill": 45}, {"film": "Demon Slayer: Kimetsu no Yaiba Infinity Castle", "kategori": "Blockbuster voksen", "billetter": 9088, "billett_net_mkr": 1.77, "snittpris": 194, "kiosk_per_bill": 75, "imax_pct": 59.6, "belegg_pct": 38.7, "resultat_per_bill": 120, "resultat_total_mkr": 1.09, "forest_snitt_bill": 68}, {"film": "Hvis ingen går i fella", "kategori": "Norsk film", "billetter": 14047, "billett_net_mkr": 1.75, "snittpris": 125, "kiosk_per_bill": 62, "imax_pct": 0.0, "belegg_pct": 37.2, "resultat_per_bill": 85, "resultat_total_mkr": 1.2, "forest_snitt_bill": 47}, {"film": "Jurassic World: Rebirth", "kategori": "Blockbuster voksen", "billetter": 10693, "billett_net_mkr": 1.68, "snittpris": 157, "kiosk_per_bill": 75, "imax_pct": 0.0, "belegg_pct": 22.9, "resultat_per_bill": 108, "resultat_total_mkr": 1.16, "forest_snitt_bill": 29}, {"film": "Fantastic 4: First Steps", "kategori": "Blockbuster voksen", "billetter": 7935, "billett_net_mkr": 1.52, "snittpris": 191, "kiosk_per_bill": 69, "imax_pct": 58.1, "belegg_pct": 18.3, "resultat_per_bill": 112, "resultat_total_mkr": 0.89, "forest_snitt_bill": 39}, {"film": "Bridget Jones: Mad About the Boy", "kategori": "Drama/thriller", "billetter": 10109, "billett_net_mkr": 1.52, "snittpris": 150, "kiosk_per_bill": 63, "imax_pct": 0.0, "belegg_pct": 33.7, "resultat_per_bill": 99, "resultat_total_mkr": 1.0, "forest_snitt_bill": 35}, {"film": "Nosferatu", "kategori": "Horror/genre", "billetter": 8051, "billett_net_mkr": 1.49, "snittpris": 184, "kiosk_per_bill": 69, "imax_pct": 54.1, "belegg_pct": 21.4, "resultat_per_bill": 110, "resultat_total_mkr": 0.89, "forest_snitt_bill": 40}, {"film": "Sinners", "kategori": "Horror/genre", "billetter": 8682, "billett_net_mkr": 1.48, "snittpris": 171, "kiosk_per_bill": 76, "imax_pct": 30.8, "belegg_pct": 28.9, "resultat_per_bill": 112, "resultat_total_mkr": 0.98, "forest_snitt_bill": 43}, {"film": "Mufasa: Løvenes konge", "kategori": "Familie/barn", "billetter": 9909, "billett_net_mkr": 1.46, "snittpris": 147, "kiosk_per_bill": 70, "imax_pct": 18.7, "belegg_pct": 15.8, "resultat_per_bill": 95, "resultat_total_mkr": 0.94, "forest_snitt_bill": 28}, {"film": "Captain America: Brave New World", "kategori": "Blockbuster voksen", "billetter": 7843, "billett_net_mkr": 1.46, "snittpris": 186, "kiosk_per_bill": 68, "imax_pct": 55.3, "belegg_pct": 15.3, "resultat_per_bill": 109, "resultat_total_mkr": 0.85, "forest_snitt_bill": 32}], "topp_resultat_bill": [{"film": "Avatar: Fire and Ash", "kategori": "Blockbuster voksen", "billetter": 21601, "billett_net_mkr": 4.47, "snittpris": 207, "kiosk_per_bill": 78, "imax_pct": 54.5, "belegg_pct": 47.7, "resultat_per_bill": 131, "resultat_total_mkr": 2.82, "forest_snitt_bill": 74}, {"film": "Mission: Impossible - The Final Reckoning", "kategori": "Blockbuster voksen", "billetter": 20032, "billett_net_mkr": 4.17, "snittpris": 208, "kiosk_per_bill": 75, "imax_pct": 49.2, "belegg_pct": 27.5, "resultat_per_bill": 128, "resultat_total_mkr": 2.57, "forest_snitt_bill": 45}, {"film": "Wicked: For Good", "kategori": "Blockbuster voksen", "billetter": 9576, "billett_net_mkr": 1.85, "snittpris": 193, "kiosk_per_bill": 81, "imax_pct": 57.0, "belegg_pct": 20.4, "resultat_per_bill": 122, "resultat_total_mkr": 1.17, "forest_snitt_bill": 45}, {"film": "F1 ® The Movie", "kategori": "Blockbuster voksen", "billetter": 17472, "billett_net_mkr": 3.37, "snittpris": 193, "kiosk_per_bill": 76, "imax_pct": 43.6, "belegg_pct": 28.9, "resultat_per_bill": 122, "resultat_total_mkr": 2.13, "forest_snitt_bill": 51}, {"film": "Demon Slayer: Kimetsu no Yaiba Infinity Castle", "kategori": "Blockbuster voksen", "billetter": 9088, "billett_net_mkr": 1.77, "snittpris": 194, "kiosk_per_bill": 75, "imax_pct": 59.6, "belegg_pct": 38.7, "resultat_per_bill": 120, "resultat_total_mkr": 1.09, "forest_snitt_bill": 68}, {"film": "One Battle After Another", "kategori": "Drama/thriller", "billetter": 17068, "billett_net_mkr": 3.27, "snittpris": 191, "kiosk_per_bill": 71, "imax_pct": 52.0, "belegg_pct": 27.9, "resultat_per_bill": 117, "resultat_total_mkr": 2.0, "forest_snitt_bill": 59}, {"film": "Superman", "kategori": "Blockbuster voksen", "billetter": 12996, "billett_net_mkr": 2.49, "snittpris": 192, "kiosk_per_bill": 72, "imax_pct": 45.8, "belegg_pct": 23.0, "resultat_per_bill": 117, "resultat_total_mkr": 1.52, "forest_snitt_bill": 38}, {"film": "Gladiator II", "kategori": "Blockbuster voksen", "billetter": 2864, "billett_net_mkr": 0.46, "snittpris": 162, "kiosk_per_bill": 81, "imax_pct": 0.0, "belegg_pct": 33.0, "resultat_per_bill": 115, "resultat_total_mkr": 0.33, "forest_snitt_bill": 29}, {"film": "Fantastic 4: First Steps", "kategori": "Blockbuster voksen", "billetter": 7935, "billett_net_mkr": 1.52, "snittpris": 191, "kiosk_per_bill": 69, "imax_pct": 58.1, "belegg_pct": 18.3, "resultat_per_bill": 112, "resultat_total_mkr": 0.89, "forest_snitt_bill": 39}, {"film": "Sinners", "kategori": "Horror/genre", "billetter": 8682, "billett_net_mkr": 1.48, "snittpris": 171, "kiosk_per_bill": 76, "imax_pct": 30.8, "belegg_pct": 28.9, "resultat_per_bill": 112, "resultat_total_mkr": 0.98, "forest_snitt_bill": 43}, {"film": "Tron: Ares", "kategori": "Blockbuster voksen", "billetter": 3103, "billett_net_mkr": 0.59, "snittpris": 191, "kiosk_per_bill": 72, "imax_pct": 52.5, "belegg_pct": 14.0, "resultat_per_bill": 111, "resultat_total_mkr": 0.34, "forest_snitt_bill": 24}, {"film": "Nosferatu", "kategori": "Horror/genre", "billetter": 8051, "billett_net_mkr": 1.49, "snittpris": 184, "kiosk_per_bill": 69, "imax_pct": 54.1, "belegg_pct": 21.4, "resultat_per_bill": 110, "resultat_total_mkr": 0.89, "forest_snitt_bill": 40}, {"film": "Weapons", "kategori": "Horror/genre", "billetter": 5573, "billett_net_mkr": 1.02, "snittpris": 184, "kiosk_per_bill": 66, "imax_pct": 50.1, "belegg_pct": 22.7, "resultat_per_bill": 110, "resultat_total_mkr": 0.61, "forest_snitt_bill": 47}, {"film": "Wicked", "kategori": "Blockbuster voksen", "billetter": 5417, "billett_net_mkr": 0.84, "snittpris": 156, "kiosk_per_bill": 75, "imax_pct": 0.0, "belegg_pct": 26.9, "resultat_per_bill": 109, "resultat_total_mkr": 0.59, "forest_snitt_bill": 32}, {"film": "Captain America: Brave New World", "kategori": "Blockbuster voksen", "billetter": 7843, "billett_net_mkr": 1.46, "snittpris": 186, "kiosk_per_bill": 68, "imax_pct": 55.3, "belegg_pct": 15.3, "resultat_per_bill": 109, "resultat_total_mkr": 0.85, "forest_snitt_bill": 32}], "sal_diff": {"IMAX": {"kap": 2.5, "personal": 1.5}, "LUXE": {"kap": 1.5, "personal": 2.0}, "Sal 2": {"kap": 1.2, "personal": 1.1}, "Sal 4": {"kap": 1.1, "personal": 1.0}, "Standard (5-14)": {"kap": 1.0, "personal": 1.0}}};
 const kr = v => v.toLocaleString("no-NO");
 const CAT_COLORS = {
-  "Blockbuster voksen": "#003366",
-  "Familie/barn": "#66a3ff",
-  "Drama/thriller": "#4a6b8a",
-  "Norsk film": "#007acc",
-  "Horror/genre": "#7a1f2e",
-  "Event/spesial": "#a67c00",
-  "Annet": "#8d99ae"
+  "Blockbuster voksen": "#003366", "Familie/barn": "#66a3ff",
+  "Drama/thriller": "#4a6b8a", "Norsk film": "#007acc",
+  "Horror/genre": "#7a1f2e", "Event/spesial": "#a67c00", "Annet": "#8d99ae"
 };
 const catClass = c => "cat-" + c.replace(/[\/ ]/g,"-");
 
 Chart.defaults.font.family = '"Spectral", Georgia, "Times New Roman", serif';
-Chart.defaults.color = "#4a4a4a";
-Chart.defaults.borderColor = "#e8e5df";
+Chart.defaults.color = "#3a4a5c";
+Chart.defaults.borderColor = "#dce3ec";
 
-// 2×2 med 28 segmenter
-const segs = DATA.segmenter;
-const maxBill = Math.max(...segs.map(s => s.billetter));
-const yMed = 130, xMed = 45;
-const isMobile = window.innerWidth < 900;
-const bubbleR = n => (isMobile ? 4 : 5) + (isMobile ? 22 : 30) * Math.sqrt(n/maxBill);
+let currentMethod = "m3";
+let chMatrix = null, chPeak = null, chPeakLonn = null;
 
-const dataSets = Object.keys(CAT_COLORS).map(cat => ({
-  label: cat,
-  data: segs.filter(s => s.kategori === cat).map(s => ({
-    x: s.betjeningskost_per_bill, y: s.kundebidrag_per_bill,
-    r: bubbleR(s.billetter),
-    _tid: s.tid, _bill: s.billetter, _res: s.resultat_per_bill, _bel: s.belegg_pct
-  })),
-  backgroundColor: CAT_COLORS[cat] + "cc",
-  borderColor: CAT_COLORS[cat], borderWidth: 1.5
-}));
-
-new Chart(document.getElementById("chMatrix"), {
-  type: "bubble", data: { datasets: dataSets },
-  options: {
-    maintainAspectRatio: false,
-    layout: { padding: { top: 30, right: 10, bottom: 10, left: 10 } },
-    plugins: {
-      legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 12 }, padding: 12, usePointStyle: true, pointStyle: "circle" } },
-      tooltip: { callbacks: {
-        label: c => `${c.dataset.label} · ${c.raw._tid}`,
-        afterLabel: c => [
-          `Bidrag (Y): ${c.raw.y} kr/gjest`,
-          `Betjening (X): ${c.raw.x} kr/gjest`,
-          `Netto: ${c.raw._res} kr/gjest`,
-          `Billetter: ${kr(c.raw._bill)}`,
-          `Belegg: ${c.raw._bel}%`
-        ]
-      } }
-    },
-    scales: {
-      x: { title: { display: true, text: "Betjeningskostnad per gjest (kr) →", font: { size: 12, weight: 600, family: "Spectral" } }, grid: { color: "#eef2f7" }, min: 35, max: 80 },
-      y: { title: { display: true, text: "Kundebidrag per gjest (kr) →", font: { size: 12, weight: 600, family: "Spectral" } }, grid: { color: "#eef2f7" }, min: 90, max: 180 }
-    }
-  },
-  plugins: [{
-    id: "quadrants",
-    beforeDraw(chart) {
-      const {ctx, chartArea: ca, scales: {x, y}} = chart;
-      const xM = x.getPixelForValue(xMed);
-      const yM = y.getPixelForValue(yMed);
-      ctx.save();
-      // Kvadrant-fyll i navy/grå-toner (finans-look)
-      ctx.fillStyle = "#cce0ff55"; ctx.fillRect(ca.left, ca.top, xM-ca.left, yM-ca.top);   // IV — lys navy
-      ctx.fillStyle = "#e6eef750"; ctx.fillRect(xM, ca.top, ca.right-xM, yM-ca.top);       // I — svakere navy
-      ctx.fillStyle = "#eef2f745"; ctx.fillRect(ca.left, yM, xM-ca.left, ca.bottom-yM);   // III — grå
-      ctx.fillStyle = "#f0dade55"; ctx.fillRect(xM, yM, ca.right-xM, ca.bottom-yM);        // II — muted rød (meningsbærende: dårligste)
-      // Kvadrant-labels
-      ctx.font = "600 10px Spectral, Georgia, serif";
-      ctx.fillStyle = "#00000055";
-      ctx.textAlign = "left"; ctx.textBaseline = "top";
-      ctx.fillText("IV — Enkel Premium", ca.left+10, ca.top+8);
-      ctx.textAlign = "right"; ctx.textBaseline = "top";
-      ctx.fillText("I — Kompleks Premium", ca.right-10, ca.top+8);
-      ctx.textAlign = "left"; ctx.textBaseline = "bottom";
-      ctx.fillText("III — Enkel Lavpris", ca.left+10, ca.bottom-8);
-      ctx.textAlign = "right"; ctx.textBaseline = "bottom";
-      ctx.fillText("II — Aggressiv Lavpris", ca.right-10, ca.bottom-8);
-      // Kryss-linjer
-      ctx.strokeStyle = "#00000025"; ctx.lineWidth = 1; ctx.setLineDash([4,4]);
-      ctx.beginPath(); ctx.moveTo(xM, ca.top); ctx.lineTo(xM, ca.bottom); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(ca.left, yM); ctx.lineTo(ca.right, yM); ctx.stroke();
-      ctx.restore();
-    }
-  }]
-});
-
-// Heatmap
-const hm = document.getElementById("heatmap");
-const cats = DATA.kategorier.map(k => k.kategori);
-const tids = ["Hverdag Dagtid","Hverdag Kveld","Helg Dagtid","Helg Kveld"];
-hm.appendChild(Object.assign(document.createElement("div"), {className: "hm-h first"}));
-tids.forEach(t => hm.appendChild(Object.assign(document.createElement("div"), {className: "hm-h", textContent: t})));
-function hmColor(v) {
-  if (v < 70) return {bg:"#f0dade", fg:"#7a1f2e"};      // Muted rød (svakest — meningsbærende)
-  if (v < 100) return {bg:"#e6eef7", fg:"#003366"};     // Lys navy (medium)
-  return {bg:"#003366", fg:"#ffffff"};                   // Deep navy (best)
-}
-cats.forEach(cat => {
-  hm.appendChild(Object.assign(document.createElement("div"), {className: "hm-r", textContent: cat}));
-  tids.forEach(tid => {
-    const seg = DATA.segmenter.find(s => s.kategori === cat && s.tid === tid);
-    const cell = document.createElement("div"); cell.className = "hm-c";
-    if (seg && seg.billetter > 0) {
-      const c = hmColor(seg.resultat_per_bill);
-      cell.style.background = c.bg; cell.style.color = c.fg;
-      cell.innerHTML = `<div class="val">${seg.resultat_per_bill} kr</div><div class="n">${kr(seg.billetter)}</div>`;
-    } else {
-      cell.style.background = "#f9fafb"; cell.style.color = "#ccc"; cell.textContent = "—";
-    }
-    hm.appendChild(cell);
+// Metode-toggle
+document.querySelectorAll(".method-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".method-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentMethod = btn.dataset.m;
+    updateAll();
   });
 });
 
-// Peak
-const tidL = DATA.tid_luker.map(t => t.tid);
-new Chart(document.getElementById("chPeak"), {
-  type: "bar",
-  data: { labels: tidL,
-    datasets: [{ data: DATA.tid_luker.map(t => t.bill_per_forest),
-                 backgroundColor: ["#8d99ae", "#66a3ff", "#4a6b8a", "#003366"], borderRadius: 4 }] },
-  options: { maintainAspectRatio: false,
-    plugins: { legend: { display: false },
-      tooltip: { callbacks: { label: c => c.parsed.y + " bill/forest",
-        afterLabel: c => "Totalt: " + kr(DATA.tid_luker[c.dataIndex].billetter) + " billetter" } } },
-    scales: { y: { beginAtZero: true, grid: { color: "#f2f0eb" } }, x: { grid: { display: false } } } }
-});
-new Chart(document.getElementById("chPeakLonn"), {
-  type: "bar",
-  data: { labels: tidL,
-    datasets: [{ data: DATA.tid_luker.map(t => t.resultat_per_bill),
-                 backgroundColor: DATA.tid_luker.map(t => t.resultat_per_bill > 90 ? "#003366" : (t.resultat_per_bill > 70 ? "#4a6b8a" : "#8d99ae")),
-                 borderRadius: 4 }] },
-  options: { maintainAspectRatio: false,
-    plugins: { legend: { display: false },
-      tooltip: { callbacks: { label: c => c.parsed.y + " kr/gjest" } } },
-    scales: { y: { beginAtZero: true, ticks: { callback: v => v + " kr" }, grid: { color: "#f2f0eb" } }, x: { grid: { display: false } } } }
+// Sal-multipliers (kun for m4)
+const salMultGrid = document.getElementById("salMultGrid");
+Object.entries(DATA.sal_diff).forEach(([sal, mults]) => {
+  const el = document.createElement("div");
+  el.className = "sm";
+  el.innerHTML = `<div class="sm-name">${sal}</div>
+    <div class="sm-values">
+      <div class="sm-row">Kapasitet: <b>${mults.kap}×</b></div>
+      <div class="sm-row">Personal: <b>${mults.personal}×</b></div>
+    </div>`;
+  salMultGrid.appendChild(el);
 });
 
-// Topp-filmer
+function updateAll() {
+  const m = DATA.metoder[currentMethod];
+  const tot = DATA.total_per_metode[currentMethod];
+  const segs = DATA.segmenter_per_metode[currentMethod];
+  const cats = DATA.kategorier_per_metode[currentMethod];
+  const tids = DATA.tid_per_metode[currentMethod];
+
+  // Beskrivelse
+  document.getElementById("methodDesc").innerHTML = `<b>${m.navn}:</b> ${m.beskr}`;
+
+  // Sal-multipliers vises kun for m4
+  document.getElementById("salMult").classList.toggle("active", currentMethod === "m4");
+
+  // KPI
+  const kpiEl = document.getElementById("kpis");
+  kpiEl.innerHTML = `
+    <div class="kpi"><div class="label">Kundebidrag (Y)</div><div class="value good">${tot.kundebidrag_mkr} mkr</div><div class="note">rev − variable kostnader</div></div>
+    <div class="kpi"><div class="label">Betjeningskost (X)</div><div class="value">${tot.betjeningskost_mkr} mkr</div><div class="note">allokert per metode</div></div>
+    <div class="kpi"><div class="label">Ubrukt kapasitet</div><div class="value warn">${tot.ubrukt_kapasitet_mkr} mkr</div><div class="note">${tot.ubrukt_kapasitet_mkr > 0 ? 'skilles ut som egen post' : '(inngår i X for denne metoden)'}</div></div>
+    <div class="kpi"><div class="label">EBIT-estimat</div><div class="value">${tot.ebit_estimat_mkr} mkr</div><div class="note">regnskap: 25,7 mkr</div></div>
+  `;
+
+  // 2×2
+  const maxBill = Math.max(...segs.map(s => s.billetter));
+  const isMobile = window.innerWidth < 900;
+  const bubbleR = n => (isMobile ? 4 : 5) + (isMobile ? 22 : 30) * Math.sqrt(n/maxBill);
+
+  const yMed = 130;
+  const xVals = segs.map(s => s.betjeningskost_per_bill);
+  const xMed = Math.round((Math.min(...xVals) + Math.max(...xVals)) / 2);
+
+  const dataSets = Object.keys(CAT_COLORS).map(cat => ({
+    label: cat,
+    data: segs.filter(s => s.kategori === cat).map(s => ({
+      x: s.betjeningskost_per_bill, y: s.kundebidrag_per_bill,
+      r: bubbleR(s.billetter),
+      _tid: s.tid, _bill: s.billetter, _res: s.resultat_per_bill, _bel: s.belegg_pct
+    })),
+    backgroundColor: CAT_COLORS[cat] + "cc",
+    borderColor: CAT_COLORS[cat], borderWidth: 1.5
+  }));
+
+  const yValues = segs.map(s => s.kundebidrag_per_bill);
+  const yMin = Math.floor(Math.min(...yValues) / 10) * 10 - 10;
+  const yMax = Math.ceil(Math.max(...yValues) / 10) * 10 + 10;
+  const xMin = Math.floor(Math.min(...xVals) / 10) * 10 - 5;
+  const xMax = Math.ceil(Math.max(...xVals) / 10) * 10 + 5;
+
+  if (chMatrix) chMatrix.destroy();
+  chMatrix = new Chart(document.getElementById("chMatrix"), {
+    type: "bubble", data: { datasets: dataSets },
+    options: {
+      maintainAspectRatio: false,
+      layout: { padding: { top: 30, right: 10, bottom: 10, left: 10 } },
+      plugins: {
+        legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 12 }, padding: 12, usePointStyle: true, pointStyle: "circle" } },
+        tooltip: { callbacks: {
+          label: c => `${c.dataset.label} · ${c.raw._tid}`,
+          afterLabel: c => [
+            `Bidrag (Y): ${c.raw.y} kr/gjest`,
+            `Betjening (X): ${c.raw.x} kr/gjest`,
+            `Netto: ${c.raw._res} kr/gjest`,
+            `Billetter: ${kr(c.raw._bill)}`,
+            `Belegg: ${c.raw._bel}%`
+          ]
+        } }
+      },
+      scales: {
+        x: { title: { display: true, text: "Betjeningskostnad per gjest (kr) →", font: { size: 12, weight: 600, family: "Spectral" } }, grid: { color: "#eef2f7" }, min: xMin, max: xMax },
+        y: { title: { display: true, text: "Kundebidrag per gjest (kr) →", font: { size: 12, weight: 600, family: "Spectral" } }, grid: { color: "#eef2f7" }, min: yMin, max: yMax }
+      }
+    },
+    plugins: [{
+      id: "quadrants",
+      beforeDraw(chart) {
+        const {ctx, chartArea: ca, scales: {x, y}} = chart;
+        const xM = x.getPixelForValue(xMed);
+        const yM = y.getPixelForValue(yMed);
+        ctx.save();
+        ctx.fillStyle = "#cce0ff55"; ctx.fillRect(ca.left, ca.top, xM-ca.left, yM-ca.top);
+        ctx.fillStyle = "#e6eef750"; ctx.fillRect(xM, ca.top, ca.right-xM, yM-ca.top);
+        ctx.fillStyle = "#eef2f745"; ctx.fillRect(ca.left, yM, xM-ca.left, ca.bottom-yM);
+        ctx.fillStyle = "#f0dade55"; ctx.fillRect(xM, yM, ca.right-xM, ca.bottom-yM);
+        ctx.font = "600 10px Spectral, Georgia, serif";
+        ctx.fillStyle = "#00000055";
+        ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText("IV — Enkel Premium", ca.left+10, ca.top+8);
+        ctx.textAlign = "right"; ctx.textBaseline = "top"; ctx.fillText("I — Kompleks Premium", ca.right-10, ca.top+8);
+        ctx.textAlign = "left"; ctx.textBaseline = "bottom"; ctx.fillText("III — Enkel Lavpris", ca.left+10, ca.bottom-8);
+        ctx.textAlign = "right"; ctx.textBaseline = "bottom"; ctx.fillText("II — Aggressiv Lavpris", ca.right-10, ca.bottom-8);
+        ctx.strokeStyle = "#00000025"; ctx.lineWidth = 1; ctx.setLineDash([4,4]);
+        ctx.beginPath(); ctx.moveTo(xM, ca.top); ctx.lineTo(xM, ca.bottom); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(ca.left, yM); ctx.lineTo(ca.right, yM); ctx.stroke();
+        ctx.restore();
+      }
+    }]
+  });
+
+  // Heatmap
+  const hm = document.getElementById("heatmap");
+  hm.innerHTML = "";
+  const catNames = cats.map(c => c.kategori);
+  const tidNames = ["Hverdag Dagtid","Hverdag Kveld","Helg Dagtid","Helg Kveld"];
+  hm.appendChild(Object.assign(document.createElement("div"), {className: "hm-h first"}));
+  tidNames.forEach(t => hm.appendChild(Object.assign(document.createElement("div"), {className: "hm-h", textContent: t})));
+  function hmColor(v) {
+    if (v < 0) return {bg:"#d9b8bf", fg:"#5a1220"};
+    if (v < 40) return {bg:"#f0dade", fg:"#7a1f2e"};
+    if (v < 80) return {bg:"#e6eef7", fg:"#003366"};
+    if (v < 110) return {bg:"#cce0ff", fg:"#001f3f"};
+    return {bg:"#003366", fg:"#ffffff"};
+  }
+  catNames.forEach(cat => {
+    hm.appendChild(Object.assign(document.createElement("div"), {className: "hm-r", textContent: cat}));
+    tidNames.forEach(tid => {
+      const seg = segs.find(s => s.kategori === cat && s.tid === tid);
+      const cell = document.createElement("div"); cell.className = "hm-c";
+      if (seg && seg.billetter > 0) {
+        const c = hmColor(seg.resultat_per_bill);
+        cell.style.background = c.bg; cell.style.color = c.fg;
+        cell.innerHTML = `<div class="val">${seg.resultat_per_bill} kr</div><div class="n">${kr(seg.billetter)}</div>`;
+      } else {
+        cell.style.background = "#f9fafb"; cell.style.color = "#ccc"; cell.textContent = "—";
+      }
+      hm.appendChild(cell);
+    });
+  });
+
+  // Peak
+  const tidL = tids.map(t => t.tid);
+  if (chPeak) chPeak.destroy();
+  chPeak = new Chart(document.getElementById("chPeak"), {
+    type: "bar",
+    data: { labels: tidL,
+      datasets: [{ data: tids.map(t => t.bill_per_forest),
+                   backgroundColor: ["#8d99ae", "#66a3ff", "#4a6b8a", "#003366"], borderRadius: 4 }] },
+    options: { maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: { label: c => c.parsed.y + " bill/forest",
+          afterLabel: c => "Totalt: " + kr(tids[c.dataIndex].billetter) + " billetter" } } },
+      scales: { y: { beginAtZero: true, grid: { color: "#eef2f7" } }, x: { grid: { display: false } } } }
+  });
+  if (chPeakLonn) chPeakLonn.destroy();
+  chPeakLonn = new Chart(document.getElementById("chPeakLonn"), {
+    type: "bar",
+    data: { labels: tidL,
+      datasets: [{ data: tids.map(t => t.resultat_per_bill),
+                   backgroundColor: tids.map(t => t.resultat_per_bill > 100 ? "#003366" : (t.resultat_per_bill > 50 ? "#4a6b8a" : (t.resultat_per_bill > 0 ? "#8d99ae" : "#7a1f2e"))),
+                   borderRadius: 4 }] },
+    options: { maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: { label: c => c.parsed.y + " kr/gjest" } } },
+      scales: { y: { beginAtZero: false, ticks: { callback: v => v + " kr" }, grid: { color: "#eef2f7" } }, x: { grid: { display: false } } } }
+  });
+
+  // Kategori-tabell
+  const tbBody = document.querySelector("#tblKat tbody");
+  tbBody.innerHTML = "";
+  cats.forEach(k => {
+    const tr = document.createElement("tr");
+    const resColor = k.resultat_per_bill < 0 ? "var(--warn)" : "var(--good)";
+    tr.innerHTML = `
+      <td><span class="cat-chip ${catClass(k.kategori)}">${k.kategori}</span></td>
+      <td class="num">${kr(k.billetter)}</td>
+      <td class="num">${k.andel_pct}%</td>
+      <td class="num">${k.snittpris} kr</td>
+      <td class="num">${k.kiosk_per_bill} kr</td>
+      <td class="num">${k.imax_pct}%</td>
+      <td class="num">${k.belegg_pct}%</td>
+      <td class="num"><b>${k.kundebidrag_per_bill} kr</b></td>
+      <td class="num">${k.betjeningskost_per_bill} kr</td>
+      <td class="num" style="color: ${resColor}; font-weight: 700">${k.resultat_per_bill} kr</td>
+      <td class="num">${k.resultat_total_mkr}</td>
+    `;
+    tbBody.appendChild(tr);
+  });
+}
+
+// Topp-filmer (statisk)
 function renderFilmTable(container, films) {
   const table = document.createElement("table");
   table.innerHTML = `
@@ -654,6 +628,9 @@ document.querySelectorAll(".tab").forEach(tab => {
     document.getElementById("tab-" + tab.dataset.tab).classList.add("active");
   });
 });
+
+// Kjør ved lasting
+updateAll();
 </script>
 </body>
 </html>
