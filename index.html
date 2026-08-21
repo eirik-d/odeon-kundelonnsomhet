@@ -145,6 +145,34 @@
     .demo-grid { grid-template-columns: 1fr; }
   }
 
+
+  /* Kiosk-margin-analyse */
+  .margin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+  .margin-list { display: flex; flex-direction: column; gap: 6px; }
+  .margin-row { display: grid; grid-template-columns: 130px 1fr 60px; gap: 10px; align-items: center; font-size: 12.5px; }
+  .margin-pg { color: var(--ink); font-weight: 500; }
+  .margin-bar { height: 22px; background: var(--line-soft); border-radius: 3px; overflow: hidden; position: relative; }
+  .margin-fill { height: 100%; background: linear-gradient(90deg, var(--accent-3), var(--accent)); border-radius: 3px; }
+  .margin-val { text-align: right; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; font-size: 12px; }
+  .margin-row.high .margin-fill { background: linear-gradient(90deg, var(--good), var(--accent)); }
+
+  .miks-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 12px; }
+  .miks-table th { text-align: left; padding: 8px 4px; border-bottom: 2px solid var(--line); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); font-weight: 700; }
+  .miks-table th.num { text-align: right; }
+  .miks-table td { padding: 6px 4px; border-bottom: 1px solid var(--line-soft); }
+  .miks-table td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+  .miks-highlight { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+
+  .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+  .impact-card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 14px; text-align: center; }
+  .impact-kg { font-size: 12px; font-weight: 700; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+  .impact-val { font-family: "Spectral", serif; font-size: 22px; font-weight: 700; color: var(--good); }
+  .impact-sub { font-size: 11px; color: var(--ink-3); margin-top: 3px; }
+  @media (max-width: 900px) {
+    .margin-grid { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: 1fr 1fr; }
+  }
+
   /* Kostnads-allokerings-oversikt */
   .alloc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .alloc-col { padding: 20px; border-radius: 10px; border: 1px solid; }
@@ -444,6 +472,37 @@
       <div class="hierarchy-note">
         <p style="margin-top:0;">Cooper &amp; Kaplans kostnadshierarki har fire nivåer. Vi kan ikke jobbe på <b>enhet-nivået</b> (per kunde) fordi vi mangler kunde-ID. Løsningen er å gå ett hakk opp: aggregere <b>forestillinger (serie)</b> etter film-kategori × tidspunkt. Det gir 28 grupper der kundene grupperer seg selv ved hvilket «tilbud» de kjøper.</p>
       </div>
+    </div>
+  </div>
+
+
+  <h2>Kiosk-marginer — ikke alle produkter er like lønnsomme</h2>
+  <p class="subhead">Vi har brukt en flat 40 % varekost-antagelse på kiosk. I virkeligheten varierer marginen dramatisk mellom produktgruppene — popcorn har ~90 % margin, hot food kun ~40 %. Dette har konsekvenser for hvilke kundegrupper som faktisk bidrar mest.</p>
+
+  <div class="card">
+    <div class="margin-grid">
+      <div>
+        <h3>Antatt margin per produktgruppe</h3>
+        <p class="csub">Bransjebenchmark — margin = 100 % − varekost-andel</p>
+        <div class="margin-list" id="marginList"></div>
+      </div>
+      <div>
+        <h3>Produktmiks per kundegruppe</h3>
+        <p class="csub">Prosent av kioskomsetning fordelt på produktgruppe</p>
+        <div style="overflow-x: auto;"><table class="miks-table" id="miksTable"></table></div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 24px;">
+      <b>Nøkkelfunn:</b> Alkohol-andel er overraskende <b>lavest hos Unge menn 30–50 (9,8 %)</b> og <b>høyest hos Norsk film & drama (14,2 %) og Annet (15,3 %)</b>. Kulturpublikummet drikker mest vin/øl, ikke tentpole-publikummet. Barnefamilier har naturlig lavest alkoholandel (6,4 %) og høyest Packed Candy.
+    </div>
+
+    <h3 style="margin-top: 28px;">Effekt hvis vi bruker differensierte marginer</h3>
+    <p class="csub">Skift fra flat 40 % varekost til produkt-differensiert = <b>+4,6 mkr merbidrag totalt</b> (varekost synker fra 14,9 til 10,3 mkr = 28 % effektivt).</p>
+    <div class="impact-grid" id="impactGrid"></div>
+
+    <div class="callout" style="margin-top: 20px; background: var(--warn-soft); border-color: var(--warn);">
+      <b>Sanity-notat:</b> Vi beholder flat 40 % varekost i hovedmodellen for å matche regnskapets total-EBIT (Goods for Resale = filmleie + kiosk-varekost = 54,2 mkr → antyder høyere effektiv varekost enn ren råvare, trolig pga svinn, emballasje, service-kostnader). Differensieringen over viser <em>hvor</em> merverdi kan hentes: <b>oppgradere produktmiks mot mer popcorn/combo/drikke og mindre snacks/candy</b> = høyere effektiv margin uten prisøkning.
     </div>
   </div>
 
@@ -1553,6 +1612,48 @@ function renderDsp2() {
 
 // Kjør ved lasting
 updateAll();
+
+// Kiosk-margin-analyse
+(function() {
+  const KIOSK_DATA = {"kg_data": [{"kg": "Unge menn 30–50", "kiosk_mkr": 15.75, "vk_diff_mkr": 4.25, "vk_flat_mkr": 6.3, "bidrag_diff_mkr": 11.5, "bidrag_flat_mkr": 9.45, "diff_mkr": 2.05, "vk_pct_effektiv": 27.0}, {"kg": "Barnefamilier", "kiosk_mkr": 10.02, "vk_diff_mkr": 2.81, "vk_flat_mkr": 4.01, "bidrag_diff_mkr": 7.21, "bidrag_flat_mkr": 6.01, "diff_mkr": 1.19, "vk_pct_effektiv": 28.1}, {"kg": "Norsk film & drama", "kiosk_mkr": 8.53, "vk_diff_mkr": 2.4, "vk_flat_mkr": 3.41, "bidrag_diff_mkr": 6.13, "bidrag_flat_mkr": 5.12, "diff_mkr": 1.01, "vk_pct_effektiv": 28.1}, {"kg": "Annet", "kiosk_mkr": 2.89, "vk_diff_mkr": 0.79, "vk_flat_mkr": 1.15, "bidrag_diff_mkr": 2.09, "bidrag_flat_mkr": 1.73, "diff_mkr": 0.36, "vk_pct_effektiv": 27.5}], "kg_miks": {"Unge menn 30–50": {"Popcorn": 21.4, "Combo": 14.2, "Beverages": 24.1, "Alcohol": 9.8, "Packed Candy": 14.4, "Snacks": 11.7, "Pick & Mix Candy": 3.9, "Coffee": 0.3, "Hot Food": 0.1, "Merchandise": 0.2}, "Barnefamilier": {"Popcorn": 19.8, "Combo": 16.2, "Beverages": 21.8, "Alcohol": 6.4, "Packed Candy": 17.6, "Snacks": 13.4, "Pick & Mix Candy": 3.6, "Coffee": 1.0, "Hot Food": 0.1, "Merchandise": 0.2}, "Norsk film & drama": {"Popcorn": 19.6, "Combo": 11.6, "Beverages": 22.3, "Alcohol": 14.2, "Packed Candy": 14.5, "Snacks": 11.9, "Pick & Mix Candy": 4.8, "Coffee": 0.8, "Hot Food": 0.3, "Merchandise": 0.1}, "Annet": {"Popcorn": 19.6, "Combo": 13.3, "Beverages": 22.2, "Alcohol": 15.3, "Packed Candy": 13.9, "Snacks": 10.7, "Pick & Mix Candy": 3.9, "Coffee": 0.6, "Hot Food": 0.4, "Merchandise": 0.1}}, "varekost_pct": {"Popcorn": 0.1, "Combo": 0.15, "Beverages": 0.2, "Coffee": 0.15, "Alcohol": 0.3, "Snacks": 0.5, "Packed Candy": 0.5, "Pick & Mix Candy": 0.45, "Hot Food": 0.6, "Merchandise": 0.6}};
+  const marginList = document.getElementById("marginList");
+  if (!marginList) return;
+  const pgOrder = ['Popcorn','Combo','Beverages','Coffee','Alcohol','Pick & Mix Candy','Snacks','Packed Candy','Hot Food','Merchandise'];
+  pgOrder.forEach(pg => {
+    const vkp = KIOSK_DATA.varekost_pct[pg] * 100;
+    const margin = 100 - vkp;
+    const row = document.createElement("div");
+    row.className = "margin-row" + (margin >= 80 ? " high" : "");
+    row.innerHTML = `<div class="margin-pg">${pg}</div><div class="margin-bar"><div class="margin-fill" style="width:${margin}%"></div></div><div class="margin-val">${margin}%</div>`;
+    marginList.appendChild(row);
+  });
+  const tbl = document.getElementById("miksTable");
+  const kgNames = ['Unge menn 30–50','Barnefamilier','Norsk film & drama','Annet'];
+  let html = '<thead><tr><th>Produkt</th>';
+  kgNames.forEach(kg => html += `<th class="num">${kg.substring(0,12)}</th>`);
+  html += '</tr></thead><tbody>';
+  const pgOrder2 = ['Popcorn','Combo','Beverages','Alcohol','Packed Candy','Snacks','Pick & Mix Candy','Coffee','Hot Food','Merchandise'];
+  pgOrder2.forEach(pg => {
+    html += `<tr><td>${pg}</td>`;
+    kgNames.forEach(kg => {
+      const v = KIOSK_DATA.kg_miks[kg][pg] || 0;
+      const highlight = (pg === "Alcohol" && (kg === "Norsk film & drama" || kg === "Annet")) ? " class=\"num miks-highlight\"" : ' class="num"';
+      html += `<td${highlight}>${v}%</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</tbody>';
+  tbl.innerHTML = html;
+
+  const impactGrid = document.getElementById("impactGrid");
+  KIOSK_DATA.kg_data.forEach(k => {
+    const c = document.createElement("div");
+    c.className = "impact-card";
+    c.innerHTML = `<div class="impact-kg">${k.kg}</div><div class="impact-val">+${k.diff_mkr} mkr</div><div class="impact-sub">Effektiv varekost: ${k.vk_pct_effektiv}%</div>`;
+    impactGrid.appendChild(c);
+  });
+})();
+
 </script>
 </body>
 </html>
