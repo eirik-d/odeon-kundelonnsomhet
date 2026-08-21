@@ -84,12 +84,42 @@
   .fortrinn-match { font-size: 11px; padding: 8px 10px; background: var(--accent-soft); border-radius: 6px; color: var(--ink-2); line-height: 1.45; }
   .fortrinn-match b { color: var(--accent); }
 
-  /* Demografi */
-  .demo-metric { text-align: center; padding: 16px; background: var(--accent-soft); border-radius: 10px; }
+  /* Demografi — fra rapport */
+  .demo-card { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent-3); border-radius: 12px; padding: 18px 22px; box-shadow: var(--shadow); }
+  .demo-title { font-family: "Spectral", serif; font-size: 17px; font-weight: 600; margin: 0 0 4px; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+  .demo-title .badge-src { font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+  .demo-sub { font-size: 12px; color: var(--ink-3); margin: 0 0 14px; }
+
+  .demo-grid { display: grid; grid-template-columns: 160px 1fr 180px; gap: 20px; align-items: start; }
+
+  .demo-metric { text-align: center; padding: 16px 12px; background: var(--accent-soft); border-radius: 10px; }
   .demo-metric-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 700; margin-bottom: 6px; }
-  .demo-metric-value { font-family: "Spectral", serif; font-size: 32px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .demo-metric-value { font-family: "Spectral", serif; font-size: 30px; font-weight: 700; color: var(--accent); line-height: 1; }
   .demo-metric-note { font-size: 11px; color: var(--ink-2); margin-top: 4px; }
   .demo-metric-sub { font-size: 10px; color: var(--ink-3); margin-top: 3px; }
+
+  .demo-section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); font-weight: 700; margin: 0 0 10px; }
+  .demo-bar-row { display: grid; grid-template-columns: 105px 1fr 55px; gap: 8px; align-items: center; margin: 6px 0; font-size: 11px; }
+  .demo-bar-label { color: var(--ink-2); font-weight: 500; }
+  .demo-bars { display: flex; flex-direction: column; gap: 3px; }
+  .demo-bar-line { height: 7px; background: var(--line-soft); border-radius: 2px; position: relative; overflow: hidden; margin-bottom: 1px; }
+  .demo-bar-fill { height: 100%; border-radius: 2px; }
+  .demo-bar-fill.storo { background: var(--accent-3); }
+  .demo-bar-fill.oslo { background: var(--slate); }
+  .demo-bar-legend { display: flex; gap: 12px; font-size: 10px; margin-top: 8px; color: var(--ink-3); }
+  .demo-bar-legend .lb { display: inline-flex; align-items: center; gap: 5px; }
+  .demo-bar-legend .lb::before { content: ""; width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+  .demo-bar-legend .lb.storo::before { background: var(--accent-3); }
+  .demo-bar-legend .lb.oslo::before { background: var(--slate); }
+  .demo-bar-val { font-size: 10px; color: var(--ink-3); text-align: right; font-variant-numeric: tabular-nums; }
+
+  .demo-civil-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 11px; border-bottom: 1px solid var(--line-soft); }
+  .demo-civil-row:last-child { border-bottom: none; }
+  .demo-civil-label { color: var(--ink-2); }
+  .demo-civil-value { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  .demo-implikasjon { margin-top: 14px; padding: 14px 18px; background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 8px; font-size: 12px; color: var(--ink-2); line-height: 1.55; }
+  .demo-implikasjon b { color: var(--accent); }
 
   /* Kiosk-marginer (fra rapport) */
   .margin-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 20px; align-items: start; }
@@ -684,49 +714,87 @@
   <span class="page-num">10 / 14</span>
 </section>
 
-<!-- 10. KONKURRANSEFORTRINN — DEMOGRAFI + PREMIUM -->
+<!-- 10. KONKURRANSEFORTRINN — DEMOGRAFI -->
 <section>
   <div class="subhead">Konkurransefortrinn</div>
-  <h2>Storo-demografi styrker fortrinnet</h2>
+  <h2>Storo-demografi styrker lokasjon-fortrinnet</h2>
 
-  <div class="grid2">
-    <div>
-      <div class="grid3" style="margin-bottom: 12px;">
-        <div class="demo-metric">
-          <div class="demo-metric-label">Kollektivtilbud</div>
-          <div class="demo-metric-value">95<span style="font-size: 18px; color: var(--ink-3);">/100</span></div>
-          <div class="demo-metric-sub">Oslo: 88</div>
+  <div class="demo-card">
+    <div class="demo-title">Demografi bekrefter Storo-fortrinnet <span class="badge-src">FINN.no</span></div>
+    <p class="demo-sub">Sandaker/Grefsenbyen (Storos nedslagsfelt — 9 567 personer, 5 789 husholdninger) vs Oslo og omegn.</p>
+
+    <div class="demo-grid">
+      <div class="demo-metric">
+        <div class="demo-metric-label">Kollektivtilbud</div>
+        <div class="demo-metric-value">95<span style="font-size: 18px; color: var(--ink-3);">/100</span></div>
+        <div class="demo-metric-note">Veldig bra</div>
+        <div class="demo-metric-sub">Oslo og omegn: 88/100</div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Aldersfordeling</div>
+        <div class="demo-bars">
+          <div class="demo-bar-row">
+            <div class="demo-bar-label">Barn (0–12)</div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 33%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 62%"></div></div>
+            </div>
+            <div class="demo-bar-val">15 % / 28 %</div>
+          </div>
+          <div class="demo-bar-row">
+            <div class="demo-bar-label">Ungdom (13–18)</div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 11%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 33%"></div></div>
+            </div>
+            <div class="demo-bar-val">5 % / 15 %</div>
+          </div>
+          <div class="demo-bar-row">
+            <div class="demo-bar-label"><b>Unge voksne (19–34)</b></div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 100%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 62%"></div></div>
+            </div>
+            <div class="demo-bar-val"><b>45 % / 28 %</b></div>
+          </div>
+          <div class="demo-bar-row">
+            <div class="demo-bar-label">Voksne (35–64)</div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 62%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 84%"></div></div>
+            </div>
+            <div class="demo-bar-val">28 % / 38 %</div>
+          </div>
+          <div class="demo-bar-row">
+            <div class="demo-bar-label">Godt voksne (65+)</div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 27%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 40%"></div></div>
+            </div>
+            <div class="demo-bar-val">12 % / 18 %</div>
+          </div>
         </div>
-        <div class="demo-metric">
-          <div class="demo-metric-label">Unge voksne 19–34</div>
-          <div class="demo-metric-value">45 %</div>
-          <div class="demo-metric-sub">Oslo: 28 % (+17 pp)</div>
-        </div>
-        <div class="demo-metric">
-          <div class="demo-metric-label">Ikke gift</div>
-          <div class="demo-metric-value">72 %</div>
-          <div class="demo-metric-sub">Oslo: 58 % (+14 pp)</div>
+        <div class="demo-bar-legend">
+          <span class="lb storo">Sandaker/Grefsenbyen</span>
+          <span class="lb oslo">Oslo og omegn</span>
         </div>
       </div>
-      <div class="callout">
-        <b>Urban singel-voksne-lomme.</b> Ikke tradisjonell familietrafikk — favoriserer strukturelt kveld- og premium-segmenter (LUXE date night, IMAX Blockbuster). Barnefamilier på Storo kommer uansett.
+
+      <div class="demo-civil">
+        <div class="demo-section-title">Sivil status</div>
+        <div class="demo-civil-row"><span class="demo-civil-label"><b>Ikke gift</b></span><span class="demo-civil-value" style="color: var(--accent)"><b>72 %</b></span></div>
+        <div class="demo-civil-row"><span class="demo-civil-label">Gift / partnerskap</span><span class="demo-civil-value">20 %</span></div>
+        <div class="demo-civil-row"><span class="demo-civil-label">Separert</span><span class="demo-civil-value">7 %</span></div>
+        <div class="demo-civil-row"><span class="demo-civil-label">Enke/enkemann</span><span class="demo-civil-value">1 %</span></div>
+        <div style="margin-top: 10px; font-size: 10px; color: var(--ink-3); line-height: 1.4;">
+          Sandaker/Grefsenbyen har <b style="color: var(--accent)">14 pp høyere</b> andel ikke-gifte enn Oslo (58 %).
+        </div>
       </div>
     </div>
 
-    <div class="card">
-      <h3 style="margin-bottom: 10px;">Premium leverer overproporsjonalt</h3>
-      <table class="saltype-tab">
-        <thead><tr><th>Sal-type</th><th class="num">Billetter</th><th class="num">Inntekt</th><th class="num">Snittpris</th></tr></thead>
-        <tbody>
-          <tr class="premium"><td><b>IMAX</b></td><td class="num">20 %</td><td class="num">29 %</td><td class="num">225 kr</td></tr>
-          <tr class="premium"><td><b>LUXE</b></td><td class="num">6 %</td><td class="num">6 %</td><td class="num">167 kr</td></tr>
-          <tr><td>Standard (12 saler)</td><td class="num">74 %</td><td class="num">65 %</td><td class="num">130 kr</td></tr>
-          <tr class="total"><td>Premium totalt</td><td class="num">26 %</td><td class="num">35 %</td><td class="num">—</td></tr>
-        </tbody>
-      </table>
-      <div class="callout" style="margin-top: 12px;">
-        <b>26 % av volumet gir 35 % av inntekten.</b> IMAX-monopolet gir 65 % prispremie. Strategi: forsterk IMAX + Storo-integrasjonen.
-      </div>
+    <div class="demo-implikasjon">
+      <b>Implikasjon for ODEON:</b> Sandaker/Grefsenbyen er <b>en urban singel-voksne-lomme</b> — 45 % er 19–34 år (+17 pp vs Oslo) og 72 % er ikke gift. Strukturelt favoriserer nedslagsfeltet <b>Storos kveld- og premium-segmenter</b> — <span class="kg-pill kg-pill-primary">Unge menn</span> på IMAX og date-night på LUXE — ikke matinée-familietrafikk. <span class="kg-pill">Barnefamilier</span> som besøker Storo trekkes trolig fra bredere Oslo (senteret drar dem uansett).
     </div>
   </div>
   <span class="page-num">11 / 14</span>
