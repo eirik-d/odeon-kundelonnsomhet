@@ -872,8 +872,7 @@ Object.entries(DATA.sal_diff).forEach(([sal, mults]) => {
 function updateAll() {
   const m = DATA.metoder[currentMethod];
   const tot = DATA.total_per_metode[currentMethod];
-  const segs = DATA.segmenter_per_metode[currentMethod];
-  const cats = DATA.kategorier_per_metode[currentMethod];
+  // v10: bruker kundegrupper i stedet for kategorier/segmenter
   const tids = DATA.tid_per_metode[currentMethod];
 
   // Beskrivelse
@@ -948,7 +947,7 @@ function updateAll() {
     borderColor: KG_COLORS[kg.kundegruppe], borderWidth: 2
   }));
 
-  const yValues = segs.map(s => s.kundebidrag_per_bill);
+  const yValues = kgSegs.map(s => s.kundebidrag_per_bill);
   const yMin = Math.floor(Math.min(...yValues) / 10) * 10 - 10;
   const yMax = Math.ceil(Math.max(...yValues) / 10) * 10 + 10;
   const xMin = Math.floor(Math.min(...xVals) / 10) * 10 - 5;
