@@ -173,6 +173,24 @@
     .impact-grid { grid-template-columns: 1fr 1fr; }
   }
 
+
+  /* Popcorn-fokus */
+  .popcorn-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; margin: 20px 0; padding: 24px; background: linear-gradient(135deg, var(--accent-soft), #cce0ff40); border-radius: 12px; }
+  .popcorn-hero-num { font-family: "Spectral", serif; font-size: 56px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .popcorn-hero-sub { font-size: 14px; color: var(--ink-2); margin-top: 8px; }
+  .popcorn-hero-desc { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .popcorn-hero-desc b { color: var(--accent); }
+  .popcorn-chart-wrap { position: relative; height: 260px; margin-top: 20px; }
+  .popcorn-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
+  .popcorn-stat { padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center; }
+  .popcorn-stat-kg { font-size: 11px; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+  .popcorn-stat-v { font-family: "Spectral", serif; font-size: 20px; font-weight: 700; color: var(--accent); }
+  .popcorn-stat-sub { font-size: 10px; color: var(--ink-3); margin-top: 2px; }
+  @media (max-width: 900px) {
+    .popcorn-hero { grid-template-columns: 1fr; text-align: center; }
+    .popcorn-stats { grid-template-columns: 1fr 1fr; }
+  }
+
   /* Kostnads-allokerings-oversikt */
   .alloc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .alloc-col { padding: 20px; border-radius: 10px; border: 1px solid; }
@@ -500,6 +518,30 @@
     <h3 style="margin-top: 28px;">Effekt hvis vi bruker differensierte marginer</h3>
     <p class="csub">Skift fra flat 40 % varekost til produkt-differensiert = <b>+4,6 mkr merbidrag totalt</b> (varekost synker fra 14,9 til 10,3 mkr = 28 % effektivt).</p>
     <div class="impact-grid" id="impactGrid"></div>
+
+    
+    <h3 style="margin-top: 32px;">🍿 Popcorn er kongen — 25 % av kiosk-bidraget</h3>
+    <p class="csub">Popcorn alene genererer 6,8 mkr i bidrag (90 % margin) — mer enn en fjerdedel av totalt kiosk-bidrag. Hvem drikker mest?</p>
+
+    <div class="popcorn-hero">
+      <div>
+        <div class="popcorn-hero-num">6,8 mkr</div>
+        <div class="popcorn-hero-sub">Bidrag fra popcorn alene (90 % margin)</div>
+      </div>
+      <div class="popcorn-hero-desc">
+        Odeon selger popcorn for <b>7,6 mkr</b>, med råvarekost på bare <b>~10 %</b> (mais, olje, salt, kartong).
+        Det gir <b>6,8 mkr i bidrag</b> — mer enn <b>25 % av alt kiosk-bidrag</b>.
+        Alle strategier for å øke popcorn-salg har enorm hebang.
+      </div>
+    </div>
+
+    <div class="popcorn-chart-wrap"><canvas id="chPopcorn"></canvas></div>
+
+    <div class="popcorn-stats" id="popcornStats"></div>
+
+    <div class="callout" style="margin-top: 20px;">
+      <b>Hovedbudskap:</b> <b>Unge menn 30–50 spiser mest popcorn</b> — både i absolutt kroner (3,4 mkr) og per gjest (15,5 kr). Med 90 % margin bidrar dette segmentet alene med <b>3,0 mkr i popcorn-fortjeneste</b>. Bundling-strategier (Combo-pakker, popcorn-oppgraderinger, mer synlige tilbud) bør prioriteres for denne gruppen. Barnefamilier har god popcorn-adferd (13,3 kr/gjest) selv om totalvolumet er mindre.
+    </div>
 
     <div class="callout" style="margin-top: 20px; background: var(--warn-soft); border-color: var(--warn);">
       <b>Sanity-notat:</b> Vi beholder flat 40 % varekost i hovedmodellen for å matche regnskapets total-EBIT (Goods for Resale = filmleie + kiosk-varekost = 54,2 mkr → antyder høyere effektiv varekost enn ren råvare, trolig pga svinn, emballasje, service-kostnader). Differensieringen over viser <em>hvor</em> merverdi kan hentes: <b>oppgradere produktmiks mot mer popcorn/combo/drikke og mindre snacks/candy</b> = høyere effektiv margin uten prisøkning.
@@ -1658,6 +1700,75 @@ updateAll();
     c.className = "impact-card";
     c.innerHTML = `<div class="impact-kg">${k.kg}</div><div class="impact-val">+${k.diff_mkr} mkr</div><div class="impact-sub">Effektiv varekost: ${k.vk_pct_effektiv}%</div>`;
     impactGrid.appendChild(c);
+  });
+})();
+
+
+// Popcorn-fokus
+(function() {
+  const POP_DATA = [{"kg": "Unge menn 30–50", "popcorn_mkr": 3.37, "popcorn_bidrag_mkr": 3.03, "kr_per_gjest": 15.5, "bidrag_per_gjest": 14.0, "andel_kiosk_pct": 21.4, "billetter": 217160}, {"kg": "Barnefamilier", "popcorn_mkr": 1.98, "popcorn_bidrag_mkr": 1.78, "kr_per_gjest": 13.3, "bidrag_per_gjest": 12.0, "andel_kiosk_pct": 19.8, "billetter": 148731}, {"kg": "Norsk film & drama", "popcorn_mkr": 1.67, "popcorn_bidrag_mkr": 1.5, "kr_per_gjest": 12.5, "bidrag_per_gjest": 11.3, "andel_kiosk_pct": 19.6, "billetter": 133068}, {"kg": "Annet", "popcorn_mkr": 0.57, "popcorn_bidrag_mkr": 0.51, "kr_per_gjest": 12.0, "bidrag_per_gjest": 10.8, "andel_kiosk_pct": 19.6, "billetter": 47072}];
+  if (!document.getElementById("chPopcorn")) return;
+
+  const KG_C = {
+    "Unge menn 30–50": "#003366", "Barnefamilier": "#66a3ff",
+    "Norsk film & drama": "#4a6b8a", "Annet": "#8d99ae"
+  };
+
+  new Chart(document.getElementById("chPopcorn"), {
+    type: "bar",
+    data: {
+      labels: POP_DATA.map(p => p.kg),
+      datasets: [
+        {
+          label: "Popcorn-omsetning (mkr)",
+          data: POP_DATA.map(p => p.popcorn_mkr),
+          backgroundColor: POP_DATA.map(p => KG_C[p.kg] + "88"),
+          borderColor: POP_DATA.map(p => KG_C[p.kg]),
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'a',
+        },
+        {
+          label: "Popcorn-bidrag (mkr, 90 % margin)",
+          data: POP_DATA.map(p => p.popcorn_bidrag_mkr),
+          backgroundColor: POP_DATA.map(p => KG_C[p.kg]),
+          borderRadius: 4,
+          stack: 'b',
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      indexAxis: "y",
+      plugins: {
+        legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 11 }, padding: 8 } },
+        tooltip: { callbacks: {
+          afterBody: c => {
+            const p = POP_DATA[c[0].dataIndex];
+            return [
+              `Popcorn-omsetning: ${p.popcorn_mkr} mkr`,
+              `Popcorn-bidrag: ${p.popcorn_bidrag_mkr} mkr (90 % margin)`,
+              `Per gjest: ${p.kr_per_gjest} kr popcorn`,
+              `Bidrag/gjest: ${p.bidrag_per_gjest} kr`,
+              `Andel av kiosk: ${p.andel_kiosk_pct} %`
+            ];
+          }
+        } }
+      },
+      scales: {
+        x: { beginAtZero: true, ticks: { callback: v => v + " mkr" }, grid: { color: "#eef2f7" } },
+        y: { grid: { display: false } }
+      }
+    }
+  });
+
+  // Stats-cards
+  const el = document.getElementById("popcornStats");
+  POP_DATA.forEach(p => {
+    const c = document.createElement("div");
+    c.className = "popcorn-stat";
+    c.innerHTML = `<div class="popcorn-stat-kg">${p.kg}</div><div class="popcorn-stat-v">${p.kr_per_gjest} kr</div><div class="popcorn-stat-sub">popcorn/gjest · ${p.bidrag_per_gjest} kr bidrag</div>`;
+    el.appendChild(c);
   });
 })();
 
