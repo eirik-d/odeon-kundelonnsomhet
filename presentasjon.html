@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<title>ODEON Oslo — Kundelønnsomhet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  /* ================ FRA RAPPORTEN — VERBATIM ================ */
+  :root {
+    --bg: #f6f8fb; --card: #fff; --ink: #0f1c2e; --ink-2: #3a4a5c; --ink-3: #6b7684;
+    --line: #dce3ec; --line-soft: #eef2f7;
+    --accent: #003366; --accent-2: #00509e; --accent-3: #007acc;
+    --accent-soft: #e6eef7; --accent-light: #cce0ff;
+    --navy-deep: #001f3f; --slate: #4a6b8a; --grey: #8d99ae; --grey-soft: #e5e9ee;
+    --good: #00509e; --good-soft: #e6eef7;
+    --warn: #7a1f2e; --warn-soft: #f0dade;
+    --shadow: 0 1px 3px rgba(15,28,46,.04), 0 1px 2px rgba(15,28,46,.02);
+    --shadow-lg: 0 4px 6px -1px rgba(15,28,46,.05), 0 2px 4px -1px rgba(15,28,46,.03);
+    --radius: 14px;
+  }
+  html, body { background: var(--bg); }
+  .reveal {
+    font-family: "Spectral", Georgia, "Times New Roman", serif;
+    font-size: 20px; line-height: 1.55; color: var(--ink);
+    background: var(--bg); -webkit-font-smoothing: antialiased;
+  }
+  .reveal .slides { background: var(--bg); }
+  .reveal h1 { font-family: "Spectral", serif; font-size: 44px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; color: var(--ink); text-transform: none; margin: 0 0 8px; }
+  .reveal h2 { font-family: "Spectral", serif; font-size: 30px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; color: var(--ink); text-transform: none; margin: 0 0 12px; text-align: left; }
+  .reveal h3 { font-family: "Spectral", serif; font-size: 18px; font-weight: 600; letter-spacing: -0.005em; color: var(--ink); text-transform: none; margin: 0 0 8px; text-align: left; }
+  .reveal p { text-align: left; line-height: 1.55; margin: 0 0 12px; }
+  .reveal ul, .reveal ol { display: block; margin: 0 0 12px; padding-left: 22px; }
+  .reveal li { line-height: 1.55; margin-bottom: 6px; }
+  .reveal .slides section { text-align: left; padding: 30px 44px; background: var(--bg); }
+  .reveal .slides section.title-slide { text-align: center; padding: 60px; }
+  .reveal b, .reveal strong { color: var(--ink); font-weight: 700; }
+  .reveal a { color: var(--accent); }
+
+  /* Fra rapport */
+  .lede { font-size: 15px; color: var(--ink-2); line-height: 1.55; margin: 0 0 20px; max-width: 900px; }
+  .subhead { color: var(--ink-3); font-size: 12px; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 14px; box-shadow: var(--shadow); }
+  .card .csub { margin: 0 0 16px; font-size: 13px; color: var(--ink-3); }
+
+  /* Insights-boks */
+  .insight { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 18px 22px; margin-top: 14px; box-shadow: var(--shadow); }
+  .insight-good { border-left-color: var(--accent-3); }
+  .insight-warn { border-left-color: var(--warn); }
+  .insight h3 { margin: 0 0 8px; font-size: 15px; }
+  .insight ul { margin: 0; padding-left: 20px; }
+  .insight li { margin: 5px 0; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+  .insight li b { color: var(--ink); }
+
+  /* Callout */
+  .callout { padding: 14px 18px; background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 8px; font-size: 13px; color: var(--ink-2); line-height: 1.55; margin: 12px 0; }
+  .callout b { color: var(--accent); }
+  .callout-warn { background: var(--warn-soft); border-left-color: var(--warn); }
+  .callout-warn b { color: var(--warn); }
+
+  /* Kundegrupper */
+  .kg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .kg-card { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); }
+  .kg-icon { width: 40px; height: 40px; background: var(--accent-soft); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .kg-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .kg-name { font-family: "Spectral", serif; font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.2; color: var(--ink); }
+  .kg-desc { font-size: 11px; color: var(--ink-3); line-height: 1.4; margin-bottom: 10px; min-height: 44px; }
+  .kg-stats { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; border-top: 1px solid var(--line); }
+  .kg-stat { display: flex; justify-content: space-between; align-items: baseline; font-size: 11px; }
+  .kg-stat .l { color: var(--ink-3); }
+  .kg-stat .v { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .kg-stat .v.big { font-family: "Spectral", serif; font-size: 17px; color: var(--good); }
+  .kg-stat .pct { font-size: 10px; color: var(--ink-3); font-weight: 400; margin-left: 3px; }
+
+  /* Fortrinn */
+  .fortrinn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .fortrinn { padding: 16px 20px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; box-shadow: var(--shadow); }
+  .fortrinn-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 4px; }
+  .fortrinn-title { font-family: "Spectral", serif; font-size: 17px; font-weight: 600; margin: 0 0 6px; line-height: 1.2; color: var(--ink); }
+  .fortrinn-desc { font-size: 12px; color: var(--ink-2); line-height: 1.5; margin: 0 0 10px; }
+  .fortrinn-match { font-size: 11px; padding: 8px 10px; background: var(--accent-soft); border-radius: 6px; color: var(--ink-2); line-height: 1.45; }
+  .fortrinn-match b { color: var(--accent); }
+
+  /* Demografi */
+  .demo-metric { text-align: center; padding: 16px; background: var(--accent-soft); border-radius: 10px; }
+  .demo-metric-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 700; margin-bottom: 6px; }
+  .demo-metric-value { font-family: "Spectral", serif; font-size: 32px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .demo-metric-note { font-size: 11px; color: var(--ink-2); margin-top: 4px; }
+  .demo-metric-sub { font-size: 10px; color: var(--ink-3); margin-top: 3px; }
+
+  /* Kiosk-marginer (fra rapport) */
+  .margin-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 20px; align-items: start; }
+  .margin-list { display: flex; flex-direction: column; gap: 4px; }
+  .margin-row { display: grid; grid-template-columns: 100px 1fr 40px; gap: 8px; align-items: center; font-size: 11px; }
+  .margin-pg { color: var(--ink); font-weight: 500; }
+  .margin-bar { height: 18px; background: var(--line-soft); border-radius: 3px; overflow: hidden; position: relative; }
+  .margin-fill { height: 100%; background: linear-gradient(90deg, var(--accent-3), var(--accent)); border-radius: 3px; }
+  .margin-val { text-align: right; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; font-size: 11px; }
+  .margin-row.high .margin-fill { background: linear-gradient(90deg, var(--good), var(--accent)); }
+  .miks-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .miks-table th { text-align: left; padding: 6px 4px; border-bottom: 2px solid var(--line); font-size: 9px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); font-weight: 700; }
+  .miks-table th.num { text-align: right; }
+  .miks-table td { padding: 5px 4px; border-bottom: 1px solid var(--line-soft); }
+  .miks-table td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+  .miks-highlight { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+
+  /* Kostnadsallokering */
+  .alloc-list { display: flex; flex-direction: column; gap: 6px; }
+  .alloc-row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+  .alloc-row:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .alloc-name { font-family: "Spectral", serif; font-weight: 700; font-size: 12px; color: var(--ink); }
+  .alloc-val { font-family: "Spectral", serif; font-weight: 700; font-size: 12px; font-variant-numeric: tabular-nums; }
+  .alloc-val.pos { color: var(--accent-3); }
+  .alloc-val.neg { color: var(--warn); }
+  .alloc-val.neu { color: var(--ink-3); }
+  .alloc-desc { font-size: 10px; color: var(--ink-3); line-height: 1.4; margin-top: 2px; }
+
+  /* Anbefaling — full versjon */
+  .anbef-big-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .anbef-big-grid.anbef-big-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .anbef-big-grid.anbef-big-grid-4 .anbef-big { padding: 14px 14px; }
+  .anbef-big-grid.anbef-big-grid-4 .anbef-big-title { font-size: 13px; }
+  .anbef-big-grid.anbef-big-grid-4 .anbef-big-body { font-size: 11px; }
+  .anbef-big-grid.anbef-big-grid-4 .anbef-big-body ul { font-size: 11px; }
+  .anbef-big-grid.anbef-big-grid-4 .anbef-big-chart { height: 80px; }
+  .anbef-big-grid.anbef-big-grid-4 .calc-row { font-size: 10px; }
+  .anbef-big-grid.anbef-big-grid-4 .calc-row.highlight { font-size: 11px; }
+  .anbef-big { padding: 16px 18px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 12px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .anbef-big-hdr { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .anbef-big-num { display: inline-block; width: 30px; height: 30px; background: var(--accent); color: white; border-radius: 50%; text-align: center; font-size: 15px; line-height: 30px; font-weight: 700; flex-shrink: 0; font-family: "Spectral", serif; }
+  .anbef-big-title { font-family: "Spectral", serif; font-weight: 700; font-size: 15px; color: var(--ink); line-height: 1.25; }
+  .anbef-big-body { font-size: 12px; color: var(--ink-2); line-height: 1.55; }
+  .anbef-big-body b { color: var(--accent); }
+  .anbef-big-body ul li { margin-bottom: 3px; }
+  .anbef-big-chart { position: relative; height: 100px; margin: 8px 0; }
+  .anbef-big-calc { margin: 10px 0; padding: 10px 12px; background: var(--accent-soft); border-radius: 6px; display: flex; flex-direction: column; gap: 4px; }
+  .calc-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 11px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .calc-row.highlight { padding-top: 6px; margin-top: 4px; border-top: 1px solid var(--accent-light); color: var(--accent); font-size: 13px; }
+  .anbef-big-tags { margin-top: auto; padding-top: 8px; display: flex; gap: 4px; flex-wrap: wrap; }
+
+  /* Full kundegruppe-tabell */
+  .kg-full-tab { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .kg-full-tab th { text-align: left; padding: 8px 6px; border-bottom: 2px solid var(--line); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); font-weight: 700; }
+  .kg-full-tab th.num { text-align: right; }
+  .kg-full-tab td { padding: 10px 6px; border-bottom: 1px solid var(--line-soft); }
+  .kg-full-tab td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .kg-full-tab td.kg-netto { color: var(--accent); font-family: "Spectral", serif; font-size: 14px; }
+  .kg-full-tab tr.tot-row { border-top: 2px solid var(--ink); font-weight: 700; }
+  .kg-full-tab tr.tot-row td { border-bottom: none; }
+  .kg-pill { display: inline-block; padding: 4px 10px; background: var(--line-soft); border-radius: 12px; font-size: 12px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+  .kg-pill-primary { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+
+  /* Popcorn */
+  .popcorn-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; margin: 14px 0; padding: 20px 24px; background: linear-gradient(135deg, var(--accent-soft), #cce0ff40); border-radius: 12px; }
+  .popcorn-hero-num { font-family: "Spectral", serif; font-size: 44px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .popcorn-hero-sub { font-size: 12px; color: var(--ink-2); margin-top: 6px; }
+  .popcorn-hero-desc { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+  .popcorn-hero-desc b { color: var(--accent); }
+  .popcorn-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+  .popcorn-stat { padding: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center; box-shadow: var(--shadow); }
+  .popcorn-stat-kg { font-size: 10px; font-weight: 700; color: var(--ink); margin-bottom: 4px; line-height: 1.3; }
+  .popcorn-stat-v { font-family: "Spectral", serif; font-size: 18px; font-weight: 700; color: var(--accent); }
+  .popcorn-stat-sub { font-size: 10px; color: var(--ink-3); margin-top: 2px; }
+
+  /* Vær */
+  .vaer-hero { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+  .vaer-kort { padding: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-align: center; box-shadow: var(--shadow); }
+  .vaer-kort-emoji { font-size: 28px; margin-bottom: 4px; }
+  .vaer-kort-tall { font-family: "Spectral", serif; font-size: 24px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .vaer-kort-diff { font-size: 11px; margin-top: 4px; font-weight: 600; }
+  .vaer-kort-diff.pos { color: var(--accent-3); }
+  .vaer-kort-diff.neg { color: var(--warn); }
+  .vaer-kort-sub { font-size: 10px; color: var(--ink-3); margin-top: 3px; }
+  .korr-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+  .korr-item { padding: 8px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center; }
+  .korr-item-label { font-size: 10px; color: var(--ink-2); margin-bottom: 3px; }
+  .korr-item-val { font-family: "Spectral", serif; font-size: 17px; font-weight: 700; }
+
+  /* Nullpunkt */
+  .np-formel { background: #f4f6fa; border: 1px solid var(--line); border-radius: 10px; padding: 18px; text-align: center; margin: 12px 0; font-family: "Spectral", serif; font-size: 17px; color: var(--ink); }
+  .np-formel .frac { display: inline-block; vertical-align: middle; margin: 0 4px; text-align: center; }
+  .np-formel .num { display: block; border-bottom: 1.5px solid var(--ink); padding: 0 8px 2px; font-size: 14px; }
+  .np-formel .den { display: block; padding: 2px 8px 0; font-size: 14px; }
+  .np-forut { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 12px 0; }
+  .np-forut-item { padding: 8px; background: var(--card); border: 1px solid var(--line); border-radius: 6px; text-align: center; }
+  .np-forut-lbl { font-size: 10px; color: var(--ink-3); }
+  .np-forut-val { font-family: "Spectral", serif; font-size: 15px; font-weight: 700; color: var(--accent); margin-top: 2px; }
+
+  /* Anbefaling-cards */
+  .anbef-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .anbef { padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
+  .anbef-title { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; font-family: "Spectral", serif; }
+  .anbef-num { display: inline-block; width: 22px; height: 22px; background: var(--accent); color: white; border-radius: 50%; text-align: center; font-size: 12px; line-height: 22px; font-weight: 700; flex-shrink: 0; }
+  .anbef-body { font-size: 12px; color: var(--ink-2); line-height: 1.55; }
+  .anbef-tags { margin-top: 6px; display: flex; gap: 4px; flex-wrap: wrap; }
+  .anbef-tag { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); }
+
+  /* Method-toggle look (statisk for slide) */
+  .method-toggle { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0; }
+  .method-btn { background: var(--card); border: 2px solid var(--line); border-radius: 10px; padding: 12px 10px; text-align: left; }
+  .method-btn.active { border-color: var(--accent); background: linear-gradient(135deg, #e6eef7, #cce0ff); box-shadow: 0 2px 6px rgba(0,51,102,0.1); }
+  .method-btn .m-n { font-size: 10px; font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .method-btn.active .m-n { color: var(--accent); }
+  .method-btn .m-name { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; line-height: 1.2; }
+  .method-btn .m-kort { font-size: 11px; color: var(--ink-3); line-height: 1.3; }
+  .method-btn.active .m-kort { color: var(--accent-2); }
+
+  /* Prising-scenario-kort */
+  .pris-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pris-sc { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 18px 20px; text-align: center; box-shadow: var(--shadow); }
+  .pris-sc.good { border-left-color: var(--accent-3); background: var(--accent-soft); }
+  .pris-sc.warn { border-left-color: var(--warn); }
+  .pris-sc-lbl { font-size: 11px; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 10px; min-height: 2.5em; }
+  .pris-sc-num { font-family: "Spectral", serif; font-size: 42px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+  .pris-sc.good .pris-sc-num { color: var(--accent-3); }
+  .pris-sc.warn .pris-sc-num { color: var(--warn); }
+  .pris-sc-desc { font-size: 11px; color: var(--ink-3); line-height: 1.4; }
+
+  /* Sal-typer tabell */
+  .saltype-tab { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .saltype-tab th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--line); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-3); font-weight: 700; }
+  .saltype-tab th.num { text-align: right; }
+  .saltype-tab td { padding: 8px 10px; border-bottom: 1px solid var(--line-soft); }
+  .saltype-tab td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .saltype-tab tr.premium { background: var(--accent-soft); }
+  .saltype-tab tr.premium td { color: var(--accent); font-weight: 700; }
+  .saltype-tab tr.total { border-top: 2px solid var(--ink); font-weight: 700; }
+  .saltype-tab tr.total td { border-bottom: none; }
+
+  /* KPI-boks */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  .kpi-box { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; text-align: center; box-shadow: var(--shadow); }
+  .kpi-num { font-family: "Spectral", serif; font-size: 30px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .kpi-lbl { font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; font-weight: 700; line-height: 1.3; }
+
+  /* Chart-wrap */
+  .chart-wrap { position: relative; height: 300px; background: var(--card); border-radius: 10px; padding: 10px; border: 1px solid var(--line); }
+
+  /* Sidenumre */
+  .page-num { position: absolute; bottom: 14px; left: 44px; font-size: 11px; color: var(--ink-3); }
+
+  /* Title slide */
+  .title-slide h1 { font-size: 56px; margin-bottom: 12px; }
+  .title-slide .subtitle { font-family: "Spectral", serif; font-style: italic; font-size: 20px; color: var(--ink-2); font-weight: 400; }
+  .title-slide .meta { margin-top: 50px; font-size: 13px; color: var(--ink-3); line-height: 1.6; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: start; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- 1. TITTEL -->
+<section class="title-slide">
+  <h1>ODEON Oslo</h1>
+</section>
+
+<!-- 2. OM CASET -->
+<section>
+  <div class="subhead">Om caset</div>
+  <h2>ODEON Oslo — Norges største kino</h2>
+  <p class="lede">Storo, 14 saler inkl. Norges eneste IMAX og LUXE-konseptet. Allerede svært lønnsom (19 % EBIT-margin). Vår oppgave: gi teoretisk forankrede anbefalinger om kundelønnsomhet, konkurransefortrinn og pris.</p>
+
+  <div class="kpi-grid" style="grid-template-columns: repeat(6, 1fr); gap: 10px;">
+    <div class="kpi-box"><div class="kpi-num">14</div><div class="kpi-lbl">Saler<br>(1 747 seter)</div></div>
+    <div class="kpi-box"><div class="kpi-num">546k</div><div class="kpi-lbl">Solgte billetter<br>2025</div></div>
+    <div class="kpi-box"><div class="kpi-num">134,5</div><div class="kpi-lbl">MKr topline<br>(+6,3 % vs 2024)</div></div>
+    <div class="kpi-box"><div class="kpi-num" style="color: var(--accent-3);">25,7</div><div class="kpi-lbl">MKr EBIT<br>(19 % margin)</div></div>
+    <div class="kpi-box"><div class="kpi-num">156</div><div class="kpi-lbl">Kr snittpris<br>per billett</div></div>
+    <div class="kpi-box"><div class="kpi-num">71</div><div class="kpi-lbl">Kr kiosk/gjest<br>(29 % av topline)</div></div>
+  </div>
+
+  <div class="card" style="margin-top: 14px; padding: 16px 22px;">
+    <h3 style="margin-bottom: 8px;">Format-porteføljen</h3>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; font-size: 12px;">
+      <div><b>IMAX</b> (420 seter)<br><span style="color: var(--ink-3);">Norges eneste, prispremie 65 %</span></div>
+      <div><b>LUXE</b> (72 recliners m/bar)<br><span style="color: var(--ink-3);">34,8 % belegg, best i huset</span></div>
+      <div><b>iSense + ScreenX</b><br><span style="color: var(--ink-3);">Utvidet premium-bredde</span></div>
+      <div><b>12 standard-saler</b><br><span style="color: var(--ink-3);">80–250 seter</span></div>
+    </div>
+  </div>
+  <span class="page-num">2 / 14</span>
+</section>
+
+<!-- 3. METODE: DATA OG MAPPING -->
+<section>
+  <div class="subhead">Metode</div>
+  <h2>Data og mapping</h2>
+  <p class="lede">Uten kunde-ID måtte vi finne en annen måte å segmentere kundene på. Vi kobler billett- og kioskdata på tidsvindu — og bruker filmkategorien som proxy for kundetype.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Datagrunnlag</h3>
+      <ul style="font-size: 13px;">
+        <li><b>546 031 billetter</b> · 78 957 rader forestillingsdata</li>
+        <li><b>569 060 kiosk-transaksjoner</b> · 10 produktgrupper</li>
+        <li><b>Regnskap 2025</b> · P&amp;L med 134,5 mkr topline, 25,7 mkr EBIT</li>
+        <li>Værdata Oslo 2025 (Open-Meteo, daglig)</li>
+      </ul>
+      <div class="callout">
+        <b>Mapping mulig via tidsstempel:</b> Både billettdata (forestillingsstart) og kiosk-transaksjoner (kjøpstidspunkt) inneholder timestamp — det lot oss koble kioskkjøp til forestilling via ±15 min-vindu og pro rata etter billettvolum.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Fra 78 957 rader → analyseenhet</h3>
+      <p style="font-size: 13px;"><b>Enheten er film × tidspunkt.</b> 378 unike filmer klassifiseres i 7 filmkategorier basert på type og publikum.</p>
+      <p style="font-size: 13px; margin-top: 8px;">Filmkategoriene aggregeres videre til <b>kundegrupper</b> via demografi-hypotese — hvem antar vi ser hva slags film? Kundegruppene vises på neste slide.</p>
+      <p style="font-size: 13px; margin-top: 8px; color: var(--ink-3);">Sanity: EBIT-estimat 25,9 mkr matcher rapportert 25,7 mkr innen 1 %.</p>
+    </div>
+  </div>
+  <span class="page-num">3 / 14</span>
+</section>
+
+
+<!-- 4. KUNDESEGMENTERING -->
+<section>
+  <div class="subhead">Kundesegmentering</div>
+  <h2>Fire hovedkundegrupper</h2>
+  <p class="lede">7 filmkategorier gruppert etter antatt demografi. Vi ser nå på hva som karakteriserer hver gruppe — lønnsomheten regnes ut etter at vi har gått gjennom kiosk-økonomi og fortrinn.</p>
+
+  <div class="kg-grid">
+    <div class="kg-card">
+      <div class="kg-icon"><svg viewBox="0 0 24 24"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/></svg></div>
+      <div class="kg-name">Unge menn</div>
+      <div class="kg-desc">Blockbuster + Horror på premium-formater. Betaler fullpris, høyt kioskspend.</div>
+      <div class="kg-stats">
+        <div class="kg-stat"><span class="l">Billetter</span><span class="v">217 160<span class="pct">(39,8 %)</span></span></div>
+        <div class="kg-stat"><span class="l">Snittpris</span><span class="v">180 kr</span></div>
+        <div class="kg-stat"><span class="l">Kiosk/gjest</span><span class="v">73 kr</span></div>
+        <div class="kg-stat"><span class="l">IMAX-andel</span><span class="v">37,5 %</span></div>
+        <div class="kg-stat"><span class="l">LUXE-andel</span><span class="v">5,2 %</span></div>
+      </div>
+    </div>
+
+    <div class="kg-card">
+      <div class="kg-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div class="kg-name">Barnefamilier</div>
+      <div class="kg-desc">Familie/barn på matinée og helg. Barnerabatt trekker snittprisen ned, popcorn-tunge.</div>
+      <div class="kg-stats">
+        <div class="kg-stat"><span class="l">Billetter</span><span class="v">148 731<span class="pct">(27,2 %)</span></span></div>
+        <div class="kg-stat"><span class="l">Snittpris</span><span class="v">132 kr</span></div>
+        <div class="kg-stat"><span class="l">Kiosk/gjest</span><span class="v">67 kr</span></div>
+        <div class="kg-stat"><span class="l">IMAX-andel</span><span class="v">7,5 %</span></div>
+        <div class="kg-stat"><span class="l">LUXE-andel</span><span class="v">2,1 %</span></div>
+      </div>
+    </div>
+
+    <div class="kg-card">
+      <div class="kg-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="4" y1="12" x2="20" y2="12"/></svg></div>
+      <div class="kg-name">Norsk film & drama</div>
+      <div class="kg-desc">Norsk film + Drama/thriller. Kulturbevisste voksne, kveld/helg.</div>
+      <div class="kg-stats">
+        <div class="kg-stat"><span class="l">Billetter</span><span class="v">133 068<span class="pct">(24,4 %)</span></span></div>
+        <div class="kg-stat"><span class="l">Snittpris</span><span class="v">146 kr</span></div>
+        <div class="kg-stat"><span class="l">Kiosk/gjest</span><span class="v">64 kr</span></div>
+        <div class="kg-stat"><span class="l">IMAX-andel</span><span class="v">7,6 %</span></div>
+        <div class="kg-stat"><span class="l">LUXE-andel</span><span class="v">7,8 %</span></div>
+      </div>
+    </div>
+
+    <div class="kg-card">
+      <div class="kg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></div>
+      <div class="kg-name">Annet</div>
+      <div class="kg-desc">Konsert-visninger, klassikere, event, dokumentar (247 filmer).</div>
+      <div class="kg-stats">
+        <div class="kg-stat"><span class="l">Billetter</span><span class="v">47 072<span class="pct">(8,6 %)</span></span></div>
+        <div class="kg-stat"><span class="l">Snittpris</span><span class="v">143 kr</span></div>
+        <div class="kg-stat"><span class="l">Kiosk/gjest</span><span class="v">61 kr</span></div>
+        <div class="kg-stat"><span class="l">IMAX-andel</span><span class="v">14,8 %</span></div>
+        <div class="kg-stat"><span class="l">LUXE-andel</span><span class="v">6,4 %</span></div>
+      </div>
+    </div>
+  </div>
+  <span class="page-num">4 / 14</span>
+</section>
+
+<!-- 5. KIOSK-MARGINER -->
+<section>
+  <div class="subhead">Kiosk-økonomi</div>
+  <h2>Kiosk-marginer — ikke alle produkter er like lønnsomme</h2>
+  <p class="lede">Vi bruker differensiert margin per produktgruppe (ikke flat 40 %). Popcorn har ~90 % margin, hot food kun ~40 %. Ulik produktmiks per kundegruppe endrer hvem som faktisk bidrar mest.</p>
+
+  <div class="card" style="padding: 18px 22px;">
+    <div class="margin-grid">
+      <div>
+        <h3 style="margin-bottom: 8px;">Antatt margin per produktgruppe</h3>
+        <p style="font-size: 11px; color: var(--ink-3); margin-bottom: 10px;">Bransjebenchmark — margin = 100 % − varekost-andel</p>
+        <div class="margin-list">
+          <div class="margin-row high"><span class="margin-pg">Popcorn</span><div class="margin-bar"><div class="margin-fill" style="width: 90%"></div></div><span class="margin-val">90 %</span></div>
+          <div class="margin-row high"><span class="margin-pg">Combo</span><div class="margin-bar"><div class="margin-fill" style="width: 85%"></div></div><span class="margin-val">85 %</span></div>
+          <div class="margin-row"><span class="margin-pg">Coffee</span><div class="margin-bar"><div class="margin-fill" style="width: 85%"></div></div><span class="margin-val">85 %</span></div>
+          <div class="margin-row"><span class="margin-pg">Beverages</span><div class="margin-bar"><div class="margin-fill" style="width: 80%"></div></div><span class="margin-val">80 %</span></div>
+          <div class="margin-row"><span class="margin-pg">Alcohol</span><div class="margin-bar"><div class="margin-fill" style="width: 70%"></div></div><span class="margin-val">70 %</span></div>
+          <div class="margin-row"><span class="margin-pg">Pick & Mix</span><div class="margin-bar"><div class="margin-fill" style="width: 55%"></div></div><span class="margin-val">55 %</span></div>
+          <div class="margin-row"><span class="margin-pg">Snacks</span><div class="margin-bar"><div class="margin-fill" style="width: 50%"></div></div><span class="margin-val">50 %</span></div>
+          <div class="margin-row"><span class="margin-pg">Packed Candy</span><div class="margin-bar"><div class="margin-fill" style="width: 50%"></div></div><span class="margin-val">50 %</span></div>
+          <div class="margin-row"><span class="margin-pg">Hot Food</span><div class="margin-bar"><div class="margin-fill" style="width: 40%"></div></div><span class="margin-val">40 %</span></div>
+          <div class="margin-row"><span class="margin-pg">Merchandise</span><div class="margin-bar"><div class="margin-fill" style="width: 40%"></div></div><span class="margin-val">40 %</span></div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom: 8px;">Produktmiks per kundegruppe</h3>
+        <p style="font-size: 11px; color: var(--ink-3); margin-bottom: 10px;">Prosent av kioskomsetning fordelt på produktgruppe</p>
+        <table class="miks-table">
+          <thead>
+            <tr><th>Produkt</th><th class="num">Unge menn</th><th class="num">Barnefamilie</th><th class="num">Norsk & drama</th><th class="num">Annet</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Popcorn</td><td class="num">21,4 %</td><td class="num">19,8 %</td><td class="num">19,6 %</td><td class="num">19,6 %</td></tr>
+            <tr><td>Combo</td><td class="num">14,2 %</td><td class="num">16,2 %</td><td class="num">11,6 %</td><td class="num">13,3 %</td></tr>
+            <tr><td>Beverages</td><td class="num">24,1 %</td><td class="num">21,8 %</td><td class="num">22,3 %</td><td class="num">22,2 %</td></tr>
+            <tr><td>Alcohol</td><td class="num">9,8 %</td><td class="num">6,4 %</td><td class="num miks-highlight">14,2 %</td><td class="num miks-highlight">15,3 %</td></tr>
+            <tr><td>Packed Candy</td><td class="num">14,4 %</td><td class="num miks-highlight">17,6 %</td><td class="num">14,5 %</td><td class="num">13,9 %</td></tr>
+            <tr><td>Snacks</td><td class="num">11,7 %</td><td class="num">13,4 %</td><td class="num">11,9 %</td><td class="num">10,7 %</td></tr>
+            <tr><td>Pick & Mix</td><td class="num">3,9 %</td><td class="num">3,6 %</td><td class="num">4,8 %</td><td class="num">3,9 %</td></tr>
+            <tr><td>Coffee / Hot Food / Merch.</td><td class="num">0,6 %</td><td class="num">1,3 %</td><td class="num">1,2 %</td><td class="num">1,1 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Interessant funn:</b> Norsk film & drama og Annet har <b>2× høyere alkohol-andel</b> (14–15 %) enn Unge menn (9,8 %) — kveldsvisninger m/bar. Barnefamilier over-representert på Packed Candy (17,6 %) — lavere margin, drar netto litt ned. Popcorn er relativt jevnt (~20 %) på tvers.
+  </div>
+
+  <span class="page-num">5 / 14</span>
+</section>
+
+<!-- 6. POPCORN -->
+<section>
+  <div class="subhead">Kiosk-økonomi</div>
+  <h2>🍿 Popcorn er gullet — 25 % av kiosk-bidraget</h2>
+
+  <div class="popcorn-hero">
+    <div>
+      <div class="popcorn-hero-num">6,8 mkr</div>
+      <div class="popcorn-hero-sub">Bidrag fra popcorn alene (90 % margin)</div>
+    </div>
+    <div class="popcorn-hero-desc">
+      Odeon selger popcorn for <b>7,6 mkr</b> med råvarekost på bare <b>10 %</b>. Det gir <b>6,8 mkr i bidrag</b> — mer enn <b>25 % av alt kiosk-bidrag</b>. Alle strategier for å øke popcorn-salg har enorm hebang.
+    </div>
+  </div>
+
+  <div class="chart-wrap"><canvas id="chPopcorn"></canvas></div>
+
+  <div class="popcorn-stats">
+    <div class="popcorn-stat"><div class="popcorn-stat-kg">Unge menn</div><div class="popcorn-stat-v">15,5 kr</div><div class="popcorn-stat-sub">popcorn/gjest · 14,0 kr bidrag</div></div>
+    <div class="popcorn-stat"><div class="popcorn-stat-kg">Barnefamilier</div><div class="popcorn-stat-v">13,3 kr</div><div class="popcorn-stat-sub">popcorn/gjest · 12,0 kr bidrag</div></div>
+    <div class="popcorn-stat"><div class="popcorn-stat-kg">Norsk film & drama</div><div class="popcorn-stat-v">12,5 kr</div><div class="popcorn-stat-sub">popcorn/gjest · 11,3 kr bidrag</div></div>
+    <div class="popcorn-stat"><div class="popcorn-stat-kg">Annet</div><div class="popcorn-stat-v">12,0 kr</div><div class="popcorn-stat-sub">popcorn/gjest · 10,8 kr bidrag</div></div>
+  </div>
+  <span class="page-num">6 / 14</span>
+</section>
+
+<!-- 7. KOSTNADSALLOKERING -->
+<section>
+  <div class="subhead">Kostnadsallokering</div>
+  <h2>Hvilke kostnader vi allokerer — og hvilke vi ikke gjør</h2>
+  <p class="lede">Ikke alle poster i regnskapet lar seg meningsfullt fordele til kundegrupper. Her er våre valg — og hvorfor.</p>
+
+  <div class="grid2">
+    <div class="card" style="padding: 16px 18px;">
+      <h3 style="color: var(--accent); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px;">✓ Allokert til kundegrupper</h3>
+      <div class="alloc-list">
+        <div class="alloc-row"><div class="alloc-name">Billettinntekt</div><div class="alloc-val pos">84,9 mkr</div></div>
+        <div class="alloc-desc">Direkte fra billett-transaksjon per gjest.</div>
+
+        <div class="alloc-row"><div class="alloc-name">Kiosk/bar-omsetning</div><div class="alloc-val pos">38,7 mkr</div></div>
+        <div class="alloc-desc">Koblet via tidsvindu ±15 min, pro rata etter billettvolum.</div>
+
+        <div class="alloc-row"><div class="alloc-name">Reklameinntekt</div><div class="alloc-val pos">+8,7 mkr</div></div>
+        <div class="alloc-desc">Skalerer med publikum. Fordelt flat +16 kr/gjest.</div>
+
+        <div class="alloc-row"><div class="alloc-name">Filmleie</div><div class="alloc-val neg">−35,7 mkr</div></div>
+        <div class="alloc-desc">Variabel per billett (42 % av brutto).</div>
+
+        <div class="alloc-row"><div class="alloc-name">IMAX Corp-revshare</div><div class="alloc-val neg">−2,7 mkr</div></div>
+        <div class="alloc-desc">Bransjebenchmark 11 % ekstra. Kun IMAX-segmentet bærer den.</div>
+
+        <div class="alloc-row"><div class="alloc-name">Kiosk-varekost</div><div class="alloc-val neg">−15,5 mkr</div></div>
+        <div class="alloc-desc">Differensiert per produktgruppe. Skaleres med kiosk-adferd per segment.</div>
+
+        <div class="alloc-row"><div class="alloc-name">Kapasitetskost</div><div class="alloc-val neg">−35,7 mkr</div></div>
+        <div class="alloc-desc">Leie 30,3 + avskrivning 5,4. Per faktisk brukt sete-time, <b>sal-differensiert i M4</b>.</div>
+
+        <div class="alloc-row"><div class="alloc-name">Personal</div><div class="alloc-val neg">−15,9 mkr</div></div>
+        <div class="alloc-desc">30 % baseline per forestilling + 70 % per gjest (time-driven ABC). Sal-diff i M4.</div>
+      </div>
+    </div>
+
+    <div class="card" style="padding: 16px 18px; background: var(--line-soft);">
+      <h3 style="color: var(--ink-3); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px;">✗ Ikke allokert</h3>
+      <div class="alloc-list">
+        <div class="alloc-row"><div class="alloc-name">Ubrukt kapasitet</div><div class="alloc-val neu">25,9 mkr</div></div>
+        <div class="alloc-desc"><b>Bevisst valg (Cooper/Kaplan):</b> tomme seter er en ledelsesbeslutning, ikke gjestens ansvar. Beregnet med <b>80 % praktisk kapasitet</b>.</div>
+
+        <div class="alloc-row"><div class="alloc-name">Conference & Event</div><div class="alloc-val neu">1,7 mkr</div></div>
+        <div class="alloc-desc">Egen forretningslinje (bedriftsleie, private visninger). Ikke koblet til billett-transaksjoner.</div>
+
+        <div class="alloc-row"><div class="alloc-name">Andre eksterne driftskost</div><div class="alloc-val neu">3,8 mkr</div></div>
+        <div class="alloc-desc">Reparasjon, kontor, forsikring m.m. For små og uspesifikke til segmentallokering — påvirker EBIT-estimatet ~0,3 mkr.</div>
+
+        <div class="alloc-row"><div class="alloc-name">Andre inntekter</div><div class="alloc-val neu">0,5 mkr</div></div>
+        <div class="alloc-desc">Marginale poster (Other Net Sales, Other Operating Income).</div>
+
+        <div class="alloc-row"><div class="alloc-name">Rentekostnader</div><div class="alloc-val neu">2 234 kr</div></div>
+        <div class="alloc-desc">Ubetydelig beløp. Utelatt for enkelhet.</div>
+      </div>
+    </div>
+  </div>
+  <span class="page-num">7 / 14</span>
+</section>
+
+<!-- 8. KOSTNADSALLOKERING — METODEVALG -->
+<section>
+  <div class="subhead">Kostnadsallokering</div>
+  <h2>Hvilken metode valgte vi — og hvorfor?</h2>
+  <p class="lede">Vi testet fire ulike måter å fordele de faste kostnadene på. Valget påvirker hvor rettferdig kundelønnsomheten blir per gruppe.</p>
+
+  <div class="method-toggle">
+    <div class="method-btn"><div class="m-n">Metode 1</div><div class="m-name">Bidrag</div><div class="m-kort">Kun variable kostnader</div></div>
+    <div class="method-btn"><div class="m-n">Metode 2</div><div class="m-name">Selvkost</div><div class="m-kort">95 kr/billett flatt</div></div>
+    <div class="method-btn"><div class="m-n">Metode 3</div><div class="m-name">ABC flat</div><div class="m-kort">Per sete-time (80 % praktisk kap.)</div></div>
+    <div class="method-btn active"><div class="m-n">Metode 4 ✓ VALGT</div><div class="m-name">ABC sal-differensiert</div><div class="m-kort">IMAX 2,5× · LUXE 1,5× kap. + personal</div></div>
+  </div>
+
+  <div class="grid2" style="margin-top: 14px;">
+    <div class="callout">
+      <b>Hvorfor M4?</b> IMAX (420 seter) og LUXE (72 recliners m/bar) er dyrere å drifte per sete-time enn standard-saler — større arealer, premium-teknologi, høyere personal-tetthet. Cooper &amp; Kaplan (ABC) krever at aktivitetsdrivere gjenspeiler faktisk ressursforbruk.
+    </div>
+    <div class="callout callout-warn">
+      <b>Konsekvens av å velge feil:</b> M3 (flat kapasitetsrate) ville under-allokert kost til IMAX-forestillinger og over-allokert til standard-saler. IMAX-tunge segmenter (Unge menn med 37,5 % IMAX-andel) ville sett urealistisk lønnsomme ut.
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 12px; padding: 14px 20px;">
+    <h3 style="margin-bottom: 6px;">Praktisk kapasitet 80 %</h3>
+    <p style="font-size: 12px; color: var(--ink-2); margin: 0;">Kapasitetsraten beregnes over <b>80 % praktisk kapasitet</b> (ikke 100 %). Cooper/Kaplan: kostnaden for de resterende 20 % — <b>ubrukt kapasitet på 25,9 mkr</b> — er en ledelsesbeslutning og skal ikke belastes kundene, men vises som egen post.</p>
+  </div>
+  <span class="page-num">8 / 14</span>
+</section>
+
+<!-- 9. KUNDELØNNSOMHET -->
+<section>
+  <div class="subhead">Kundelønnsomhet</div>
+  <h2>Full kundegruppe-oversikt</h2>
+  <p class="lede">Nå har vi alle byggeklossene: differensiert kiosk-varekost, ABC sal-differensiert kostnadsallokering, filmleie og reklame. Her er full detalj per gruppe.</p>
+
+  <div class="card" style="padding: 18px 22px;">
+    <table class="kg-full-tab">
+      <thead>
+        <tr>
+          <th>Kundegruppe</th>
+          <th class="num">Billetter</th>
+          <th class="num">Andel</th>
+          <th class="num">Snittpris</th>
+          <th class="num">Kiosk/bill</th>
+          <th class="num">IMAX %</th>
+          <th class="num">Belegg</th>
+          <th class="num">Bidrag (Y)</th>
+          <th class="num">Betjening (X)</th>
+          <th class="num">Netto/bill</th>
+          <th class="num">Total (mkr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="kg-pill kg-pill-primary">🎬 Unge menn</span></td>
+          <td class="num">217 160</td>
+          <td class="num">39,8 %</td>
+          <td class="num">180 kr</td>
+          <td class="num">73 kr</td>
+          <td class="num">37,5 %</td>
+          <td class="num">24,0 %</td>
+          <td class="num"><b>155 kr</b></td>
+          <td class="num">49 kr</td>
+          <td class="num kg-netto"><b>106 kr</b></td>
+          <td class="num"><b>23,0</b></td>
+        </tr>
+        <tr>
+          <td><span class="kg-pill">👨‍👩‍👧 Barnefamilier</span></td>
+          <td class="num">148 731</td>
+          <td class="num">27,2 %</td>
+          <td class="num">132 kr</td>
+          <td class="num">67 kr</td>
+          <td class="num">7,5 %</td>
+          <td class="num">19,8 %</td>
+          <td class="num"><b>131 kr</b></td>
+          <td class="num">46 kr</td>
+          <td class="num kg-netto"><b>85 kr</b></td>
+          <td class="num"><b>12,7</b></td>
+        </tr>
+        <tr>
+          <td><span class="kg-pill">🇳🇴 Norsk film & drama</span></td>
+          <td class="num">133 068</td>
+          <td class="num">24,4 %</td>
+          <td class="num">146 kr</td>
+          <td class="num">64 kr</td>
+          <td class="num">7,6 %</td>
+          <td class="num">29,3 %</td>
+          <td class="num"><b>137 kr</b></td>
+          <td class="num">45 kr</td>
+          <td class="num kg-netto"><b>93 kr</b></td>
+          <td class="num"><b>12,4</b></td>
+        </tr>
+        <tr>
+          <td><span class="kg-pill">🎭 Annet</span></td>
+          <td class="num">47 072</td>
+          <td class="num">8,6 %</td>
+          <td class="num">143 kr</td>
+          <td class="num">61 kr</td>
+          <td class="num">14,8 %</td>
+          <td class="num">22,3 %</td>
+          <td class="num"><b>132 kr</b></td>
+          <td class="num">48 kr</td>
+          <td class="num kg-netto"><b>84 kr</b></td>
+          <td class="num"><b>4,0</b></td>
+        </tr>
+        <tr class="tot-row">
+          <td>Sum / snitt</td>
+          <td class="num">546 031</td>
+          <td class="num">100 %</td>
+          <td class="num">156 kr</td>
+          <td class="num">68 kr</td>
+          <td class="num">20,1 %</td>
+          <td class="num">23,4 %</td>
+          <td class="num"><b>148 kr</b></td>
+          <td class="num">47 kr</td>
+          <td class="num kg-netto"><b>95 kr</b></td>
+          <td class="num"><b>52,1</b></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <b>Unge menn er 25 % mer lønnsomme per gjest</b> enn Barnefamilier (106 vs 85 kr). De bærer mer premium-kostnad (37,5 % IMAX-andel), men høy billettpris og kiosk-spend overkompenserer. <b>Norsk film & drama</b> er nr 2 pga alkohol-mix og lav IMAX-kostnad — og har høyest belegg (29,3 %).
+  </div>
+
+  <span class="page-num">9 / 14</span>
+</section>
+
+<!-- 9. KONKURRANSEFORTRINN — 4 FORTRINN -->
+<section>
+  <div class="subhead">Konkurransefortrinn</div>
+  <h2>Fire komparative fortrinn ingen kan matche</h2>
+
+  <div class="fortrinn-grid">
+    <div class="fortrinn">
+      <div class="fortrinn-num">Fortrinn 1</div>
+      <div class="fortrinn-title">Norges eneste IMAX</div>
+      <div class="fortrinn-desc">Teknisk monopol. 420-seters sal med laserprojeksjon. Nordisk Films Colosseum er nærmest — men ikke IMAX.</div>
+      <div class="fortrinn-match"><b>Passer:</b> Unge menn — 37,5 % av gruppens billetter selges på IMAX.</div>
+    </div>
+    <div class="fortrinn">
+      <div class="fortrinn-num">Fortrinn 2</div>
+      <div class="fortrinn-title">Storo-lokasjonen</div>
+      <div class="fortrinn-desc">Norges største kjøpesenter i omsetning. T-bane/trikk ved inngangen, parkering, mat og shopping.</div>
+      <div class="fortrinn-match"><b>Passer:</b> Barnefamilier — 149k billetter/år, kombinerer kino med shopping.</div>
+    </div>
+    <div class="fortrinn">
+      <div class="fortrinn-num">Fortrinn 3</div>
+      <div class="fortrinn-title">Samlet premium-portefølje</div>
+      <div class="fortrinn-desc">IMAX + LUXE (72 recliners m/bar) + iSense + ScreenX. Ingen norsk kino har full premium-bredde.</div>
+      <div class="fortrinn-match"><b>Passer:</b> Unge menn date-night + Norsk drama-kveld. LUXE har 34,8 % belegg (best i huset).</div>
+    </div>
+    <div class="fortrinn">
+      <div class="fortrinn-num">Fortrinn 4</div>
+      <div class="fortrinn-title">Skala og programfleksibilitet</div>
+      <div class="fortrinn-desc">14 saler, 1 747 seter. «Alltid noe som går» — reduserer beslutningsfriksjonen.</div>
+      <div class="fortrinn-match"><b>Passer:</b> Alle grupper — særlig Norsk film & drama og impulse-gjester på Storo.</div>
+    </div>
+  </div>
+  <span class="page-num">10 / 14</span>
+</section>
+
+<!-- 10. KONKURRANSEFORTRINN — DEMOGRAFI + PREMIUM -->
+<section>
+  <div class="subhead">Konkurransefortrinn</div>
+  <h2>Storo-demografi styrker fortrinnet</h2>
+
+  <div class="grid2">
+    <div>
+      <div class="grid3" style="margin-bottom: 12px;">
+        <div class="demo-metric">
+          <div class="demo-metric-label">Kollektivtilbud</div>
+          <div class="demo-metric-value">95<span style="font-size: 18px; color: var(--ink-3);">/100</span></div>
+          <div class="demo-metric-sub">Oslo: 88</div>
+        </div>
+        <div class="demo-metric">
+          <div class="demo-metric-label">Unge voksne 19–34</div>
+          <div class="demo-metric-value">45 %</div>
+          <div class="demo-metric-sub">Oslo: 28 % (+17 pp)</div>
+        </div>
+        <div class="demo-metric">
+          <div class="demo-metric-label">Ikke gift</div>
+          <div class="demo-metric-value">72 %</div>
+          <div class="demo-metric-sub">Oslo: 58 % (+14 pp)</div>
+        </div>
+      </div>
+      <div class="callout">
+        <b>Urban singel-voksne-lomme.</b> Ikke tradisjonell familietrafikk — favoriserer strukturelt kveld- og premium-segmenter (LUXE date night, IMAX Blockbuster). Barnefamilier på Storo kommer uansett.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom: 10px;">Premium leverer overproporsjonalt</h3>
+      <table class="saltype-tab">
+        <thead><tr><th>Sal-type</th><th class="num">Billetter</th><th class="num">Inntekt</th><th class="num">Snittpris</th></tr></thead>
+        <tbody>
+          <tr class="premium"><td><b>IMAX</b></td><td class="num">20 %</td><td class="num">29 %</td><td class="num">225 kr</td></tr>
+          <tr class="premium"><td><b>LUXE</b></td><td class="num">6 %</td><td class="num">6 %</td><td class="num">167 kr</td></tr>
+          <tr><td>Standard (12 saler)</td><td class="num">74 %</td><td class="num">65 %</td><td class="num">130 kr</td></tr>
+          <tr class="total"><td>Premium totalt</td><td class="num">26 %</td><td class="num">35 %</td><td class="num">—</td></tr>
+        </tbody>
+      </table>
+      <div class="callout" style="margin-top: 12px;">
+        <b>26 % av volumet gir 35 % av inntekten.</b> IMAX-monopolet gir 65 % prispremie. Strategi: forsterk IMAX + Storo-integrasjonen.
+      </div>
+    </div>
+  </div>
+  <span class="page-num">11 / 14</span>
+</section>
+
+<!-- 11. PRISING -->
+<section>
+  <div class="subhead">Prising</div>
+  <h2>Bør vi gi 10 % rabatt på tirsdager?</h2>
+  <p class="lede">Off-peak har 4× lavere belegg enn peak. Rabatt kan fylle ledig kapasitet — men hvor mange flere gjester må vi selge til for å dekke tapt margin?</p>
+
+  <div class="grid2">
+    <div>
+      <div class="pris-grid">
+        <div class="pris-sc warn">
+          <div class="pris-sc-lbl">Uten kiosk-bidrag</div>
+          <div class="pris-sc-num">+21 %</div>
+          <div class="pris-sc-desc">Klassisk feil — ser bare på billett</div>
+        </div>
+        <div class="pris-sc good">
+          <div class="pris-sc-lbl">Med kiosk + reklame</div>
+          <div class="pris-sc-num">+12 %</div>
+          <div class="pris-sc-desc"><b>Realistisk mål</b></div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 14px;">
+        <b>Kiosk-bidraget nesten halverer break-even.</b> Rabatten er «billigere» enn den ser ut fordi hver ekstra gjest også legger igjen kiosk-kroner og reklame-eksponering.
+      </div>
+      <div class="callout callout-warn">
+        <b>Men:</b> Rabatt tiltrekker typisk rabattjegere som handler mindre i kiosken. Hvis kiosk-bidraget faller til 30 kr/gj., stiger break-even til <b>+22 %</b>.
+      </div>
+    </div>
+
+    <div>
+      <h3>Nullpunkt-formel</h3>
+      <div class="np-formel">
+        Q<sub>2</sub>/Q<sub>1</sub> =
+        <span class="frac"><span class="num">(P<sub>1</sub> − VEK) + KB<sub>1</sub></span><span class="den">(P<sub>2</sub> − VEK) + KB<sub>2</sub></span></span>
+      </div>
+
+      <ul style="font-size: 11px; color: var(--ink-2); margin-top: 8px; padding-left: 18px;">
+        <li><b>Q</b> = volum (billetter), <b>P</b> = pris</li>
+        <li><b>VEK</b> (variabel enhetskostnad) = kostnaden som utløses per solgte billett. For ODEON er dette hovedsakelig <b>filmleien</b> (42 % av billettpris) — den betales til distributøren for hver billett solgt.</li>
+        <li><b>KB</b> = kiosk-bidrag + reklame per gjest</li>
+      </ul>
+
+      <h3 style="margin-top: 12px;">Antagelser (ODEON 2025)</h3>
+      <div class="np-forut">
+        <div class="np-forut-item"><div class="np-forut-lbl">P<sub>1</sub> snittpris</div><div class="np-forut-val">156 kr</div></div>
+        <div class="np-forut-item"><div class="np-forut-lbl">P<sub>2</sub> (−10 %)</div><div class="np-forut-val">140 kr</div></div>
+        <div class="np-forut-item"><div class="np-forut-lbl">VEK (filmleie)</div><div class="np-forut-val">65,5 kr</div></div>
+        <div class="np-forut-item"><div class="np-forut-lbl">Kiosk-bidrag</div><div class="np-forut-val">41 kr</div></div>
+        <div class="np-forut-item"><div class="np-forut-lbl">Reklame</div><div class="np-forut-val">16 kr</div></div>
+      </div>
+    </div>
+  </div>
+  <span class="page-num">12 / 14</span>
+</section>
+
+<!-- 12. ETTERSPØRSEL — VÆR -->
+<section>
+  <div class="subhead">Etterspørsel & vær</div>
+  <h2>☔ Kino er en regnvær-substitutt</h2>
+
+  <div class="grid2">
+    <div>
+      <div class="chart-wrap"><canvas id="chVaer"></canvas></div>
+      <p style="font-size: 11px; color: var(--ink-3); margin-top: 6px;">Billetter/uke vs snitt-temperatur (Oslo 2025, Open-Meteo).</p>
+    </div>
+    <div>
+      <div class="vaer-hero">
+        <div class="vaer-kort">
+          <div class="vaer-kort-emoji">☔</div>
+          <div class="vaer-kort-tall">1 923</div>
+          <div class="vaer-kort-sub">bill./dag regnvær</div>
+          <div class="vaer-kort-diff pos">+28 % vs tørt</div>
+        </div>
+        <div class="vaer-kort">
+          <div class="vaer-kort-emoji">☀️</div>
+          <div class="vaer-kort-tall">1 311</div>
+          <div class="vaer-kort-sub">bill./dag &gt;20 °C</div>
+          <div class="vaer-kort-diff neg">−27 % vs kaldt</div>
+        </div>
+        <div class="vaer-kort">
+          <div class="vaer-kort-emoji">❄️</div>
+          <div class="vaer-kort-tall">1 801</div>
+          <div class="vaer-kort-sub">bill./dag frost</div>
+          <div class="vaer-kort-diff pos">Høyeste snitt</div>
+        </div>
+      </div>
+
+      <div class="korr-bar">
+        <div class="korr-item"><div class="korr-item-label">Korr. vs temp</div><div class="korr-item-val" style="color: var(--warn);">−0,14</div></div>
+        <div class="korr-item"><div class="korr-item-label">Korr. vs nedbør</div><div class="korr-item-val" style="color: var(--accent-3);">+0,17</div></div>
+        <div class="korr-item"><div class="korr-item-label">Korr. vs sol</div><div class="korr-item-val" style="color: var(--warn);">−0,21</div></div>
+      </div>
+
+      <div class="callout" style="margin-top: 12px;">
+        <b>Hypotesen bekreftes.</b> Vi anbefaler <b>reduksjon på soldager</b> (ikke pristillegg ved regn) — trekker prissensitive gjester som ellers hopper over, og de handler i kiosk når de først er inne. Reklame skalerer med publikum → dobbel gevinst.
+      </div>
+    </div>
+  </div>
+  <span class="page-num">13 / 14</span>
+</section>
+
+<!-- 13. ANBEFALINGER -->
+<section>
+  <div class="subhead">Anbefalinger</div>
+  <h2>Fire konkrete grep — fra data til handling</h2>
+
+  <div class="anbef-big-grid anbef-big-grid-4">
+    <div class="anbef-big">
+      <div class="anbef-big-hdr"><span class="anbef-big-num">1</span><div class="anbef-big-title">Optimaliser og beskytt Unge menn</div></div>
+      <div class="anbef-big-body">
+        Klar #1-målgruppe: 106 kr netto/gjest og 23 mkr bidrag. IMAX-preferanse (38 %) og høyest kiosk-spend gjør dette til strategisk kjerne.
+        <ul style="margin: 8px 0 0; padding-left: 18px; font-size: 12px;">
+          <li>IMAX-eksklusive premierer (Nolan, Villeneuve, Marvel)</li>
+          <li>Rettet markedsføring på plattformer der 30–50-åringene er</li>
+          <li>Popcorn/combo-bundling m/ opt-out-flow</li>
+          <li>LUXE date-night-pakker</li>
+        </ul>
+      </div>
+      <div class="anbef-big-tags"><span class="anbef-tag">Beskytt kjerne</span><span class="anbef-tag">IMAX</span></div>
+    </div>
+
+    <div class="anbef-big">
+      <div class="anbef-big-hdr"><span class="anbef-big-num">2</span><div class="anbef-big-title">Kiosk = viktigste EBIT-driver</div></div>
+      <div class="anbef-big-body">
+        Kiosk-bidrag på ~24 mkr er <b>nesten hele ODEONs EBIT</b> (25,7 mkr). Selv små salgsøkninger flytter bunnlinjen dramatisk.
+      </div>
+      <div class="anbef-big-chart"><canvas id="chKioskLift"></canvas></div>
+      <div class="anbef-big-body" style="margin-top: 6px;">
+        <b>Grep:</b>
+        <ul style="margin: 4px 0 0; padding-left: 18px; font-size: 12px;">
+          <li>Gjør kiosken til en <b>trakt</b> man må gjennom</li>
+          <li>Optimaliser vareutvalg og prising (høymargin først)</li>
+          <li>Forhåndsbestilling levert til setet</li>
+        </ul>
+      </div>
+      <div class="anbef-big-tags"><span class="anbef-tag">Trakt-design</span><span class="anbef-tag">Serving</span></div>
+    </div>
+
+    <div class="anbef-big">
+      <div class="anbef-big-hdr"><span class="anbef-big-num">3</span><div class="anbef-big-title">Utfordre IMAX-prisen</div></div>
+      <div class="anbef-big-body">
+        Vi er uenige i at IMAX-prisen «er der den skal være». <b>Monopolsituasjon</b> (eneste i Oslo) + <b>lite prissensitiv</b> målgruppe (Blockbuster-fans) tilsier priselastisitet mellom <b>−0,15 og −0,30</b>.
+      </div>
+      <div class="anbef-big-calc">
+        <div class="calc-row"><span>10 % prishevning</span><span><b>225 → 248 kr</b></span></div>
+        <div class="calc-row"><span>Anslått volumfall (elast. −0,20)</span><span><b>−2 %</b></span></div>
+        <div class="calc-row"><span>Ekstra netto/billett</span><span><b>+12 kr</b></span></div>
+        <div class="calc-row highlight"><span><b>Netto EBIT-effekt</b></span><span><b>+1,0–1,5 mkr</b></span></div>
+      </div>
+      <div class="anbef-big-tags"><span class="anbef-tag">Priselastisitet</span><span class="anbef-tag">Monopol</span></div>
+    </div>
+
+    <div class="anbef-big">
+      <div class="anbef-big-hdr"><span class="anbef-big-num">4</span><div class="anbef-big-title">Dynamisk prising på vær</div></div>
+      <div class="anbef-big-body">
+        Vi utfordrer standard-tenkningen: <b>hev ikke pris ved regn</b> — de kommer uansett (+28 %). <b>Reduser i stedet på soldager</b> for å hente prissensitive gjester som ellers dropper kino.
+      </div>
+      <div class="anbef-big-body" style="margin-top: 8px;">
+        <b>Logikken:</b>
+        <ul style="margin: 4px 0 0; padding-left: 18px; font-size: 12px;">
+          <li>Sommer &gt;20°C: bare 1 311 bill./dag (−27 %)</li>
+          <li>Marginale gjester på soldager legger igjen kiosk-kroner de ellers ikke ville brukt</li>
+          <li>Reklameinntekten skalerer med publikum</li>
+          <li>Rammer ikke Unge menn-segmentet (Blockbuster-fans kommer uansett)</li>
+        </ul>
+      </div>
+      <div class="anbef-big-tags"><span class="anbef-tag">Yield mgmt.</span><span class="anbef-tag">Kiosk-drift</span></div>
+    </div>
+  </div>
+  <span class="page-num">14 / 14</span>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  slideNumber: false,
+  width: 1280,
+  height: 800,
+  margin: 0.04,
+  transition: 'fade',
+});
+
+const navy = '#003366', midBlue = '#66a3ff', accent3 = '#007acc', warn = '#7a1f2e';
+
+Reveal.on('ready', renderCharts);
+Reveal.on('slidechanged', renderCharts);
+
+function renderCharts() {
+  const popEl = document.getElementById('chPopcorn');
+  if (popEl && !popEl.dataset.rendered) {
+    popEl.dataset.rendered = '1';
+    new Chart(popEl, {
+      type: 'bar',
+      data: {
+        labels: ['Unge menn', 'Barnefamilier', 'Norsk film & drama', 'Annet'],
+        datasets: [
+          { label: 'Popcorn-omsetning (mkr)', data: [3.37, 1.98, 1.67, 0.57], backgroundColor: navy + '55', borderColor: navy, borderWidth: 1.5, borderRadius: 4 },
+          { label: 'Popcorn-bidrag @ 90 % margin (mkr)', data: [3.03, 1.78, 1.50, 0.51], backgroundColor: navy, borderRadius: 4 }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { family: 'Spectral', size: 10 } } } },
+        scales: {
+          x: { beginAtZero: true, ticks: { font: { family: 'Spectral', size: 10 }, callback: v => v + ' mkr' } },
+          y: { grid: { display: false }, ticks: { font: { family: 'Spectral', size: 10 } } }
+        }
+      }
+    });
+  }
+
+  // Netto per gjest per kundegruppe
+  const nettoEl = document.getElementById('chNetto');
+  if (nettoEl && !nettoEl.dataset.rendered) {
+    nettoEl.dataset.rendered = '1';
+    new Chart(nettoEl, {
+      type: 'bar',
+      data: {
+        labels: ['Unge menn', 'Norsk film & drama', 'Barnefamilier', 'Annet'],
+        datasets: [{
+          label: 'Netto/gjest (kr)',
+          data: [106, 93, 85, 84],
+          backgroundColor: ['#003366', '#00509e', '#4a6b8a', '#8d99ae'],
+          borderRadius: 6,
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        plugins: {
+          legend: { display: false },
+          datalabels: false,
+          tooltip: { callbacks: { label: c => c.parsed.x + ' kr' } }
+        },
+        scales: {
+          x: { beginAtZero: true, max: 120, ticks: { font: { family: 'Spectral', size: 11 }, callback: v => v + ' kr' } },
+          y: { grid: { display: false }, ticks: { font: { family: 'Spectral', size: 12, weight: '600' } } }
+        }
+      }
+    });
+  }
+
+  // Kiosk-lift EBIT-effekt
+  const kioskEl = document.getElementById('chKioskLift');
+  if (kioskEl && !kioskEl.dataset.rendered) {
+    kioskEl.dataset.rendered = '1';
+    new Chart(kioskEl, {
+      type: 'bar',
+      data: {
+        labels: ['+5 %', '+10 %', '+15 %', '+20 %'],
+        datasets: [{
+          label: 'EBIT-lift (mkr)',
+          data: [1.2, 2.3, 3.5, 4.6],
+          backgroundColor: ['#4a6b8a', '#00509e', '#003366', '#001f3f'],
+          borderRadius: 4,
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => '+' + c.parsed.y + ' mkr EBIT' } } },
+        scales: {
+          x: { ticks: { font: { family: 'Spectral', size: 10 } }, grid: { display: false } },
+          y: { beginAtZero: true, ticks: { font: { family: 'Spectral', size: 9 }, callback: v => v + ' mkr' } }
+        }
+      }
+    });
+  }
+
+  const vaerEl = document.getElementById('chVaer');
+  if (vaerEl && !vaerEl.dataset.rendered) {
+    vaerEl.dataset.rendered = '1';
+    const weeks = ['U02','U06','U10','U14','U18','U22','U26','U30','U34','U38','U42','U46','U50'];
+    const bill = [12800, 12200, 11500, 9800, 9200, 8100, 8200, 9500, 10500, 12500, 14200, 15200, 15800];
+    const temp = [-8, -3, 3, 8, 13, 17, 20, 22, 19, 12, 5, 0, -4];
+
+    new Chart(vaerEl, {
+      type: 'line',
+      data: {
+        labels: weeks,
+        datasets: [
+          { label: 'Billetter/uke', data: bill, borderColor: navy, backgroundColor: navy + '22', yAxisID: 'y', borderWidth: 2.5, tension: 0.35, pointRadius: 2 },
+          { label: 'Snitt temp (°C)', data: temp, borderColor: '#e07a3b', yAxisID: 'y1', borderWidth: 2, borderDash: [4, 4], tension: 0.4, pointRadius: 1 }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { family: 'Spectral', size: 10 } } } },
+        scales: {
+          x: { ticks: { font: { family: 'Spectral', size: 10 } } },
+          y: { position: 'left', ticks: { font: { family: 'Spectral', size: 10 } } },
+          y1: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: '#e07a3b', font: { family: 'Spectral', size: 10 } } }
+        }
+      }
+    });
+  }
+}
+</script>
+</body>
+</html>
