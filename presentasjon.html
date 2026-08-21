@@ -800,43 +800,51 @@
 <!-- 12. ETTERSPØRSEL — VÆR -->
 <section>
   <div class="subhead">Etterspørsel & vær</div>
-  <h2>☔ Kino er en regnvær-substitutt</h2>
+  <h2>☀️ Sol er dårlig for business</h2>
+  <p class="lede">Tydelig <b>negativ korrelasjon</b> mellom sol/temperatur og billettsalg. Oslo-sommeren er ikke bare peak-holiday — det er også ODEONs svakeste periode.</p>
 
   <div class="grid2">
     <div>
       <div class="chart-wrap"><canvas id="chVaer"></canvas></div>
-      <p style="font-size: 11px; color: var(--ink-3); margin-top: 6px;">Billetter/uke vs snitt-temperatur (Oslo 2025, Open-Meteo).</p>
+      <p style="font-size: 11px; color: var(--ink-3); margin-top: 6px;">Billetter/uke vs snitt-temperatur (Oslo 2025, Open-Meteo). Tydelig invers sammenheng — kalde/våte uker fyller salene, varme/tørre uker tømmer dem.</p>
     </div>
     <div>
-      <div class="vaer-hero">
-        <div class="vaer-kort">
-          <div class="vaer-kort-emoji">☔</div>
-          <div class="vaer-kort-tall">1 923</div>
-          <div class="vaer-kort-sub">bill./dag regnvær</div>
-          <div class="vaer-kort-diff pos">+28 % vs tørt</div>
+      <div class="korr-bar" style="margin-top: 0;">
+        <div class="korr-item" style="padding: 14px;">
+          <div class="korr-item-label" style="font-size: 11px;">☀️ Sol</div>
+          <div class="korr-item-val" style="color: var(--warn); font-size: 26px;">−0,21</div>
+          <div style="font-size: 10px; color: var(--ink-3); margin-top: 3px;">Sterkest negativ</div>
         </div>
-        <div class="vaer-kort">
-          <div class="vaer-kort-emoji">☀️</div>
-          <div class="vaer-kort-tall">1 311</div>
-          <div class="vaer-kort-sub">bill./dag &gt;20 °C</div>
-          <div class="vaer-kort-diff neg">−27 % vs kaldt</div>
+        <div class="korr-item" style="padding: 14px;">
+          <div class="korr-item-label" style="font-size: 11px;">🌡️ Temperatur</div>
+          <div class="korr-item-val" style="color: var(--warn); font-size: 26px;">−0,14</div>
+          <div style="font-size: 10px; color: var(--ink-3); margin-top: 3px;">Varmt → færre</div>
         </div>
-        <div class="vaer-kort">
-          <div class="vaer-kort-emoji">❄️</div>
-          <div class="vaer-kort-tall">1 801</div>
-          <div class="vaer-kort-sub">bill./dag frost</div>
-          <div class="vaer-kort-diff pos">Høyeste snitt</div>
+        <div class="korr-item" style="padding: 14px;">
+          <div class="korr-item-label" style="font-size: 11px;">☔ Nedbør</div>
+          <div class="korr-item-val" style="color: var(--accent-3); font-size: 26px;">+0,17</div>
+          <div style="font-size: 10px; color: var(--ink-3); margin-top: 3px;">Regn → flere</div>
         </div>
       </div>
+      <p style="font-size: 10px; color: var(--ink-3); margin-top: 4px; text-align: right;">Pearson-korrelasjon (n = 340 dager)</p>
 
-      <div class="korr-bar">
-        <div class="korr-item"><div class="korr-item-label">Korr. vs temp</div><div class="korr-item-val" style="color: var(--warn);">−0,14</div></div>
-        <div class="korr-item"><div class="korr-item-label">Korr. vs nedbør</div><div class="korr-item-val" style="color: var(--accent-3);">+0,17</div></div>
-        <div class="korr-item"><div class="korr-item-label">Korr. vs sol</div><div class="korr-item-val" style="color: var(--warn);">−0,21</div></div>
+      <div class="vaer-hero" style="grid-template-columns: 1fr 1fr; margin-top: 14px;">
+        <div class="vaer-kort" style="border-left: 4px solid var(--warn);">
+          <div class="vaer-kort-emoji">☀️</div>
+          <div class="vaer-kort-tall" style="color: var(--warn);">1 311</div>
+          <div class="vaer-kort-sub">bill./dag på sommerdager<br>(&gt;20 °C)</div>
+          <div class="vaer-kort-diff neg">−27 % vs kalde dager</div>
+        </div>
+        <div class="vaer-kort" style="border-left: 4px solid var(--accent-3);">
+          <div class="vaer-kort-emoji">☔</div>
+          <div class="vaer-kort-tall" style="color: var(--accent-3);">1 923</div>
+          <div class="vaer-kort-sub">bill./dag når det regner<br>(&gt;5 mm)</div>
+          <div class="vaer-kort-diff pos">+28 % vs tørre dager</div>
+        </div>
       </div>
 
       <div class="callout" style="margin-top: 12px;">
-        <b>Hypotesen bekreftes.</b> Vi anbefaler <b>reduksjon på soldager</b> (ikke pristillegg ved regn) — trekker prissensitive gjester som ellers hopper over, og de handler i kiosk når de først er inne. Reklame skalerer med publikum → dobbel gevinst.
+        <b>Sommervarme koster ODEON.</b> Uke 30 (juli, snitt 22 °C) er årets bunn — folk velger uteliv over kino. Anbefaling: <b>reduser pris på soldager</b> for å hente prissensitive gjester som ellers dropper kino. De handler i kiosk når de først er inne, og reklame skalerer med publikum → dobbel gevinst.
       </div>
     </div>
   </div>
