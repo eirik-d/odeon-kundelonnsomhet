@@ -167,6 +167,18 @@
   .popcorn-stat-v { font-family: "Spectral", serif; font-size: 18px; font-weight: 700; color: var(--accent); }
   .popcorn-stat-sub { font-size: 10px; color: var(--ink-3); margin-top: 2px; }
 
+  /* Nye popcorn-kort — mer tydelige */
+  .pop-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .pop-card { padding: 20px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent-2); border-radius: 12px; box-shadow: var(--shadow); }
+  .pop-card.pop-card-top { border-left-color: var(--accent); background: linear-gradient(180deg, var(--accent-soft), var(--card)); }
+  .pop-card-name { font-family: "Spectral", serif; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; line-height: 1.2; }
+  .pop-card-val { font-family: "Spectral", serif; font-size: 40px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 10px; }
+  .pop-card-unit { font-size: 13px; color: var(--ink-3); font-weight: 400; }
+  .pop-card-bar { height: 8px; background: var(--line-soft); border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
+  .pop-card-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent-3), var(--accent)); border-radius: 4px; }
+  .pop-card-sub { font-size: 11px; color: var(--ink-2); line-height: 1.4; }
+  .pop-card-sub b { color: var(--accent); font-family: "Spectral", serif; font-size: 13px; }
+
   /* Vær */
   .vaer-hero { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
   .vaer-kort { padding: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-align: center; box-shadow: var(--shadow); }
@@ -439,17 +451,40 @@
       <div class="popcorn-hero-sub">Bidrag fra popcorn alene (90 % margin)</div>
     </div>
     <div class="popcorn-hero-desc">
-      Odeon selger popcorn for <b>7,6 mkr</b> med råvarekost på bare <b>10 %</b>. Det gir <b>6,8 mkr i bidrag</b> — mer enn <b>25 % av alt kiosk-bidrag</b>. Alle strategier for å øke popcorn-salg har enorm hebang.
+      Odeon selger popcorn for <b>7,6 mkr</b> med råvarekost på bare <b>10 %</b>. Det gir <b>6,8 mkr i bidrag</b> — mer enn <b>25 % av alt kiosk-bidrag</b>. Alle strategier for å øke popcorn-salg gir uforholdsmessig stor EBIT-effekt.
     </div>
   </div>
 
-  <div class="chart-wrap"><canvas id="chPopcorn"></canvas></div>
+  <h3 style="margin-top: 18px; margin-bottom: 10px;">Popcorn-spend per gjest — hvem drar mest?</h3>
+  <div class="pop-cards">
+    <div class="pop-card pop-card-top">
+      <div class="pop-card-name">🎬 Unge menn</div>
+      <div class="pop-card-val">15,5 <span class="pop-card-unit">kr/gjest</span></div>
+      <div class="pop-card-bar"><div class="pop-card-bar-fill" style="width: 100%"></div></div>
+      <div class="pop-card-sub">Popcorn-bidrag: <b>3,0 mkr</b> · 14,0 kr/gjest</div>
+    </div>
+    <div class="pop-card">
+      <div class="pop-card-name">👨‍👩‍👧 Barnefamilier</div>
+      <div class="pop-card-val">13,3 <span class="pop-card-unit">kr/gjest</span></div>
+      <div class="pop-card-bar"><div class="pop-card-bar-fill" style="width: 86%"></div></div>
+      <div class="pop-card-sub">Popcorn-bidrag: <b>1,8 mkr</b> · 12,0 kr/gjest</div>
+    </div>
+    <div class="pop-card">
+      <div class="pop-card-name">🇳🇴 Norsk film & drama</div>
+      <div class="pop-card-val">12,5 <span class="pop-card-unit">kr/gjest</span></div>
+      <div class="pop-card-bar"><div class="pop-card-bar-fill" style="width: 81%"></div></div>
+      <div class="pop-card-sub">Popcorn-bidrag: <b>1,5 mkr</b> · 11,3 kr/gjest</div>
+    </div>
+    <div class="pop-card">
+      <div class="pop-card-name">🎭 Annet</div>
+      <div class="pop-card-val">12,0 <span class="pop-card-unit">kr/gjest</span></div>
+      <div class="pop-card-bar"><div class="pop-card-bar-fill" style="width: 77%"></div></div>
+      <div class="pop-card-sub">Popcorn-bidrag: <b>0,5 mkr</b> · 10,8 kr/gjest</div>
+    </div>
+  </div>
 
-  <div class="popcorn-stats">
-    <div class="popcorn-stat"><div class="popcorn-stat-kg">Unge menn</div><div class="popcorn-stat-v">15,5 kr</div><div class="popcorn-stat-sub">popcorn/gjest · 14,0 kr bidrag</div></div>
-    <div class="popcorn-stat"><div class="popcorn-stat-kg">Barnefamilier</div><div class="popcorn-stat-v">13,3 kr</div><div class="popcorn-stat-sub">popcorn/gjest · 12,0 kr bidrag</div></div>
-    <div class="popcorn-stat"><div class="popcorn-stat-kg">Norsk film & drama</div><div class="popcorn-stat-v">12,5 kr</div><div class="popcorn-stat-sub">popcorn/gjest · 11,3 kr bidrag</div></div>
-    <div class="popcorn-stat"><div class="popcorn-stat-kg">Annet</div><div class="popcorn-stat-v">12,0 kr</div><div class="popcorn-stat-sub">popcorn/gjest · 10,8 kr bidrag</div></div>
+  <div class="callout">
+    <b>Unge menn drar mest per gjest (15,5 kr) og totalt (3,0 mkr).</b> Barnefamilier har god adferd per gjest, men mindre totalvolum. Interessant: forskjellen mellom gruppene er kun 3,5 kr/gjest — popcorn-adferd er relativt jevn. <b>Prioriter Unge menn</b> siden absoluttbeløpet er størst.
   </div>
   <span class="page-num">6 / 14</span>
 </section>
