@@ -254,6 +254,43 @@
   .st-stat .l { display: block; font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
   .st-stat .v { font-weight: 700; color: var(--ink); font-size: 14px; font-family: "Spectral", serif; }
 
+
+  /* SVIMA-analyse */
+  .svima-legend { display: flex; gap: 20px; flex-wrap: wrap; margin: 8px 0 20px; font-size: 12px; color: var(--ink-3); }
+  .svima-legend .kbd { display: inline-flex; align-items: center; gap: 6px; }
+  .svima-legend .icn { width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; font-size: 12px; }
+  .svima-legend .icn.yes { background: var(--accent-soft); color: var(--accent); }
+  .svima-legend .icn.partial { background: #fef3c7; color: #78350f; }
+  .svima-legend .icn.no { background: #f0dade; color: #7a1f2e; }
+
+  .svima-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+  .svima-table th { padding: 12px 10px; background: var(--accent-soft); color: var(--accent); font-weight: 700; text-align: center; border-bottom: 2px solid var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .svima-table th.res-col { text-align: left; padding-left: 16px; }
+  .svima-table th.conc-col { background: #cce0ff; }
+  .svima-table td { padding: 14px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .svima-table tr:last-child td { border-bottom: none; }
+  .svima-table td.svima-cell { text-align: center; width: 90px; }
+  .svima-icon { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .svima-icon.yes { background: var(--accent-soft); color: var(--accent); }
+  .svima-icon.partial { background: #fef3c7; color: #78350f; }
+  .svima-icon.no { background: #f0dade; color: #7a1f2e; }
+  .svima-note { font-size: 11px; color: var(--ink-3); line-height: 1.3; }
+  .svima-res-name { font-family: "Spectral", serif; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+  .svima-res-desc { font-size: 11px; color: var(--ink-3); line-height: 1.35; }
+  .svima-conc { text-align: center; font-weight: 700; padding: 6px 10px; border-radius: 6px; font-size: 12px; display: inline-block; }
+  .svima-conc.varig { background: var(--accent); color: white; }
+  .svima-conc.midlert { background: #fef3c7; color: #78350f; }
+  .svima-conc.paritet { background: var(--grey-soft); color: var(--ink-2); }
+
+  @media (max-width: 900px) {
+    .svima-table { font-size: 12px; }
+    .svima-table td.svima-cell { width: 60px; padding: 8px 4px; }
+    .svima-table th { padding: 8px 4px; font-size: 10px; }
+    .svima-icon { width: 22px; height: 22px; font-size: 12px; }
+    .svima-note { display: none; }
+    .svima-res-desc { display: none; }
+  }
+
   /* Anbefaling-cards */
   .anbef-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .anbef { padding: 16px 18px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
@@ -599,6 +636,90 @@
   <p class="subhead">De to premium-formatene (IMAX, LUXE) står for 26 % av billettene men henter 32 % av billettinntekten. Odeon tjener overproporsjonalt på det de er alene om.</p>
 
   <div class="saltype-grid" id="saltypeGrid"></div>
+
+
+  <h2>SVIMA-analyse av fortrinnene</h2>
+  <p class="subhead">Vi vurderer hvert fortrinn etter fem kriterier (Jakobsen &amp; Lien 2001). Kun ressurser som scorer på alle fem gir <b>varige</b> konkurransefortrinn. Beveg musepekeren over cellene for detaljer.</p>
+
+  <div class="card">
+    <div class="svima-legend">
+      <span class="kbd"><span class="icn yes">✓</span> Ja</span>
+      <span class="kbd"><span class="icn partial">△</span> Delvis</span>
+      <span class="kbd"><span class="icn no">✗</span> Nei</span>
+      <span style="color: var(--ink-3);">·</span>
+      <span><b>S</b>jelden · <b>V</b>erdifull · <b>I</b>kke-imiterbar · <b>M</b>obilisert · <b>A</b>pproprierbar</span>
+    </div>
+
+    <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+    <table class="svima-table">
+      <thead>
+        <tr>
+          <th class="res-col">Ressurs / fortrinn</th>
+          <th title="Sjelden">S</th>
+          <th title="Verdifull">V</th>
+          <th title="Ikke-imiterbar">I</th>
+          <th title="Mobilisert">M</th>
+          <th title="Approprierbar">A</th>
+          <th class="conc-col">Konklusjon</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="svima-res-name">Norges eneste IMAX</div>
+            <div class="svima-res-desc">Lisensiert helhet — lerret, laser, lyd, sal-geometri</div>
+          </td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Unik i Norge</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Prispremie 65 %, 41 % Blockbuster-andel</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">IMAX Corp-lisens + CAPEX-krav</div></td>
+          <td class="svima-cell"><div class="svima-icon partial">△</div><div class="svima-note">Kan utnyttes bedre i marketing</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Odeon høster direkte (etter 11 % IMAX-revshare)</div></td>
+          <td><span class="svima-conc varig">Varig fortrinn</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="svima-res-name">Storo-lokasjonen</div>
+            <div class="svima-res-desc">Norges største kjøpesenter i omsetning, T-bane/trikk ved inngang</div>
+          </td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Ingen kan gjenskape akkurat denne lokasjonen</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Stort nedslagsfelt, høy trafikk</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Fysisk umulig å kopiere</div></td>
+          <td class="svima-cell"><div class="svima-icon partial">△</div><div class="svima-note">Storo-partnerskap underutnyttet</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Odeon betaler leie, høster billett- og kioskinntekt</div></td>
+          <td><span class="svima-conc varig">Varig fortrinn</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="svima-res-name">Samlet premium-portefølje</div>
+            <div class="svima-res-desc">IMAX + LUXE + iSense + ScreenX under samme tak</div>
+          </td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Ingen norsk kino har alle fire</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Dekker flere premium-behov</div></td>
+          <td class="svima-cell"><div class="svima-icon no">✗</div><div class="svima-note">NF kan bygge LUXE/ScreenX-tilsvarende (unntatt IMAX)</div></td>
+          <td class="svima-cell"><div class="svima-icon partial">△</div><div class="svima-note">Utnyttes noe, kan bygges tydeligere</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Odeon fanger merinntekten</div></td>
+          <td><span class="svima-conc midlert">Midlertidig fortrinn</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="svima-res-name">Skala og programfleksibilitet</div>
+            <div class="svima-res-desc">14 saler, 1 747 seter — «alltid noe som går»</div>
+          </td>
+          <td class="svima-cell"><div class="svima-icon partial">△</div><div class="svima-note">NF Colosseum + Ringen har flere saler samlet i Oslo</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Programbredde reduserer beslutningsfriksjon</div></td>
+          <td class="svima-cell"><div class="svima-icon partial">△</div><div class="svima-note">Krever CAPEX + fysisk plass — vanskelig, ikke umulig</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Brukes aktivt til bredt tilbud</div></td>
+          <td class="svima-cell"><div class="svima-icon yes">✓</div><div class="svima-note">Direkte inntekt</div></td>
+          <td><span class="svima-conc midlert">Midlertidig fortrinn</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout" style="margin-top: 20px;">
+      <b>Hovedbudskap:</b> Kun to av fire fortrinn er varige — <b>IMAX-monopolet</b> og <b>Storo-lokasjonen</b>. Premium-porteføljen kan konkurrenten (Nordisk Film) bygge over tid, unntatt selve IMAX. Skala-fortrinnet er heller ikke unikt i Oslo (Colosseum + Ringen har til sammen 10 saler). <b>Strategien bør derfor forsterke IMAX og Storo-integrasjonen</b> — det er der Odeon har varige, forsvarbare posisjoner.
+    </div>
+  </div>
 
   <h2>IMAX-avhengighet per film-kategori</h2>
   <p class="subhead">IMAX-monopolet slår tydeligst inn på Blockbuster og Event. Norsk film går praktisk talt aldri på IMAX (0,5 %).</p>
