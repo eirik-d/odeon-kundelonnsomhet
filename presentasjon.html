@@ -28,9 +28,9 @@
   .reveal {
     font-family: "Spectral", Georgia, "Times New Roman", serif;
     font-size: 20px; line-height: 1.55; color: var(--ink);
-    background: var(--bg); -webkit-font-smoothing: antialiased;
+    background: transparent; -webkit-font-smoothing: antialiased;
   }
-  .reveal .slides { background: var(--bg); }
+  .reveal .slides { background: transparent; }
   .reveal h1 { font-family: "Spectral", serif; font-size: 44px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; color: var(--ink); text-transform: none; margin: 0 0 8px; }
   .reveal h2 { font-family: "Spectral", serif; font-size: 30px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; color: var(--ink); text-transform: none; margin: 0 0 12px; text-align: left; }
   .reveal h3 { font-family: "Spectral", serif; font-size: 18px; font-weight: 600; letter-spacing: -0.005em; color: var(--ink); text-transform: none; margin: 0 0 8px; text-align: left; }
@@ -284,20 +284,22 @@
   /* Sidenumre */
   .page-num { position: absolute; bottom: 14px; left: 44px; font-size: 11px; color: var(--ink-3); }
 
-  /* Chapter divider slides */
-  .reveal .slides section.chapter-slide {
+  /* Chapter divider slides + Title slide (navy versions) */
+  .reveal .slides section.chapter-slide,
+  .reveal .slides section.title-slide {
     background: var(--accent) !important;
     text-align: center !important;
     padding: 60px !important;
     display: flex !important;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   .chapter-slide h1 { color: #fff !important; font-family: "Spectral", serif; font-size: 72px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.1; margin: 0; text-transform: none; }
 
   /* Title slide */
-  .title-slide h1 { font-size: 56px; margin-bottom: 12px; }
-  .title-authors { font-family: "Spectral", serif; font-style: italic; font-size: 20px; color: var(--ink-2); margin-top: 24px; }
+  .title-slide h1 { font-size: 72px; color: #fff !important; margin: 0 0 20px; }
+  .title-authors { font-family: "Spectral", serif; font-style: italic; font-size: 22px; color: rgba(255,255,255,0.85); margin-top: 12px; }
   .title-slide .subtitle { font-family: "Spectral", serif; font-style: italic; font-size: 20px; color: var(--ink-2); font-weight: 400; }
   .title-slide .meta { margin-top: 50px; font-size: 13px; color: var(--ink-3); line-height: 1.6; }
 
@@ -310,7 +312,7 @@
 <div class="slides">
 
 <!-- 1. TITTEL -->
-<section class="title-slide">
+<section class="title-slide" data-background="#003366">
   <h1>ODEON Oslo</h1>
   <div class="title-authors">Karoline Møgster · Arnauld Dupluis · Bjørn Saltvik · Stian Haugland · Eirik Dysthe</div>
 </section>
@@ -344,7 +346,7 @@
 
 
 <!-- DIVIDER: Metode -->
-<section class="chapter-slide" data-background-color="#003366">
+<section class="chapter-slide" data-background="#003366">
   <h1>Metode</h1>
 </section>
 <!-- 3. METODE: DATA OG MAPPING -->
@@ -533,7 +535,7 @@
 
 
 <!-- DIVIDER: Kostnadsallokering -->
-<section class="chapter-slide" data-background-color="#003366">
+<section class="chapter-slide" data-background="#003366">
   <h1>Kostnadsallokering</h1>
 </section>
 <!-- 7. KOSTNADSALLOKERING -->
@@ -626,7 +628,7 @@
 
 
 <!-- DIVIDER: Kundelønnsomhet -->
-<section class="chapter-slide" data-background-color="#003366">
+<section class="chapter-slide" data-background="#003366">
   <h1>Kundelønnsomhet</h1>
 </section>
 <!-- 9. KUNDELØNNSOMHET -->
@@ -710,7 +712,7 @@
 
 
 <!-- DIVIDER: Konkurransefortrinn -->
-<section class="chapter-slide" data-background-color="#003366">
+<section class="chapter-slide" data-background="#003366">
   <h1>Konkurransefortrinn</h1>
 </section>
 <!-- 9. KONKURRANSEFORTRINN — 4 FORTRINN -->
@@ -887,7 +889,7 @@
 
 
 <!-- DIVIDER: Prising -->
-<section class="chapter-slide" data-background-color="#003366">
+<section class="chapter-slide" data-background="#003366">
   <h1>Prising</h1>
 </section>
 <!-- 12. PRISING -->
@@ -947,7 +949,7 @@
 
 
 <!-- DIVIDER: Anbefalinger -->
-<section class="chapter-slide" data-background-color="#003366">
+<section class="chapter-slide" data-background="#003366">
   <h1>Anbefalinger</h1>
 </section>
 <!-- 13. ANBEFALINGER -->
