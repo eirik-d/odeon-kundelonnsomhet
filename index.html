@@ -102,6 +102,49 @@
   /* Praktisk kap-boks */
   .prakt-info { display: inline-block; background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 12px; color: var(--accent); font-weight: 600; margin-left: 8px; }
 
+
+  /* Demografi-boks for Storo */
+  .demo-card { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent-3); border-radius: 12px; padding: 24px 26px; margin: 16px 0; box-shadow: var(--shadow); }
+  .demo-title { font-family: "Spectral", serif; font-size: 20px; font-weight: 600; margin: 0 0 4px; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+  .demo-title .badge-src { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
+  .demo-sub { font-size: 13px; color: var(--ink-3); margin: 0 0 20px; }
+
+  .demo-grid { display: grid; grid-template-columns: 200px 1fr 200px; gap: 24px; align-items: start; }
+
+  .demo-metric { text-align: center; padding: 20px; background: var(--accent-soft); border-radius: 10px; }
+  .demo-metric-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); font-weight: 700; margin-bottom: 8px; }
+  .demo-metric-value { font-family: "Spectral", serif; font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .demo-metric-note { font-size: 12px; color: var(--ink-2); margin-top: 6px; }
+  .demo-metric-sub { font-size: 11px; color: var(--ink-3); margin-top: 3px; }
+
+  .demo-section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); font-weight: 700; margin: 0 0 12px; }
+  .demo-bar-row { display: grid; grid-template-columns: 130px 1fr 50px; gap: 10px; align-items: center; margin: 8px 0; font-size: 12px; }
+  .demo-bar-label { color: var(--ink-2); font-weight: 500; }
+  .demo-bars { display: flex; flex-direction: column; gap: 3px; }
+  .demo-bar-line { height: 8px; background: var(--line-soft); border-radius: 2px; position: relative; overflow: hidden; }
+  .demo-bar-fill { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+  .demo-bar-fill.storo { background: var(--accent-3); }
+  .demo-bar-fill.oslo { background: var(--slate); }
+  .demo-bar-legend { display: flex; gap: 14px; font-size: 11px; margin-top: 10px; color: var(--ink-3); }
+  .demo-bar-legend .lb { display: inline-flex; align-items: center; gap: 5px; }
+  .demo-bar-legend .lb::before { content: ""; width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .demo-bar-legend .lb.storo::before { background: var(--accent-3); }
+  .demo-bar-legend .lb.oslo::before { background: var(--slate); }
+  .demo-bar-val { font-size: 11px; color: var(--ink-3); text-align: right; font-variant-numeric: tabular-nums; }
+
+  .demo-civil { padding-top: 16px; }
+  .demo-civil-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 12px; border-bottom: 1px solid var(--line-soft); }
+  .demo-civil-row:last-child { border-bottom: none; }
+  .demo-civil-label { color: var(--ink-2); }
+  .demo-civil-value { font-weight: 700; color: var(--ink); }
+
+  .demo-implikasjon { margin-top: 20px; padding: 16px 20px; background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 8px; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
+  .demo-implikasjon b { color: var(--accent); }
+
+  @media (max-width: 900px) {
+    .demo-grid { grid-template-columns: 1fr; }
+  }
+
   /* Kostnads-allokerings-oversikt */
   .alloc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .alloc-col { padding: 20px; border-radius: 10px; border: 1px solid; }
@@ -637,6 +680,101 @@
 
   <div class="saltype-grid" id="saltypeGrid"></div>
 
+
+
+  <div class="demo-card">
+    <div class="demo-title">
+      Demografi bekrefter Storo-fortrinnet
+      <span class="badge-src">FINN.no</span>
+    </div>
+    <p class="demo-sub">Data om Søndre Grefsen (Storos nedslagsfelt) sammenlignet med Oslo og omegn.</p>
+
+    <div class="demo-grid">
+      <div class="demo-metric">
+        <div class="demo-metric-label">Kollektivtilbud</div>
+        <div class="demo-metric-value">95<span style="font-size: 20px; color: var(--ink-3);">/100</span></div>
+        <div class="demo-metric-note">Veldig bra</div>
+        <div class="demo-metric-sub">Oslo og omegn: 88/100</div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Aldersfordeling</div>
+        <div class="demo-bars">
+          <div class="demo-bar-row">
+            <div class="demo-bar-label">Barn (0–12 år)</div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 33%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 30%"></div></div>
+            </div>
+            <div class="demo-bar-val">15 % / 14 %</div>
+          </div>
+          <div class="demo-bar-row">
+            <div class="demo-bar-label">Ungdom (13–18)</div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 22%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 15%"></div></div>
+            </div>
+            <div class="demo-bar-val">10 % / 7 %</div>
+          </div>
+          <div class="demo-bar-row">
+            <div class="demo-bar-label">Unge voksne (19–34)</div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 54%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 76%"></div></div>
+            </div>
+            <div class="demo-bar-val">25 % / 35 %</div>
+          </div>
+          <div class="demo-bar-row">
+            <div class="demo-bar-label"><b>Voksne (35–64)</b></div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 100%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 76%"></div></div>
+            </div>
+            <div class="demo-bar-val"><b>46 % / 35 %</b></div>
+          </div>
+          <div class="demo-bar-row">
+            <div class="demo-bar-label">Godt voksne (65+)</div>
+            <div>
+              <div class="demo-bar-line"><div class="demo-bar-fill storo" style="width: 22%"></div></div>
+              <div class="demo-bar-line"><div class="demo-bar-fill oslo" style="width: 30%"></div></div>
+            </div>
+            <div class="demo-bar-val">10 % / 14 %</div>
+          </div>
+        </div>
+        <div class="demo-bar-legend">
+          <span class="lb storo">Søndre Grefsen</span>
+          <span class="lb oslo">Oslo og omegn</span>
+        </div>
+      </div>
+
+      <div class="demo-civil">
+        <div class="demo-section-title">Sivil status</div>
+        <div class="demo-civil-row">
+          <span class="demo-civil-label">Ikke gift</span>
+          <span class="demo-civil-value">58 %</span>
+        </div>
+        <div class="demo-civil-row">
+          <span class="demo-civil-label"><b>Gift / partnerskap</b></span>
+          <span class="demo-civil-value" style="color: var(--accent)"><b>34 %</b></span>
+        </div>
+        <div class="demo-civil-row">
+          <span class="demo-civil-label">Separert</span>
+          <span class="demo-civil-value">7 %</span>
+        </div>
+        <div class="demo-civil-row">
+          <span class="demo-civil-label">Enke/enkemann</span>
+          <span class="demo-civil-value">2 %</span>
+        </div>
+        <div style="margin-top: 10px; font-size: 11px; color: var(--ink-3); line-height: 1.4;">
+          Storo har <b style="color: var(--accent)">4 pp høyere</b> andel gifte enn Oslo (30 %) — bekrefter etablert voksen-demografi
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-implikasjon">
+      <b>Implikasjon for Odeon:</b> Søndre Grefsen har <b>46 % voksne (35–64 år)</b> — 11 prosentpoeng høyere enn Oslo-snittet. Dette er akkurat kjernedemografien til <b>Unge menn 30–50</b>-segmentet vårt (Blockbuster + Horror + IMAX). Kombinert med 95/100 på kollektivtilbud og høyere andel gifte (etablerte par), betyr det at Storos nedslagsfelt <b>strukturelt favoriserer Odeons mest lønnsomme kundegruppe</b>. Fortrinnet er ikke bare lokasjons-basert — det er også <em>demografisk</em>.
+    </div>
+  </div>
 
   <h2>SVIMA-analyse av fortrinnene</h2>
   <p class="subhead">Vi vurderer hvert fortrinn etter fem kriterier (Jakobsen &amp; Lien 2001). Kun ressurser som scorer på alle fem gir <b>varige</b> konkurransefortrinn. Beveg musepekeren over cellene for detaljer.</p>
